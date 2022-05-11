@@ -466,8 +466,9 @@ li a:hover {
 }
 
 .videoDiv img {
-    width: 300px;
+    width: 275px;
     height: auto;
+    border-radius: 13px;
 }
 
 table {
@@ -582,7 +583,7 @@ footer {
 }
 
 #button-addon2 {
-    background-color: #fe0000;
+    background-color: #eb6383;
     border: none;
 }
 
