@@ -215,7 +215,7 @@
                             class="fa-brands fa-youtube fa-lg" onclick="youtube($('#quick-search').val())"></i></button>
                 </div>
                 <div class="footer-about">
-                    <a href="#">Home</a>
+                    <a href="main.html">Home</a>
                     <a href="#">About</a>
                     <a href="https://www.notion.so/2-3be792a4fe0c40388a1474532f4c5328" target="_blank">Team Notion</a>
                     <a href="#"></a>
@@ -247,6 +247,10 @@
 
     //footer
     function youtube(value) {
+        if(!value) {
+            window.open("https://www.youtube.com");
+            return;
+        }
         window.open("https://www.youtube.com/results?search_query=" + value);
         searchinput.value = "";
     }

@@ -30,7 +30,7 @@
     <div id="toggle"></div>
     <div id="sidebar">
         <ul>
-            <li><a href="#">Home</a></li>
+            <li><a href="main.html">Home</a></li>
             <li><a href="#">About</a></li>
             <li><a href="#">Contact</a></li>
         </ul>
@@ -295,7 +295,7 @@
                             class="fa-brands fa-youtube fa-lg"></i></button>
                 </div>
                 <div class="footer-about">
-                    <a onClick="window.location.reload()">Home</a>
+                    <a href="main.html">Home</a>
                     <a href="#">About</a>
                     <a href="https://www.notion.so/2-3be792a4fe0c40388a1474532f4c5328" target="_blank">Team Notion</a>
                     <a href="#"></a>
@@ -328,6 +328,10 @@
 
     //footer
     function youtube(value) {
+        if(!value) {
+            window.open("https://www.youtube.com");
+            return;
+        }
         window.open("https://www.youtube.com/results?search_query=" + value);
         searchinput.value = "";
     }
