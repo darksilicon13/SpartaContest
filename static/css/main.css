@@ -1,12 +1,21 @@
-html,body {
+html, body {
     margin: 0;
     padding: 0;
-    width:100%;
+    width: 100%;
     height: 100%;
 }
 
-
 /* login, register */
+.carousel-inner {
+    background-position: center;
+    background-size: cover;
+    height: 50px;
+}
+
+.title {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
 .center {
     position: absolute;
     top: 30%;
@@ -116,7 +125,10 @@ input[type="submit"]:hover {
     color: #adadad;
     text-decoration: none;
     font-family: 'Josefin Sans', sans-serif;
+}
 
+.signup_link input {
+    font-family: 'Josefin Sans', sans-serif;
 }
 
 .signup_link a:hover {
@@ -139,10 +151,11 @@ input[type="submit"]:hover {
 
 /* Search Bar*/
 .subTitle {
-    margin: 80px 540px;
+    width: 308px;
+    margin: 80px auto;
     color: #eb6383;
     font-size: 50px;
-    font-family: 'Lora', serif;
+    font-family: 'Merriweather', serif;
 }
 
 #whatru {
@@ -164,6 +177,8 @@ input[type="submit"]:hover {
 #genre {
     width: 420px;
     margin: 0 auto 40px;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 15px;
 }
 
 #genre .genreEa {
@@ -182,6 +197,8 @@ input[type="submit"]:hover {
     color: #adadad;
     transition: .5s;
     text-decoration: none;
+    text-underline: none;
+
 }
 
 #genre .genreEa a:hover {
@@ -198,13 +215,12 @@ input[type="submit"]:hover {
     margin: 30px auto;
 }
 
-.genreBtn{
-    padding:10px 30px 10px 30px;
-    border:1px solid #eb6383;
-    border-radius:15px;
-    background-color:transparent;
-  }
-
+.genreBtn {
+    padding: 10px 30px 10px 30px;
+    border: 1px solid #eb6383;
+    border-radius: 15px;
+    background-color: transparent;
+}
 
 form .searchBar {
     position: relative;
@@ -214,9 +230,10 @@ form .searchBar {
 
 .searchBar input {
     width: 100%;
-    padding: 0px 39px;
+    padding: 0 43px;
     height: 60px;
     font-size: 30px;
+    font-family: 'Nanum Gothic', sans-serif;
     border: none;
     background: none;
     outline: none;
@@ -244,6 +261,7 @@ form .searchBar {
 #slide {
     width: 185px;
     margin: 30px auto;
+    font-size: 14px;
     font-family: 'Josefin Sans', sans-serif;
 }
 
@@ -306,7 +324,7 @@ form .searchBar {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 2;
+    z-index: 1;
 }
 
 #toggle::before {
@@ -344,14 +362,12 @@ form .searchBar {
     right: -300px;
     width: 300px;
     height: 100vh;
-    background-color: white;
+    background: white;
     transition: 0.4s;
-    z-index: 1;
 }
 
 #sidebar.active {
     transform: translateX(-300px);
-
 }
 
 #sidebar ul {
@@ -384,21 +400,18 @@ form .searchBar {
 
 .dropdown button:hover {
     background: linear-gradient(205deg, rgba(255, 255, 255, 1) 0%, rgba(213, 213, 213, 1) 66%);
-    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .dropdown-content a:hover {
     background: linear-gradient(205deg, rgba(255, 255, 255, 1) 0%, rgba(213, 213, 213, 1) 66%);
-    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 li a:hover {
     background: linear-gradient(205deg, rgba(255, 255, 255, 1) 0%, rgba(213, 213, 213, 1) 66%);
-    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -436,7 +449,6 @@ li a:hover {
 
 .table a:hover {
     background: linear-gradient(205deg, rgba(255, 255, 255, 1) 0%, rgba(213, 213, 213, 1) 66%);
-    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -454,8 +466,9 @@ li a:hover {
 }
 
 .videoDiv img {
-    width: 300px;
+    width: 275px;
     height: auto;
+    border-radius: 13px;
 }
 
 table {
@@ -494,21 +507,22 @@ td, th {
     height: auto;
     min-height: 100%;
     padding-bottom: 300px;
+    margin-bottom: 100px;
 }
 
 footer {
     position: relative;
     transform: translateY(-100%);
-    font-family: "Nanum Gothic", sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     color: #eb6383;
     width: 100%;
     height: 300px;
-    box-shadow: -1px -2px 2px 2px rgb(169, 169, 169) inset, 3px 2px 3px 3px rgb(155, 155, 155);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+    border-top: 1px solid #eb6383;
 }
 
 .footer-title {
@@ -516,6 +530,7 @@ footer {
     padding: 20px;
     width: 400px;
     justify-content: space-evenly;
+    margin-top:50px;
 }
 
 .footer-title-fst {
@@ -547,7 +562,6 @@ footer {
 .fa-github,
 .footer-about a {
     color: #eb6383;
-    text-decoration: none;
 }
 
 .fa-github:hover {
@@ -569,7 +583,7 @@ footer {
 }
 
 #button-addon2 {
-    background-color: #fe0000;
+    background-color: #eb6383;
     border: none;
 }
 
@@ -595,11 +609,9 @@ footer {
 
 /*/Footer*/
 
-
-
 /* videolist.html */
-.videolist-keyword{
-    display:flex;
-    justify-content:center;
+.videolist-keyword {
+    display: flex;
+    justify-content: center;
     color: #eb6383;
-  }
+}
