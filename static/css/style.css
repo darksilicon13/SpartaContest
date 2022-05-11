@@ -1,7 +1,10 @@
-body {
+html,body {
     margin: 0;
-
+    padding: 0;
+    width:100%;
+    height: 100%;
 }
+
 
 /* login, register */
 .center {
@@ -179,8 +182,6 @@ input[type="submit"]:hover {
     color: #adadad;
     transition: .5s;
     text-decoration: none;
-    text-underline: none;
-
 }
 
 #genre .genreEa a:hover {
@@ -197,6 +198,13 @@ input[type="submit"]:hover {
     margin: 30px auto;
 }
 
+.genreBtn{
+    padding:10px 30px 10px 30px;
+    border:1px solid #eb6383;
+    border-radius:15px;
+    background-color:transparent;
+  }
+
 
 form .searchBar {
     position: relative;
@@ -206,7 +214,7 @@ form .searchBar {
 
 .searchBar input {
     width: 100%;
-    padding: 0 43px;
+    padding: 0px 39px;
     height: 60px;
     font-size: 30px;
     border: none;
@@ -298,7 +306,7 @@ form .searchBar {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1;
+    z-index: 2;
 }
 
 #toggle::before {
@@ -336,8 +344,9 @@ form .searchBar {
     right: -300px;
     width: 300px;
     height: 100vh;
-    background: white;
+    background-color: white;
     transition: 0.4s;
+    z-index: 1;
 }
 
 #sidebar.active {
@@ -375,18 +384,21 @@ form .searchBar {
 
 .dropdown button:hover {
     background: linear-gradient(205deg, rgba(255, 255, 255, 1) 0%, rgba(213, 213, 213, 1) 66%);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .dropdown-content a:hover {
     background: linear-gradient(205deg, rgba(255, 255, 255, 1) 0%, rgba(213, 213, 213, 1) 66%);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 li a:hover {
     background: linear-gradient(205deg, rgba(255, 255, 255, 1) 0%, rgba(213, 213, 213, 1) 66%);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -424,6 +436,7 @@ li a:hover {
 
 .table a:hover {
     background: linear-gradient(205deg, rgba(255, 255, 255, 1) 0%, rgba(213, 213, 213, 1) 66%);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -534,6 +547,7 @@ footer {
 .fa-github,
 .footer-about a {
     color: #eb6383;
+    text-decoration: none;
 }
 
 .fa-github:hover {
@@ -580,3 +594,12 @@ footer {
 }
 
 /*/Footer*/
+
+
+
+/* videolist.html */
+.videolist-keyword{
+    display:flex;
+    justify-content:center;
+    color: #eb6383;
+  }

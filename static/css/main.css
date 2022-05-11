@@ -326,7 +326,7 @@ form .searchBar {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1;
+    z-index: 2;
 }
 
 #toggle::before {
@@ -366,6 +366,7 @@ form .searchBar {
     height: 100vh;
     background: white;
     transition: 0.4s;
+    z-index: 1;
 }
 
 #sidebar.active {
@@ -468,8 +469,9 @@ li a:hover {
 }
 
 .videoDiv img {
-    width: 300px;
+    width: 275px;
     height: auto;
+    border-radius: 13px;
 }
 
 table {
@@ -584,7 +586,7 @@ footer {
 }
 
 #button-addon2 {
-    background-color: #fe0000;
+    background-color: #eb6383;
     border: none;
 }
 

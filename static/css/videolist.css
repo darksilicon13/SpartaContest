@@ -1,0 +1,20 @@
+.videoList {
+  width: 100%;
+  height:auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.youtuber_box{
+  margin:15px;
+  
+}
+
+.youtuber_img{
+  width:200px;
+  height:200px;
+  border:none;
+  border-radius:40px;
+}
