@@ -96,22 +96,24 @@ form .txt_field {
     text-decoration: underline;
 }
 
-input[type="submit"] {
-    width: 100%;
+button[type="submit"] {
+    width: 100px;
     height: 50px;
     border: 3px solid white;
-    background: white;
-    color: #eb6383;
+    background: #eb6383;
+    color: white;
     border-radius: 10px;
     font-weight: 700;
     cursor: pointer;
     outline: none;
+    font-family: 'Josefin Sans', sans-serif;
+    transition: .7s;
+    margin: auto;
 }
 
-input[type="submit"]:hover {
-    border-color: white;
-    transition: .3s;
-    color: #2d2d2d;
+button[type="submit"]:hover {
+    color: #eb6383;
+    background: white;
 }
 
 .signup_link {
@@ -529,7 +531,7 @@ footer {
     padding: 20px;
     width: 400px;
     justify-content: space-evenly;
-    margin-top:50px;
+    margin-top: 50px;
 }
 
 .footer-title-fst {
