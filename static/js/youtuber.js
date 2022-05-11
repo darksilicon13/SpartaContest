@@ -1,9 +1,11 @@
 // 페이지 로드 시 메인페이지에서 넣었던 로컬스토리지 search 키워드 가져와서 타이틀에 innerHTML 
-const APIKey = "AIzaSyAtomZUsi95t4r5idc9RBkJZjIjKJdi8U0";
+const APIKey = "AIzaSyBBdv-GASLz2o5tf10FBwoNQIP1oqtwVSI";
 const keyword = document.getElementById("videolist-keyword");
 const temp_keyword = localStorage.getItem("search")
-const inssaName = ["숏박스","너덜트","우왁굳의 게임방송","침착맨"];
-
+const inssaName = ["숏박스","너덜트","우왁굳의 게임방송","침착맨", "이십세들" ];
+const catName = ["크림히어로즈", "수리노을", "밀키복이탄이", "크집사", "haha ha", "검은고양이 다홍", "김메주와 고양이들", ];
+const comuteName = ["슈카월드","비진튜브","스브스뉴스","잇섭","가전주부", "라이너의 컬쳐쇼크", "지무비" ];
+const coderName = ["노마드 코더", "드림코딩", "조코딩", "데브리"];
 
 function changeKeyword(){
   keyword.innerHTML = "# " + temp_keyword;
@@ -11,10 +13,20 @@ function changeKeyword(){
   if (temp_keyword === "인싸")
     {console.log("시작")
     bringData(inssaName, APIKey)}
+  else if (temp_keyword === "고양이"){
+    bringData(catName, APIKey)
+  }
+  else if (temp_keyword === "코딩"){
+    bringData(coderName, APIKey)
+  }
+  else if (temp_keyword === "출퇴근"){
+    bringData(comuteName, APIKey)
+  }
   else console.log("실패")
 }
 
 function bringData(name, APIKey){
+  const check = localStorage.getItem("channelName"+name.length-1)
   for(let i=0 ; i < name.length;i++){
   $.ajax({
     type: "GET",
@@ -27,7 +39,6 @@ function bringData(name, APIKey){
       maxResults: 1,
     },
     success: function (response) {
-      console.log("in")
         let channelId = response.items[0].snippet.channelId;
         let channelName = response.items[0].snippet.channelTitle;
         let  channelThum = response.items[0].snippet.thumbnails.medium.url;
@@ -36,8 +47,10 @@ function bringData(name, APIKey){
         localStorage.setItem("channelThum"+i,channelThum );
     },
   });
-}  renderYoutuberDiv(name);
-
+}
+setTimeout(function() {
+  renderYoutuberDiv(name);
+}, 2000);
 }
 
 function renderYoutuberDiv(name){
