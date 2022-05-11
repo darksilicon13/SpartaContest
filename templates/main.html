@@ -4,15 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+
     <title>sparta</title>
 </head>
 <body>
     <form action="/user/register" method="POST">
         <input type="text-area" name="username" placeholder="user name">
-        <input type="text-area" name="email" placeholder="user email">
+        <input type="text-area" name="email" placeholder="user email" id="email">
         <input type="text-area" name="password" placeholder="password">
         <input type="text-area" name="confirmPassword" placeholder="Check password">
         <button type="submit">regist</button>
     </form>
+    <script>
+        const email = document.querySelector('#email')
+        email.onblur = ()=>{
+            $.ajax({
+                type: "GET",
+                url: "/user/find",
+                data: {"email": email.value},
+                success: function (response) {
+                    alert(response.result)
+                }
+            })
+        }
+    </script>
 </body>
 </html>
