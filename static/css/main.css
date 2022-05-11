@@ -199,7 +199,6 @@ button[type="submit"]:hover {
     color: #adadad;
     transition: .5s;
     text-decoration: none;
-    text-underline: none;
 
 }
 
