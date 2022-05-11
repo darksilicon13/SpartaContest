@@ -376,18 +376,21 @@ form .searchBar {
 
 .dropdown button:hover {
     background: linear-gradient(205deg, rgba(255, 255, 255, 1) 0%, rgba(213, 213, 213, 1) 66%);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .dropdown-content a:hover {
     background: linear-gradient(205deg, rgba(255, 255, 255, 1) 0%, rgba(213, 213, 213, 1) 66%);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 li a:hover {
     background: linear-gradient(205deg, rgba(255, 255, 255, 1) 0%, rgba(213, 213, 213, 1) 66%);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -425,6 +428,7 @@ li a:hover {
 
 .table a:hover {
     background: linear-gradient(205deg, rgba(255, 255, 255, 1) 0%, rgba(213, 213, 213, 1) 66%);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
