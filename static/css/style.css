@@ -198,15 +198,13 @@ input[type="submit"]:hover {
     margin: 30px auto;
 }
 
-<<<<<<< HEAD
-=======
 .genreBtn{
     padding:10px 30px 10px 30px;
     border:1px solid #eb6383;
     border-radius:15px;
     background-color:transparent;
   }
->>>>>>> origin/front
+
 
 form .searchBar {
     position: relative;
