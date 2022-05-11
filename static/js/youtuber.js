@@ -1,5 +1,5 @@
 // 페이지 로드 시 메인페이지에서 넣었던 로컬스토리지 search 키워드 가져와서 타이틀에 innerHTML 
-const APIKey = "AIzaSyBBdv-GASLz2o5tf10FBwoNQIP1oqtwVSI";
+const APIKey = "AIzaSyCJph6wqQnrIg0fYYO8VaT50zKREzQZyC4";
 const keyword = document.getElementById("videolist-keyword");
 const temp_keyword = localStorage.getItem("search")
 const inssaName = ["숏박스","너덜트","우왁굳의 게임방송","침착맨", "이십세들" ];
