@@ -190,13 +190,13 @@
             </div>
             <div class="footer-searchbar">
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Quick-Search" aria-label="Recipient's username"
-                           aria-describedby="button-addon2" onKeyUp="if(window.event.keyCode==13){youtube(this.value)}">
+                    <input id="quick-search" type="text" class="form-control" placeholder="Quick-Search" aria-label="Recipient's username"
+                           aria-describedby="button-addon2" onkeyup="if(window.event.keyCode==13){youtube(this.value)}">
                     <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i
                             class="fa-brands fa-youtube"></i></button>
                 </div>
                 <div class="footer-about">
-                    <a onClick="window.location.reload()">Home</a>
+                    <a href="main.html">Home</a>
                     <a href="#">About</a>
                     <a href="https://www.notion.so/2-3be792a4fe0c40388a1474532f4c5328" target="_blank">Team Notion</a>
                     <a href="#"></a>
