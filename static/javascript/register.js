@@ -1,3 +1,4 @@
+//https://roytuts.com/jquery-ajax-based-registration-system-using-python-flask-mysql/
 $(document).ready(function () {
     $('#registerSubmit').on('click', function (e) {
         e.preventDefault();
