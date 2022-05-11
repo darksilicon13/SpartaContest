@@ -200,7 +200,7 @@ a {
 /* Comment section */
 
 
-.form-group {
+/* .form-group {
     margin: 20px;
     color:black;
 }
@@ -227,7 +227,7 @@ th {
     display: block;
     margin-left: auto;
     margin-right: 0;
-}
+} */
 /* Comment section */
 
 
@@ -285,6 +285,7 @@ footer {
 .fa-github,
 .footer-about a {
     color: #eb6383;
+    text-decoration: none;
 }
 
 .fa-github:hover {
@@ -292,11 +293,10 @@ footer {
 }
 
 .footer-copy {
-    position: relative;
     font-size: 12px;
     margin-right: 20px;
-    margin-left: auto;
-    bottom: 10px;
+    position: absolute;
+    bottom: 0;
     right: 0;
 }
 

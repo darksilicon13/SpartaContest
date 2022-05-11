@@ -29,20 +29,20 @@
 
 
         // Bring comments from DB
-        function showComments() {
-            $('#comment-box').empty()
+        // function showComments() {
+        //     $('#comment-box').empty()
 
-            let commentCount = Math.random() * 20;
+        //     let commentCount = Math.random() * 20;
 
-            let temp_html = `<tr>
-                    <td>False Id</td>
-                    <td>False Comment</td>
-                </tr>`
-            for (let i = 0; i < commentCount; i++) {
-                $('#comment-box').append(temp_html)
-            }
+        //     let temp_html = `<tr>
+        //             <td>False Id</td>
+        //             <td>False Comment</td>
+        //         </tr>`
+        //     for (let i = 0; i < commentCount; i++) {
+        //         $('#comment-box').append(temp_html)
+        //     }
 
-        }
+        // }
 
         // Bring video information from API
         function showSlides() {
@@ -122,32 +122,17 @@
         </div>
 
         <!-- Comment Posting Section -->
-        <form>
+        <!-- <form>
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Comment</label>
-                <textarea onfocus="showPostBtn" id="comment-textarea" class="form-control"
+                <textarea id="comment-textarea" class="form-control"
                     id="exampleFormControlTextarea1" rows="1"></textarea>
                 <button id="post-button" class="btn btn-primary mt-1" type="submit">post</button>
             </div>
-        </form>
+        </form> -->
 
         <!-- Comments Sections -->
-        <div class="comments">
-            <table>
-                <thead>
-                    <!-- <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Comment</th>
-                    </tr> -->
-                </thead>
-                <tbody id="comment-box">
-                    <tr>
-                        <td colspan="1">Sir Cat</td>
-                        <td colspan="5">Well that's cute</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        
     </div>
 
     <footer class="footer">
