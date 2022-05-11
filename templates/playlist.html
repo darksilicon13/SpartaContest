@@ -72,135 +72,131 @@
 </head>
 
 <body>
-    <div id="slide"><a id="logo" href="main.html">
-            <div id="Two">2</div>
-            <div id="S">S</div>
-            <div id="lide">l i d e</div>
-        </a></div>
-    <div id="toggle"></div>
-    <div id="sidebar">
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </div>
-    <div id="main">
-        <!-- Carousel that contains frames -->
-        <div id="carouselExampleControls" class="carousel slide" data-bs-interval="false">
-            <div class="carousel-inner">
-                <div class="carousel-item">
-                    <iframe src="https://www.youtube.com/embed/SLDIsFjq7LM" title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
-                </div>
-                <div class="carousel-item active">
-                    <iframe src="https://www.youtube.com/embed/p8GK7HhmohE" title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
-                </div>
-                <div class="carousel-item">
-                    <iframe src="https://www.youtube.com/embed/uYgowuaIwGU" title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
-                </div>
-            </div>
-            <button id="prev-button" class="carousel-control-prev" type="button"
-                data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button id="next-button" class="carousel-control-next" type="button"
-                data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+    <div class="wrapper">
+        <div id="slide"><a id="logo" href="main.html">
+                <div id="Two">2</div>
+                <div id="S">S</div>
+                <div id="lide">l i d e</div>
+            </a></div>
+        <div id="toggle"></div>
+        <div id="sidebar">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
         </div>
-        <div class="youtuber">
-            <a href="#"><img id="author"
-                    src="https://images.pexels.com/photos/127028/pexels-photo-127028.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">CatTube</a>
-        </div>
-
-        <!-- Comment Posting Section -->
-        <!-- <form>
-            <div class="form-group">
-                <label for="exampleFormControlTextarea1">Comment</label>
-                <textarea id="comment-textarea" class="form-control"
-                    id="exampleFormControlTextarea1" rows="1"></textarea>
-                <button id="post-button" class="btn btn-primary mt-1" type="submit">post</button>
+        <div id="main">
+            <!-- Carousel that contains frames -->
+            <div id="carouselExampleControls" class="carousel slide" data-bs-interval="false">
+                <div class="carousel-inner">
+                    <div class="carousel-item">
+                        <iframe src="https://www.youtube.com/embed/SLDIsFjq7LM" title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                    <div class="carousel-item active">
+                        <iframe src="https://www.youtube.com/embed/p8GK7HhmohE" title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                    <div class="carousel-item">
+                        <iframe src="https://www.youtube.com/embed/uYgowuaIwGU" title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                </div>
+                <button id="prev-button" class="carousel-control-prev" type="button"
+                    data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button id="next-button" class="carousel-control-next" type="button"
+                    data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
-        </form> -->
-
-        <!-- Comments Sections -->
-        
+            <div class="youtuber">
+                <a href="#"><img id="author"
+                        src="https://images.pexels.com/photos/127028/pexels-photo-127028.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">CatTube</a>
+            </div>
+    
+            <!-- Comment Posting Section -->
+            <!-- <form>
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Comment</label>
+                    <textarea id="comment-textarea" class="form-control"
+                        id="exampleFormControlTextarea1" rows="1"></textarea>
+                    <button id="post-button" class="btn btn-primary mt-1" type="submit">post</button>
+                </div>
+            </form> -->
+    
+            <!-- Comments Sections -->
+            
+        </div>
     </div>
 
     <footer class="footer">
         <div class="footer-title">
             <div class="footer-title-fst">
-                <h1>S<bold style="color:rgba(176, 176, 176, 0.657)">2</bold>Slide Team</h1><span>with</span>
+                <h1 id="2slideteam">2Slide Team</h1><span>with</span>
             </div>
-            <div><img class="footer-img" src="https://spartacodingclub.kr/v5/icons/logo_v2.svg" /></div>
+            <div><img class="footer-img" src="https://spartacodingclub.kr/v5/icons/logo_v2.svg"/></div>
         </div>
         <div class="footer-contents">
             <div class="footer-fe-box">
-                <h4>&lt; 프론트엔드 &gt;</h4>
+                <h4>< 프론트엔드 ></h4>
                 <div class="footer-name">
                     <ul>최준묵</ul>
-                    <a href="https://github.com/dan-studio" target="_blank"><i
-                            class="fa-brands fa-github fa-lg"></i></a>
+                    <a href="https://github.com/dan-studio" target="_blank"><i class="fa-brands fa-github fa-lg"></i></a>
                 </div>
                 <div class="footer-name">
                     <ul>노지애</ul>
-                    <div><a href="https://github.com/jiaero" target="_blank"><i
-                                class="fa-brands fa-github fa-lg"></i></a>
+                    <div><a href="https://github.com/jiaero" target="_blank"><i class="fa-brands fa-github fa-lg"></i></a>
                     </div>
                 </div>
                 <div class="footer-name">
                     <ul>이현규</ul>
                     <icon><a href="https://github.com/darksilicon13" target="_blank"><i
-                                class="fa-brands fa-github fa-lg"></i></a>
+                            class="fa-brands fa-github fa-lg"></i></a>
                     </icon>
                 </div>
                 <div class="footer-name">
                     <ul>이정민</ul>
-                    <icon><a href="https://github.com/froggy1014" target="_blank"><i
-                                class="fa-brands fa-github fa-lg"></i></a>
+                    <icon><a href="https://github.com/froggy1014" target="_blank"><i class="fa-brands fa-github fa-lg"></i></a>
                     </icon>
                 </div>
             </div>
             <div class="footer-be-box">
-                <h4>&lt; 백엔드 &gt;</h4>
+                <h4>< 백엔드 ></h4>
                 <div class="footer-name">
                     <ul>전가영</ul>
-                    <icon><a href="https://github.com/dsyhwk1016" target="_blank"><i
-                                class="fa-brands fa-github fa-lg"></i></a>
+                    <icon><a href="https://github.com/dsyhwk1016" target="_blank"><i class="fa-brands fa-github fa-lg"></i></a>
                     </icon>
                 </div>
                 <div class="footer-name">
                     <ul>송기찬</ul>
-                    <icon><a href="https://github.com/gichan-song" target="_blank"><i
-                                class="fa-brands fa-github fa-lg"></i></a>
+                    <icon><a href="https://github.com/gichan-song" target="_blank"><i class="fa-brands fa-github fa-lg"></i></a>
                     </icon>
                 </div>
-                <h4>&lt; 튜터 &gt;</h4>
+                <h4>< 튜터 ></h4>
                 <div class="footer-name">
                     <ul>최영서</ul>
                     <icon><a href="https://github.com/tomatophobia" target="_blank"><i
-                                class="fa-brands fa-github fa-lg"></i></a>
+                            class="fa-brands fa-github fa-lg"></i></a>
                     </icon>
                 </div>
             </div>
             <div class="footer-searchbar">
                 <div class="input-group mb-3">
-                    <input id="quick-search" type="text" class="form-control" placeholder="Quick-Search" aria-label="Recipient's username"
-                        aria-describedby="button-addon2" onkeyup="if(window.event.keyCode==13){youtube(this.value)}">
-
+                    <input type="text" class="form-control" placeholder="Quick-Search" aria-label="Recipient's username"
+                           aria-describedby="button-addon2" onKeyUp="if(window.event.keyCode==13){youtube(this.value)}">
                     <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i
-                            class="fa-brands fa-youtube fa-lg" onclick="youtube($('#quick-search').val())"></i></button>
+                            class="fa-brands fa-youtube"></i></button>
                 </div>
                 <div class="footer-about">
-                    <a href="main.html">Home</a>
+                    <a onClick="window.location.reload()">Home</a>
                     <a href="#">About</a>
                     <a href="https://www.notion.so/2-3be792a4fe0c40388a1474532f4c5328" target="_blank">Team Notion</a>
                     <a href="#"></a>
@@ -208,9 +204,7 @@
                 </div>
             </div>
         </div>
-        <div class="footer-copy">
-            <p>Copyright © 2022 S2Slide Team. All rights reserved.</p>
-        </div>
+        <div class="footer-copy"><p>Copyright © 2022 S2Slide Team. All rights reserved.</p></div>
     </footer>
 </body>
 <script>
