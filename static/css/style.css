@@ -535,6 +535,7 @@ footer {
 .fa-github,
 .footer-about a {
     color: #eb6383;
+    text-decoration: none;
 }
 
 .fa-github:hover {
