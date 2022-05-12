@@ -23,50 +23,6 @@
     <!-- External CSS -->
     <link type="text/css" rel="stylesheet" href="../static/css/playlist.css">
 
-    <script type="text/javascript">
-
-        $(document).ready(function () {
-            showComments();
-            $('#post-button').hide()
-        });
-
-
-        // Bring comments from DB
-        // function showComments() {
-        //     $('#comment-box').empty()
-
-        //     let commentCount = Math.random() * 20;
-
-        //     let temp_html = `<tr>
-        //             <td>False Id</td>
-        //             <td>False Comment</td>
-        //         </tr>`
-        //     for (let i = 0; i < commentCount; i++) {
-        //         $('#comment-box').append(temp_html)
-        //     }
-
-        // }
-
-        // Bring video information from API
-        function showSlides() {
-            $.ajax({
-                type: 'GET',
-                url: '/playlist',
-                data: {},
-                success: function (response) {
-                    let videoLink
-                    let imageLink
-                    let alt
-                    let temp_html = `<div class="carousel-item active">
-                    <a href="${videoLink}" target="_blank"><img src="${imageLink}" class="d-block w-100"
-                            alt="${alt}"></a>
-                </div>`
-                }
-            })
-        }
-
-    </script>
-
     <title>Document</title>
 </head>
 
@@ -88,25 +44,8 @@
         <div id="main">
             <!-- Carousel that contains frames -->
             <div id="carouselExampleControls" class="carousel slide" data-bs-interval="false">
-                <div class="carousel-inner">
-                    <div class="carousel-item">
-                        <iframe src="https://www.youtube.com/embed/SLDIsFjq7LM" title="YouTube video player"
-                            frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                    </div>
-                    <div class="carousel-item active">
-                        <iframe src="https://www.youtube.com/embed/p8GK7HhmohE" title="YouTube video player"
-                            frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                    </div>
-                    <div class="carousel-item">
-                        <iframe src="https://www.youtube.com/embed/uYgowuaIwGU" title="YouTube video player"
-                            frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                    </div>
+                <div class="carousel-inner" id="carousel-inner">
+                   
                 </div>
                 <button id="prev-button" class="carousel-control-prev" type="button"
                     data-bs-target="#carouselExampleControls" data-bs-slide="prev">
@@ -121,7 +60,7 @@
             </div>
             <div class="youtuber">
                 <a href="#"><img id="author"
-                        src="https://images.pexels.com/photos/127028/pexels-photo-127028.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">CatTube</a>
+                        src="https://images.pexels.com/photos/127028/pexels-photo-127028.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"><span id="authorName">CatTube</span></a>
             </div>
 
             <!-- Comment Posting Section -->
@@ -216,10 +155,54 @@
         </div>
     </footer>
 </body>
-<script>
-    // main.html로 왔을때 다시 로컬스토리지 클리어
-    window.onload = window.localStorage.setItem("search", "");
+<script type="text/javascript">
 
+    // $(document).ready(function () {
+    //     // showComments();
+    //     $('#post-button').hide()
+    // });
+
+
+    // Bring comments from DB
+    // function showComments() {
+    //     $('#comment-box').empty()
+
+    //     let commentCount = Math.random() * 20;
+
+    //     let temp_html = `<tr>
+    //             <td>False Id</td>
+    //             <td>False Comment</td>
+    //         </tr>`
+    //     for (let i = 0; i < commentCount; i++) {
+    //         $('#comment-box').append(temp_html)
+    //     }
+
+    // }
+
+    // Bring video information from API
+    // function showSlides() {
+    //     $.ajax({
+    //         type: 'GET',
+    //         url: '/playlist',
+    //         data: {},
+    //         success: function (response) {
+    //             let videoLink
+    //             let imageLink
+    //             let alt
+    //             let temp_html = `<div class="carousel-item active">
+    //             <a href="${videoLink}" target="_blank"><img src="${imageLink}" class="d-block w-100"
+    //                     alt="${alt}"></a>
+    //         </div>`
+    //         }
+    //     })
+    // }
+
+    // function showPostBtn() {
+    //     $('post-button').show()
+    // }
+
+</script>
+<script>
     toggle.onclick = function () {
         toggle.classList.toggle('active');
         sidebar.classList.toggle('active');
@@ -230,10 +213,18 @@
             sidebar.classList.remove('active')
         }
     }
+
+
+    //footer
+
     const searchbtn = document.getElementById("button-addon2");
     const searchinput = document.querySelector(".form-control");
 
-    //footer
+    searchbtn.addEventListener('click', ()=>
+    {
+        youtube(searchinput.value);
+    })
+
     function youtube(value) {
         if (!value) {
             window.open("https://www.youtube.com");
@@ -243,10 +234,12 @@
         searchinput.value = "";
     }
 
+
     searchbtn.addEventListener("click", () => {
         const value = searchinput.value;
         youtube(value);
     });
 </script>
 
+<script src="../static/javascript/youtuber.js"></script>
 </html>

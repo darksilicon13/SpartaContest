@@ -160,7 +160,7 @@ button[type="submit"]:hover {
     font-family: 'Merriweather', serif;
 }
 
-#whatru {
+#whatrud {
     transition: .8s;
 }
 
@@ -168,7 +168,7 @@ button[type="submit"]:hover {
     transition: .8s;
 }
 
-.subTitle:hover #whatru {
+.subTitle:hover #whatrud {
     transform: translateX(-60%);
 }
 
@@ -469,7 +469,7 @@ li a:hover {
 
 .videoDiv img {
     width: 275px;
-    height: auto;
+    height: 185Px;
     border-radius: 13px;
 }
 
