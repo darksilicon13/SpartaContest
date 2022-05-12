@@ -157,7 +157,7 @@ iframe {
     height: 315px;
 }
 
-a {
+.youtuber a {
     text-decoration: none;
     color:black;
 }
