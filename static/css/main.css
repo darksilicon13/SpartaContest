@@ -199,7 +199,6 @@ button[type="submit"]:hover {
     color: #adadad;
     transition: .5s;
     text-decoration: none;
-    text-underline: none;
 
 }
 
@@ -326,7 +325,7 @@ form .searchBar {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1;
+    z-index: 2;
 }
 
 #toggle::before {
@@ -366,6 +365,7 @@ form .searchBar {
     height: 100vh;
     background: white;
     transition: 0.4s;
+    z-index: 1;
 }
 
 #sidebar.active {
