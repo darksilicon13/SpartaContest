@@ -23,7 +23,6 @@ function bringData(name,series){
         maxResults: 1,
       },
       success: function (response) {
-        console.log("Bringdata")
         const listid = response.items[0].id.playlistId;
         bringVideoId(listid)
       },
@@ -44,7 +43,7 @@ function bringData(name,series){
         key: APIKey,
         type: "playlist",
         playlistId: listid,
-        maxResults: 20,
+        maxResults: 16,
       },
       success: function (response) {
         console.log("Render videos")
