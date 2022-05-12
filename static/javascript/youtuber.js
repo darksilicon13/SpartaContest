@@ -1,4 +1,4 @@
-const APIKey = "AIzaSyAkYtNEpnMc8IBk_w3uRsjxWrJpee3e8h4";  //API 키인데, 타임아웃시 데이터베이스에서 하나씩 가져왔으면 함. 
+const APIKey = "AIzaSyBNNojaJ-hyukKmlBl2MGPLQMethTkO2uo";  //API 키인데, 타임아웃시 데이터베이스에서 하나씩 가져왔으면 함. 
 
 
 
@@ -23,6 +23,7 @@ function bringData(name,series){
         maxResults: 1,
       },
       success: function (response) {
+        console.log("Bringdata")
         const listid = response.items[0].id.playlistId;
         bringVideoId(listid)
       },
@@ -46,6 +47,7 @@ function bringData(name,series){
         maxResults: 20,
       },
       success: function (response) {
+        console.log("Render videos")
         const carousel = document.getElementById("carousel-inner")
         let temp_html = ``;
         var data = response;
