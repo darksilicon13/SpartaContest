@@ -663,3 +663,26 @@ footer {
     color: #2d2d2d;
 }
 
+
+
+
+
+/* Video Featuring  */
+
+
+tr{
+    width:100%;
+    height:auto;
+    display:flex;
+    flex-wrap: wrap;
+}
+
+
+.videoBox{
+    display:none;
+}
+
+.show{
+    display:block;
+}
+
