@@ -78,7 +78,7 @@ for key in keyword:
     # 영상 제목에 해당하는 태그'들' 모두 가져오기
     title_all = soup.find_all("div", attrs={"class": "ChannelListCardBig_title__1c0m6"})
     thumbnail = soup.find_all("img", attrs={"class": "ChannelListCardBig_videoClipImg__2x2XH",'alt':'img'})
-    # youtubericon=soup.find_all('img',attrs={'class':'ChannelListCardSmall_thumbnailsImg__2mQXY'})
+    youtubericon=soup.find_all('img',attrs={'class':'ChannelListCardSmall_thumbnailsImg__2mQXY'})
     # channel=soup.select("a",attrs={'class':'ChannelListCardBig_linkImg__1VnmG'})
     # for j in channel:
     #     if('youtube' in j['href']):
@@ -86,35 +86,35 @@ for key in keyword:
     list_all_row = []  # 전체 내용을 넣을 리스트
     # 리스트에 추가<img class="" src="https://yt3.ggpht.com/AVvSUTGMUTesviGa0cMbvGkmROd3XCTyR7iobZ5icit4pAUz8ePmaQdh4chhTz_2AomGjiJu5A=s800-c-k-c0x00ffffff-no-rj" alt="흔한남매">
     for title in title_all:
-        for i in thumbnail:
-            # for s in youtubericon:
+        for i in youtubericon:
+            for s in thumbnail:
                 list_row = []  # for문 안에서 가져와지는 내용을 넣을 리스트
                 list_row.append(key)
                 list_row.append(title.get_text())  # 영상 제목
+                list_row.append(s['src'])
                 list_row.append(i['src'])
-                # list_row.append(s['src'])
                 list_all_row.append(list_row)  # 영상 순서, 제목, 링크 list_all_row에 넣기
 
 
 
 
     # CSV파일 만들기
-    dataframe = pd.DataFrame(list_all_row,columns=['키워드','채널명','썸네일'])  # 데이터 프레임으로 변환
+    dataframe = pd.DataFrame(list_all_row,columns=['키워드','채널명','썸네일','유튜버아이콘'])  # 데이터 프레임으로 변환
     # date_today = datetime.now().strftime("%Y%m%d")  # 오늘 날짜 구하기. 파일 제목 설정을 위함
-    # dataframe.to_csv(f"{date_today}PlayList.csv", header=["채널명", "썸네일" ], encoding="utf-8-sig")  # csv 파일로 저장
+    # dataframe.to_csv(f"{date_today}PlayList.csv", encoding="utf-8-sig")  # csv 파일로 저장
     # 웹브라우저 종료
     browser.quit()
     # df=pd.read_csv('20220513PlayList.csv')#오늘 날짜 넣기
     df1=dataframe['채널명'].unique()
-    # df2=dataframe['유튜버이미지'].unique()
     dataframe.drop_duplicates(subset='썸네일',inplace=True)
     dataframe['채널명']=df1
-    # dataframe['유튜버이미지']=df2
-    for a in range(0,len(dataframe['채널명'])):
+    # for i in youtubericon:
+    #     dataframe['유튜버이미지'][i.index()]=i['src']
+    for i in range(0,len(dataframe['채널명'])):
         doc={
-            '키워드':dataframe['키워드'][a],
-            '채널명':dataframe['채널명'][a],
-            '썸네일':dataframe['썸네일'][a],
-            # '유튜버이미지':dataframe['유튜버이미지'][a]
+            '키워드':dataframe['키워드'][i],
+            '채널명':dataframe['채널명'][i],
+            '썸네일':dataframe['썸네일'][i],
+            '유튜버아이콘':dataframe['유튜버아이콘'][i]
         }
         db.link.insert_one(doc)
