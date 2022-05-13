@@ -46,7 +46,7 @@
             <!-- Carousel that contains frames -->
             <div id="carouselExampleControls" class="carousel slide" data-bs-interval="false">
                 <div class="carousel-inner" id="carousel-inner">
-
+                   
                 </div>
                 <button id="prev-button" class="carousel-control-prev" type="button"
                     data-bs-target="#carouselExampleControls" data-bs-slide="prev">
@@ -61,43 +61,21 @@
             </div>
             <div class="youtuber">
                 <a href="#"><img id="author"
-                        src="https://images.pexels.com/photos/127028/pexels-photo-127028.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"><span
-                        id="authorName">CatTube</span></a>
+                        src="https://images.pexels.com/photos/127028/pexels-photo-127028.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"><span id="authorName">CatTube</span></a>
             </div>
 
             <!-- Comment Posting Section -->
-            <form>
+            <!-- <form>
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">Comment</label>
-                    <textarea id="comment-textarea" class="form-control" id="exampleFormControlTextarea1"
-                        rows="1"></textarea>
+                    <textarea id="comment-textarea" class="form-control"
+                        id="exampleFormControlTextarea1" rows="1"></textarea>
                     <button id="post-button" class="btn btn-primary mt-1" type="submit">post</button>
                 </div>
-            </form>
+            </form> -->
 
             <!-- Comments Sections -->
-            <table id="comment-section" class="table table-borderless table-striped">
-                <thead>
-                    <tr>
-                        <th class="col-md-2">Commentor</th>
-                        <th class="col-md-8">Comment</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="col-md-2">Mark</td>
-                        <td class="col-md-8">@mdo</td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-2">Jacob</td>
-                        <td class="col-md-8">@fat</td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-2">Larry the Bird</td>
-                        <td class="col-md-8">@twitter</td>
-                    </tr>
-                </tbody>
-            </table>
+
         </div>
     </div>
 
@@ -243,7 +221,8 @@
     const searchbtn = document.getElementById("button-addon2");
     const searchinput = document.querySelector(".form-control");
 
-    searchbtn.addEventListener('click', () => {
+    searchbtn.addEventListener('click', ()=>
+    {
         youtube(searchinput.value);
     })
 
@@ -264,5 +243,4 @@
 </script>
 
 <script src="../static/javascript/youtuber.js"></script>
-
 </html>

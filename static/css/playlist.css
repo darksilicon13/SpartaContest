@@ -6,7 +6,7 @@ html, body {
 }
 
 #main {
-    width: 800px;
+    width: 560px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 50px;
@@ -147,15 +147,14 @@ html, body {
 
 /* Carousel */
 #carouselExampleControls {
-    width: 800px;
-    height: 500px;
+    width: 560px;
+    height: 315px;
     margin: 50px auto 10px auto;
-    /* background-color: #eb6383; */
 }
 
 iframe {
-    width: 800px;
-    height: 500px;
+    width: 560px;
+    height: 315px;
 }
 
 .youtuber a {
@@ -164,8 +163,8 @@ iframe {
 }
 
 .carousel-inner {
-    width: 800px;
-    height: 500px;
+    width: 100%;
+    height: 100%;
     border-radius: 10px;
 }
 
@@ -180,7 +179,7 @@ iframe {
 }
 /* Carousel */
 
-/* Youtuber Link/ Thumbnail */
+
 .channelImg {
     margin: 20px;
     border-radius: 50%;
@@ -201,7 +200,7 @@ iframe {
 /* Comment section */
 
 
-.form-group {
+/* .form-group {
     margin: 20px;
     color:black;
 }
@@ -215,17 +214,20 @@ iframe {
 
 table {
     width: 100%;
-    margin-bottom: 20px;
+    margin: auto;
     border-collapse: collapse;
-
 }
 
+td,
+th {
+    border: none;
+}
 
 #post-button {
     display: block;
     margin-left: auto;
     margin-right: 0;
-}
+} */
 /* Comment section */
 
 
