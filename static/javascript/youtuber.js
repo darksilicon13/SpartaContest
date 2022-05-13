@@ -1,4 +1,4 @@
-const APIKey = "AIzaSyBNNojaJ-hyukKmlBl2MGPLQMethTkO2uo";  //API 키인데, 타임아웃시 데이터베이스에서 하나씩 가져왔으면 함. 
+const APIKey = "AIzaSyCss8X8G9gN4Q9AO9NNhc9xZ-78TzjXq5U";  //API 키인데, 타임아웃시 데이터베이스에서 하나씩 가져왔으면 함. 
 
 
 
@@ -23,7 +23,6 @@ function bringData(name,series){
         maxResults: 1,
       },
       success: function (response) {
-        console.log("Bringdata")
         const listid = response.items[0].id.playlistId;
         bringVideoId(listid)
       },
@@ -44,7 +43,7 @@ function bringData(name,series){
         key: APIKey,
         type: "playlist",
         playlistId: listid,
-        maxResults: 20,
+        maxResults: 16,
       },
       success: function (response) {
         console.log("Render videos")

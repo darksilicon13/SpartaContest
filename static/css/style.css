@@ -218,9 +218,19 @@ button[type="submit"]:hover {
 
 .genreBtn {
     padding: 10px 30px 10px 30px;
-    border: 1px solid #eb6383;
+    border: none;
     border-radius: 15px;
-    background-color: transparent;
+    background: #eb6383;
+    color: white;
+    font-size: 16px;
+    font-family: 'Josefin Sans', sans-serif;
+    transition: .7s;
+
+}
+.genreBtn:hover {
+    background: white;
+    color: #eb6383;
+
 }
 
 form .searchBar {
@@ -640,7 +650,7 @@ footer {
     transition: .7s;
 }
 
-.help {
+.mypost h3 {
     font-size: 32px;
     margin: auto;
     margin-bottom: 55px;
@@ -661,5 +671,28 @@ footer {
 
 .youtuberLink {
     color: #2d2d2d;
+}
+
+
+
+
+
+/* Video Featuring  */
+
+
+tr{
+    width:100%;
+    height:auto;
+    display:flex;
+    flex-wrap: wrap;
+}
+
+
+.videoBox{
+    display:none;
+}
+
+.show{
+    display:block;
 }
 
