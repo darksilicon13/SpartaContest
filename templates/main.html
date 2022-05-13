@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Bootstrap CSS-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600&display=swap" rel="stylesheet">
@@ -20,12 +20,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <!-- jQuery    -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- External CSS -->
-    <link type="text/css" rel="stylesheet" href="../static/css/main.css">
+    <link type="text/css" rel="stylesheet" href="../static/css/style.css">
     <title>2Slide Main</title>
 
     <script>
-        
+
     </script>
 </head>
 <body>
@@ -38,9 +40,10 @@
     <div id="toggle"></div>
     <div id="sidebar">
         <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="main.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="request.html">Request</a></li>
+            <li><a href="contact.html">Contact</a></li>
         </ul>
     </div>
     <!--슬라이드(보류중)-->
@@ -55,17 +58,17 @@
         <div id="search">
             <form class="searchForm">
                 <div class="searchBar">
-                    <input type="text" required placeholder="어떤 장르를 찾으세요?">
+                    <input id="genreInput" type="text" placeholder="어떤 장르를 찾으세요?">
                     <span></span>
                     <label>#</label>
                 </div>
             </form>
         </div>
         <div id="genre">
-            <button onclick="filterObjects('all')" class="genreBtn">showAll</button>
-            <button onclick="filterObjects('cat')" class="genreBtn">cat</button>
-            <button onclick="filterObjects('dog')" class="genreBtn">dog</button>
-            <button onclick="filterObjects('series')" class="genreBtn">series</button>
+            <button onclick="filterObjects('all'); genreAppend()" class="genreBtn" value="Show All">showAll</button>
+            <button onclick="filterObjects('cat'); genreAppend()" class="genreBtn" value="Cat">cat</button>
+            <button onclick="filterObjects('dog'); genreAppend()" class="genreBtn" value="Dog">dog</button>
+            <button onclick="filterObjects('series'); genreAppend()" class="genreBtn" value="Series">series</button>
         </div>
     </div>
     <div class="videoList">
@@ -276,7 +279,7 @@
         localStorage.setItem("icon",icon.src);
          window.location.href = "./playlist.html";
     }
-    
+
 filterObjects("all");
 
 
@@ -313,6 +316,14 @@ function removeClass(element, name){
         }
     }
     element.className = arr1.join(" ");
+}
+
+//버튼 클릭시 입력창에 해당 값 넣기
+function genreAppend(){
+    const btnVal = $('.genreBtn').val();
+    $('#genreInput').val(btnVal)
+
+
 }
 </script>
 
