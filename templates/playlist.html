@@ -29,6 +29,11 @@
 
 <body>
     <div class="wrapper">
+        <div class="toggleBox"><input type="checkbox" class="checkbox" id="checkbox"><label for="checkbox" class="label">
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+            <div class="ball"></div>
+        </label></div>
         <div id="slide"><a id="logo" href="main.html">
                 <div id="Two">2</div>
                 <div id="S">S</div>
@@ -226,6 +231,13 @@
 
 </script>
 <script>
+    $(document).ready(function () {
+        const name = window.sessionStorage.getItem("youtube")
+        document.getElementById("author").src = sessionStorage.getItem("icon");
+        document.getElementById("authorName").innerHTML = name;
+   });
+
+
     toggle.onclick = function () {
         toggle.classList.toggle('active');
         sidebar.classList.toggle('active');
@@ -261,8 +273,9 @@
         const value = searchinput.value;
         youtube(value);
     });
-</script>
 
-<script src="../static/javascript/youtuber.js"></script>
+</script>
+<script src="../static/javascript/darkmode.js"></script>
+<!-- <script src="../static/javascript/youtuber.js"></script> -->
 
 </html>

@@ -337,3 +337,60 @@ footer {
 /*/Footer*/
 
 
+/* Dark Mode */
+
+
+.toggleBox{
+    position:absolute;
+    top:35px;
+    left:10px;
+
+}
+
+.checkbox {
+    opacity:0;
+    position:absolute;
+}
+.label{
+    background-color:#eb6383;
+    display:flex;
+    border: 0.5px solid white;
+    border-radius:50px;
+    align-items:center;
+    justify-content:space-between;
+    padding: 5px;
+    height:26px;
+    width:50px;
+    position:relative;
+    transition: background-color 200ms linear;
+}
+
+.ball{
+    background-color:white;
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:2px;
+    left:2px;
+    border-radius:50%;
+    transition: transform 0.2s linear;
+}
+
+
+.fa-moon, 
+.fa-sun{
+    color:orange;
+}
+
+.dark,
+.toggleLable{
+    background-color:black;
+}
+
+.toggleBall{
+    transform:translateX(24px);
+}
+
+.toggleWhite{ 
+    color:white;
+}
