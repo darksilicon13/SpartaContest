@@ -1,7 +1,7 @@
 const checkbox = document.getElementById("checkbox");
 const toggleLable = document.querySelector(".label");
 const toggleBall = document.querySelector(".ball");
-const names = document.querySelectorAll(".videoText")
+const names = document.querySelectorAll(".videoText");
 
 $(document).ready(function(){
   var date = new Date();
@@ -32,7 +32,9 @@ function getDark(){
   toggleLable.classList.add("toggleLable");
   toggleBall.classList.add("toggleBall");
   // if (document.getElementById('authorName')!== null) 
-  if(page === "playlist.html") document.getElementById('authorName').style.color='white';
+  if(page === "playlist.html") {
+    document.getElementById('authorName').style.color='white'; 
+  }
   else if(page === "main.html"){
     var list;
     list = document.querySelectorAll(".videoText > a");
