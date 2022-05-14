@@ -374,7 +374,7 @@ form .searchBar {
     right: -300px;
     width: 300px;
     height: 100vh;
-    background: white;
+    background: transparent;
     transition: 0.4s;
     z-index: 1;
 }

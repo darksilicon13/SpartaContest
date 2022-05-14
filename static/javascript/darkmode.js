@@ -42,6 +42,17 @@ function getDark(){
       list[i].classList.add('toggleWhite');
     }
   }
+  else{
+      if(page === "request.html"){
+        var list;
+        list = document.querySelectorAll(".youtuberLink");
+        for (var i = 0; i < list.length; ++i) {
+        list[i].classList.remove('toggleBlack');
+        list[i].classList.add('toggleWhite');
+      }
+        }
+    document.body.classList.add("dark");
+  }
 }
 
 function getBright(){
@@ -61,5 +72,7 @@ function getBright(){
         list[i].classList.add('toggleBlack');
       }
     }
-  
+    else{
+      document.body.classList.remove("dark");
+    }
 }
