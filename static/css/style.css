@@ -456,9 +456,9 @@ li a:hover {
 /*main*/
 .table a {
     text-decoration: none;
-    color: black;
     font-size: 15px;
 }
+
 
 .table a:hover {
     background: linear-gradient(205deg, rgb(255, 255, 255, 1) 0%, rgba(213, 213, 213, 1) 66%);
@@ -758,4 +758,8 @@ tr{
 
 .toggleWhite{ 
     color:white;
+}
+
+.toggleBlack{
+    color:black;
 }

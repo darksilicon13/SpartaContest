@@ -210,12 +210,9 @@
 </script>
 <script>
     $(document).ready(function () {
-        const name = sessionStorage.getItem("youtube")
-        const series = sessionStorage.getItem("series")
+        const name = window.sessionStorage.getItem("youtube")
         document.getElementById("author").src = sessionStorage.getItem("icon");
         document.getElementById("authorName").innerHTML = name;
-        if(window.sessionStorage.getItem("darkmode")==="true") getDark();
-        bringData(name,series);
    });
 
 
@@ -259,6 +256,6 @@
 </script>
 
 <script src="../static/javascript/darkmode.js"></script>
-<script src="../static/javascript/youtuber.js"></script>
+<!-- <script src="../static/javascript/youtuber.js"></script> -->
 
 </html>

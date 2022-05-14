@@ -87,7 +87,7 @@
                     </div>
                     <div class="videoText">
                         <a class="thumbnail"><img class="channelImg" id="1"
-                        src="https://yt3.ggpht.com/Gx5xcfrXZ9FwfypAT1CjMS224hAHYsIjFuOgfPoNECQtsri6tZ_DkIntdptLUhOS64CmBFEEig=s88-c-k-c0x00ffffff-no-rj"><span>장지수</span></a>
+                        src="https://yt3.ggpht.com/Gx5xcfrXZ9FwfypAT1CjMS224hAHYsIjFuOgfPoNECQtsri6tZ_DkIntdptLUhOS64CmBFEEig=s88-c-k-c0x00ffffff-no-rj"><span class="name">장지수</span></a>
                     </div>
                 </td>
                 <td onclick="getValue('진용진','머니게임',2)" class="videoBox series">
@@ -244,22 +244,9 @@
 <script>
     // main.html로 왔을때 다시 로컬스토리지 클리어
     window.onload = () => {
-        window.sessionStorage.setItem("youtube", "");
-        window.sessionStorage.setItem("series", "");
-        window.sessionStorage.setItem("icon", "");
-        let darkmode = window.sessionStorage.getItem("darkmode")
-        if(darkmode != null)
-        {
-            if (darkmode === "true") getDark();
-            else getBright();
-        }
-        else 
-        {
-            var date = new Date();
-            var time = date.getHours();
-            if( time >= 18 || time < 7 ) getBright();
-        }
-
+        window.sessionStorage.setItem("icon");
+        window.sessionStorage.setItem("youtube");
+        window.sessionStorage.setItem("series");
     }
 
     toggle.onclick = function () {
@@ -288,6 +275,9 @@
         window.open("https://www.youtube.com/results?search_query=" + value);
         searchinput.value = "";
     }
+
+
+
     function getValue(name,series,n){
         sessionStorage.setItem("youtube",name);
         sessionStorage.setItem("series",series);

@@ -3,7 +3,15 @@ const toggleLable = document.querySelector(".label");
 const toggleBall = document.querySelector(".ball");
 const names = document.querySelectorAll(".videoText")
 
+$(document).ready(function(){
+  var date = new Date();
+  var time = date.getHours();
+  if(window.sessionStorage.getItem("darkmode") === null ) window.sessionStorage.setItem("darkmode", "realtime");
 
+  if (window.sessionStorage.getItem("darkmode") === 'realtime') time >= 18 || time < 7  ? getDark() : getBright();
+  else if(window.sessionStorage.getItem("darkmode")==="true") getDark();
+  else if(window.sessionStorage.getItem("darkmode")=== "false") getBright();
+});
 
 
 
@@ -18,26 +26,40 @@ checkbox.addEventListener('change', ()=>{
 })
 
 function getDark(){
-  console.log("어둡게");
+  var path = window.location.pathname;
+  var page = path.split("/").pop();
   document.body.classList.add("dark");
   toggleLable.classList.add("toggleLable");
   toggleBall.classList.add("toggleBall");
-  document.querySelectorAll(".videoText > a > span").forEach((el) => {
-    console.log(el);
-    el.classList.add('toggleWhite');
-});
-document.getElementById('authorName').style.color='white';
+  // if (document.getElementById('authorName')!== null) 
+  if(page === "playlist.html") document.getElementById('authorName').style.color='white';
+  else if(page === "main.html"){
+    var list;
+    list = document.querySelectorAll(".videoText > a");
+    console.log(list);
+    for (var i = 0; i < list.length; ++i) {
+      list[i].classList.remove('toggleBlack');
+      list[i].classList.add('toggleWhite');
+    }
+  }
 }
 
 function getBright(){
-  console.log("밝게");
+    var path = window.location.pathname;
+    var page = path.split("/").pop();
     document.body.classList.remove("dark");
     toggleLable.classList.remove("toggleLable");
     toggleBall.classList.remove("toggleBall");
-    console.log(document.querySelector(".youtuber > a"));
-    document.querySelectorAll(".videoText > a > span").forEach((el) => {
-      console.log(el);
-      el.classList.remove('toggleWhite');
-  });
-  document.getElementById('authorName').style.color='black';
+    // if (document.getElementById('authorName')!== null) 
+    if(page === "playlist.html") document.getElementById('authorName').style.color='black';
+    else if(page === "main.html"){
+      var list;
+      list = document.querySelectorAll(".videoText > a");
+      console.log(list);
+      for (var i = 0; i < list.length; ++i) {
+        list[i].classList.remove('toggleWhite');
+        list[i].classList.add('toggleBlack');
+      }
+    }
+  
 }
