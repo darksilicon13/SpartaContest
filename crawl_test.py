@@ -40,6 +40,22 @@ soup = BeautifulSoup(browser.page_source, "lxml")  # HTML을 "lxml"로 파싱(�
 # thumbnail = soup.find_all("img", attrs={"class": "ChannelListCardBig_videoClipImg__2x2XH", 'alt': 'img'})
 youtubericon=soup.find_all('img',attrs={'class':'ChannelListCardSmall_thumbnailsImg__2mQXY'})
 # channel=soup.select("a",attrs={'class':'ChannelListCardBig_linkImg__1VnmG'})
-print(youtubericon[0]['src'])
-# list_all_row = []  # 전체 내용을 넣을 리스트
+title_all = soup.find_all("div", attrs={"class": "ChannelListCardBig_title__1c0m6"})
+thumbnail = soup.find_all("img", attrs={"class": "ChannelListCardBig_videoClipImg__2x2XH",'alt':'img'})
+youtubericon=soup.find_all('img',attrs={'class':'ChannelListCardSmall_thumbnailsImg__2mQXY'})
+# channel=soup.select("a",attrs={'class':'ChannelListCardBig_linkImg__1VnmG'})
+# for j in channel:
+#     if('youtube' in j['href']):
+#         print(j['href'])
+list_all_row = []  # 전체 내용을 넣을 리스트
+# 리스트에 추가<img class="" src="https://yt3.ggpht.com/AVvSUTGMUTesviGa0cMbvGkmROd3XCTyR7iobZ5icit4pAUz8ePmaQdh4chhTz_2AomGjiJu5A=s800-c-k-c0x00ffffff-no-rj" alt="흔한남매">
+
+for i in range(0,len(title_all)):
+    list_row = []  # for문 안에서 가져와지는 내용을 넣을 리스트
+    list_row.append(key)
+    list_row.append(title_all[i].get_text())  # 영상 제목
+    list_row.append(thumbnail[i]['src'])
+    list_row.append(youtubericon[i]['src'])
+    list_all_row.append(list_row)  # 영상 순서, 제목, 링크 list_all_row에 넣기
+print(list_all_row[0])
 browser.quit()
