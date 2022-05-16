@@ -254,21 +254,21 @@
             data: {},
             success: function (response) {
                 let dbjson = response['msg']
+
                 for (i = 0; i < dbjson.length; i++) {
                     channel = dbjson[i]['채널명']
                     keyword = dbjson[i]['키워드']
                     thumbnail = dbjson[i]['썸네일']
                     youtubericon = dbjson[i]['유튜버아이콘']
-                    console.log(keyword, channel, thumbnail)
                     temp_html_td = `
-                <td>
+                <td onclick='getValue(channel)'>
                     <div class="videoDiv">
                         <a class="thumbnail">
                             <img src=${thumbnail}>
                         </a>
                     </div>
                     <div>
-                        <a class="thumbnail"><img class="channelImg" id="11"
+                        <a class="thumbnail"><img class="channelImg" id=${channel}
                                                   src=${youtubericon}><span
                                 class="name">${channel}</span></a>
                     </div>
@@ -278,6 +278,12 @@
             }
         })
     });
+
+    function getValue(channel) {
+        sessionStorage.setItem.toString('channel', channel);
+        window.location.href = "/playlist"
+    }
+
     toggle.onclick = function () {
         toggle.classList.toggle('active');
         sidebar.classList.toggle('active');
@@ -304,13 +310,40 @@
         searchinput.value = "";
     }
 
-    function getValue(name, series, n) {
-        localStorage.setItem("youtube", name);
-        localStorage.setItem("series", series);
-        let icon = document.getElementById(n.toString());
-        localStorage.setItem("icon", icon.src);
-        window.location.href = "./playlist.html";
-    }
+    // function playlist(){
+    //         $.ajax({
+    //             type: "GET",
+    //             url: "/playlist",
+    //             data: {},
+    //             success: function (response) {
+    //                 console.log(response['msg'])
+    //                 window.location.href = "./playlist.html";
+    //       const carousel = document.getElementById("carousel-inner")
+    //       length = response['msg'];
+    //
+    //       for (let i = length - 1; i >= 0; i--) {
+    //           videoId = ['PRIVeRcS27E', 'eNn0Z60DUX', 'fsveUTSxI', '7jbF9BoazRA', '8ykCYTPP1jA', 'rZfQZ9i-pA4', 'PRIVeRcS27E', '7jbF9BoazRA', '8ykCYTPP1jA', 'J9AaSyCP-Zk', 'pXp92OYXgpI', 'CqTAbIjIVC', 'ATBd_DPxOj', 'mlWU-uK3P7', 'LayHSnSWEt0', 'bBUEXfUgXFA', 'jYH4q_2LXNU', '8wQwFzCuI8A', 'VXNXITDZZxM', 'SXC6-w9XJk', 'LcrrS-K5tv0', '0z_fmkyjArY', '886KSEAaML', '4MAr2AOe0', 'fsveUTSxI', 'rZfQZ9i-pA4', 'XC3dTvyVoHg', 'gJ1q18RwKno', 'T37BvCHZyKs', '9dKXW3E2p3Y', 'fJe30eiGKT', 'emobHmNphJA', 'G0ew-2PsMDU', 'fxfP2FeKUI8', '8l2PLB5-uoM', 'FNjg60iAh5A'][i];
+    //           if (i === length - 1) {
+    //               temp_html = `<div class="carousel-item active">
+    // <iframe src="https://www.youtube.com/embed/${videoId}" title="YouTube video player" frameborder="0"
+    //     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    //    allowfullscreen></iframe>
+    // </div>`;
+    //               $(carousel).append(temp_html);
+    //           } else {
+    //               temp_html = `<div class="carousel-item">
+    //  <iframe src="https://www.youtube.com/embed/${videoId}" title="YouTube video player" frameborder="0"
+    //      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    //     allowfullscreen></iframe>
+    //  </div>`;
+    //               $(carousel).append(temp_html);
+    //           }
+    //       };
+
+    //             }
+    //         })
+    // }
+
 
     filterObjects("all");
 
