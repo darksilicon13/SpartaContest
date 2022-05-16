@@ -252,7 +252,7 @@
 <script>
     // main.html로 왔을때 다시 로컬스토리지 클리어
     window.onload = window.localStorage.clear();
-    $(document).ready(function () {
+   $(document).ready(function () {
         $.ajax({
             type: "GET",
             url: "/data",
@@ -264,16 +264,15 @@
                     keyword = dbjson[i]['키워드']
                     thumbnail = dbjson[i]['썸네일']
                     youtubericon = dbjson[i]['유튜버아이콘']
-                    console.log(keyword, channel, thumbnail)
                     temp_html_td = `
-                <td>
+                <td onclick='getValue(${i})'>
                     <div class="videoDiv">
                         <a class="thumbnail">
                             <img src=${thumbnail}>
                         </a>
                     </div>
                     <div>
-                        <a class="thumbnail"><img class="channelImg" id="11"
+                        <a class="thumbnail"><img class="channelImg" id=${i}
                                                   src=${youtubericon}><span
                                 class="name">${channel}</span></a>
                     </div>
@@ -283,6 +282,18 @@
             }
         })
     });
+   function getValue(id) {
+        $.ajax({
+            type: "GET",
+            url: "/data",
+            data: {},
+            success: function (response) {
+                let dbjson=response['msg']
+                localStorage.setItem('channel', dbjson[id]['채널명']);
+                window.location.href = "/playlist";
+            }
+        })
+    };
     toggle.onclick = function () {
         toggle.classList.toggle('active');
         sidebar.classList.toggle('active');
@@ -307,14 +318,6 @@
         }
         window.open("https://www.youtube.com/results?search_query=" + value);
         searchinput.value = "";
-    }
-
-    function getValue(name, series, n) {
-        localStorage.setItem("youtube", name);
-        localStorage.setItem("series", series);
-        let icon = document.getElementById(n.toString());
-        localStorage.setItem("icon", icon.src);
-        window.location.href = "./playlist.html";
     }
 
     filterObjects("all");
