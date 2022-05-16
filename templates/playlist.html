@@ -247,6 +247,37 @@
 </script>
 <script>
     $(document).ready(function () {
+    $.ajax({
+        type: "GET",
+        url: "/movie?channel="+localStorage.getItem('channel'),
+        data: {},
+        success: function (response) {
+            console.log(localStorage.getItem('channel'))
+            console.log(response['msg'][0]['videoId'])
+            const carousel = document.getElementById("carousel-inner")
+            length = response['msg'].length;
+            for (let i = length - 1; i >= 0; i--) {
+                videoId = response['msg'][i]['videoId']
+                if (i === length - 1) {
+                    temp_html = `<div class="carousel-item active">
+      <iframe src="https://www.youtube.com/embed/${videoId}" title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+         allowfullscreen></iframe>
+      </div>`;
+                    $(carousel).append(temp_html);
+                } else {
+                    temp_html = `<div class="carousel-item">
+       <iframe src="https://www.youtube.com/embed/${videoId}" title="YouTube video player" frameborder="0"
+           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+       </div>`;
+                    $(carousel).append(temp_html);
+                }
+            };
+        }
+    })
+});
+    $(document).ready(function () {
         const name = window.sessionStorage.getItem("youtube")
         document.getElementById("author").src = sessionStorage.getItem("icon");
         document.getElementById("authorName").innerHTML = name;

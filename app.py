@@ -1,3 +1,5 @@
+# app.py - main application
+
 from flask import Flask, render_template, session,jsonify,request
 from pymongo import MongoClient
 from dotenv import load_dotenv
@@ -18,9 +20,19 @@ db = client.s2lide
 def main():
     return render_template('main.html')
 
+@app.route('/playlist', methods=['GET'])
+def db_to_playlist():
+    dbjson = list(db.videoId.find({},{'_id':False}))
+    return render_template('playlist.html')
+
 @app.route('/data', methods=['GET'])
-def view_orders():
+def db_to_main():
     dbjson = list(db.link.find({},{'_id':False}))
+    return jsonify({'msg': dbjson})
+
+@app.route('/movie', methods=['GET'])
+def playlist():
+    dbjson = list(db.videoId.find({'채널명':request.args.get('channel')},{'_id':False}))
     return jsonify({'msg': dbjson})
 # @app.route('/')
 # def home():
