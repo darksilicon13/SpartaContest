@@ -246,10 +246,11 @@
     $(document).ready(function () {
         $.ajax({
             type: "GET",
-            url: "/movie?channel="+'다흑',
+            url: "/movie?channel="+localStorage.getItem('channel'),
             data: {},
             success: function (response) {
-                console.log(response['msg'][0]['videoId'])
+                console.log(localStorage.getItem('channel'))
+                console.log(response['msg'])
                 const carousel = document.getElementById("carousel-inner")
                 length = response['msg'].length;
                 for (let i = length - 1; i >= 0; i--) {

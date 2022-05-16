@@ -254,21 +254,20 @@
             data: {},
             success: function (response) {
                 let dbjson = response['msg']
-
                 for (i = 0; i < dbjson.length; i++) {
                     channel = dbjson[i]['채널명']
                     keyword = dbjson[i]['키워드']
                     thumbnail = dbjson[i]['썸네일']
                     youtubericon = dbjson[i]['유튜버아이콘']
                     temp_html_td = `
-                <td onclick='getValue(channel)'>
+                <td onclick='getValue(${i})'>
                     <div class="videoDiv">
                         <a class="thumbnail">
                             <img src=${thumbnail}>
                         </a>
                     </div>
                     <div>
-                        <a class="thumbnail"><img class="channelImg" id=${channel}
+                        <a class="thumbnail"><img class="channelImg" id=${i}
                                                   src=${youtubericon}><span
                                 class="name">${channel}</span></a>
                     </div>
@@ -279,11 +278,18 @@
         })
     });
 
-    function getValue(channel) {
-        sessionStorage.setItem.toString('channel', channel);
-        window.location.href = "/playlist"
-    }
-
+    function getValue(id) {
+        $.ajax({
+            type: "GET",
+            url: "/data",
+            data: {},
+            success: function (response) {
+                let dbjson=response['msg']
+                localStorage.setItem('channel', dbjson[id]['채널명']);
+                window.location.href = "/playlist";
+            }
+        })
+    };
     toggle.onclick = function () {
         toggle.classList.toggle('active');
         sidebar.classList.toggle('active');
