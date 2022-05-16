@@ -3,7 +3,9 @@
 from flask import Flask, render_template, session,jsonify,request
 from pymongo import MongoClient
 from dotenv import load_dotenv
+import certifi
 import os
+ca = certifi.where()
 #Flask App Setup
 app = Flask(__name__)
 
@@ -13,7 +15,7 @@ ID = os.getenv('DB_ID')
 PW = os.getenv('DB_PW')
 
 # MongoDB Atlas Setup
-client = MongoClient(f'mongodb+srv://{ID}:{PW}@s2lide.fwsiv.mongodb.net/?retryWrites=true&w=majority', 27017)
+client = MongoClient(f'mongodb+srv://{ID}:{PW}@s2lide.fwsiv.mongodb.net/?retryWrites=true&w=majority', 27017, tlsCAFile=ca)
 db = client.s2lide
 
 @app.route('/')
