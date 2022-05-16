@@ -7,12 +7,21 @@ $(document).ready(function () {
   var date = new Date();
   var time = date.getHours();
   if (window.sessionStorage.getItem("darkmode") === null) window.sessionStorage.setItem("darkmode", "realtime");
+
   if (window.sessionStorage.getItem("darkmode") === 'realtime') time >= 18 || time < 7 ? getDark() : getBright();
   else if (window.sessionStorage.getItem("darkmode") === "true") {
     getDark();
+    $("#comment-section").css('color', 'white');
+    $('#sidebar').css('background-color', 'black');
+    $('#prev-button').css('filter', 'none');
+    $('#next-button').css('filter', 'none');
   }
   else if (window.sessionStorage.getItem("darkmode") === "false") {
     getBright();
+    $("#comment-section").css('color', 'black');
+    $('#sidebar').css('background-color', 'white');
+    $('#prev-button').css('filter', 'invert(100%)');
+    $('#next-button').css('filter', 'invert(100%)');
   }
 });
 
@@ -22,38 +31,42 @@ checkbox.addEventListener('change', () => {
   if (toggleLable.classList.contains("toggleLable")) {
     window.sessionStorage.setItem("darkmode", "false");
     getBright();
+    $("#comment-section").css('color', 'black');
+    $('#sidebar').css('background-color', 'white');
+    $('#prev-button').css('filter', 'invert(100%)');
+    $('#next-button').css('filter', 'invert(100%)');
+
   } else {
     window.sessionStorage.setItem("darkmode", "true");
     getDark();
+    $("#comment-section").css('color', 'white');
+    $('#sidebar').css('background-color', 'black');
+    $('#prev-button').css('filter', 'none');
+    $('#next-button').css('filter', 'none');
   }
 })
 
 function getDark() {
-  console.log("어둡게");
   var path = window.location.pathname;
   var page = path.split("/").pop();
   document.body.classList.add("dark");
   toggleLable.classList.add("toggleLable");
   toggleBall.classList.add("toggleBall");
   // if (document.getElementById('authorName')!== null) 
-  if (page === "playlist") {
-    $("#comment-section").css('color', 'white');
-    $('#sidebar').css('background-color', 'black');
-    $('#prev-button').css('filter', 'none');
-    $('#next-button').css('filter', 'none');
-    $('#authorName').css('color', 'white');
+  if (page === "playlist.html") {
+    document.getElementById('authorName').style.color = 'white';
   }
-  else if (page === "main") {
+  else if (page === "main.html") {
     var list;
-    list = document.querySelectorAll(".name");
+    list = document.querySelectorAll(".videoText > a");
+    console.log(list);
     for (var i = 0; i < list.length; ++i) {
-      
       list[i].classList.remove('toggleBlack');
       list[i].classList.add('toggleWhite');
     }
   }
   else {
-    if (page === "request") {
+    if (page === "request.html") {
       var list;
       list = document.querySelectorAll(".youtuberLink");
       for (var i = 0; i < list.length; ++i) {
@@ -66,24 +79,17 @@ function getDark() {
 }
 
 function getBright() {
-  console.log("밝게");
   var path = window.location.pathname;
   var page = path.split("/").pop();
   document.body.classList.remove("dark");
   toggleLable.classList.remove("toggleLable");
   toggleBall.classList.remove("toggleBall");
   // if (document.getElementById('authorName')!== null) 
-  if (page === "playlist") {
-    console.log("playlist당");
-    $("#comment-section").css('color', 'black');
-    $('#sidebar').css('background-color', 'white');
-    $('#prev-button').css('filter', 'invert(100%)');
-    $('#next-button').css('filter', 'invert(100%)');
-    $('#authorName').css('color', 'black');
-  }
-  else if (page === "main") {
+  if (page === "playlist.html") document.getElementById('authorName').style.color = 'black';
+  else if (page === "main.html") {
     var list;
-    list = document.querySelectorAll(".name");
+    list = document.querySelectorAll(".videoText > a");
+    console.log(list);
     for (var i = 0; i < list.length; ++i) {
       list[i].classList.remove('toggleWhite');
       list[i].classList.add('toggleBlack');
