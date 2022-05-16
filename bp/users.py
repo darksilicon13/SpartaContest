@@ -47,6 +47,7 @@ def login():
             # 비밀번호 일치하면 토큰 생성
             payload = {
                 'email': email,
+                'username': user['username'],
                 'exp': datetime.utcnow() + timedelta(hours=8)   # 로그인 8시간 유지
             }
             token = jwt.encode(payload, JWT_SECRET_KEY, algorithm='HS256')
@@ -91,8 +92,7 @@ def register():
 def check():
     email = request.args.get('email')     # 전달 받은 데이터 변수에 저장
 
-    # DB에서 데이터 찾기
-    user = findUser(email)
+    user = findUser(email)  # DB에서 데이터 찾기
 
     if not user:
         return jsonify({'result': False})    # DB에 데이터가 없으면 False 반환
@@ -101,12 +101,13 @@ def check():
 
 # 사용자 인증 - 토큰 확인
 @users.route('/auth', methods=['GET'])
-# @jwt_required()   # 토큰이 없으면 함수에 접근 불가
 def auth():
-    return
-    # 토큰 확인
-	# cur_user = get_jwt_identity() # 이전에 발행한 토큰 가져오기
-	# if cur_user is None:
-	# 	return "User Only!"
-	# else:
-	# 	return "Hi!," + cur_user
+    # 전달받은 토큰 디코딩
+    token = request.args.get('token')
+    header = jwt.decode(token, JWT_SECRET_KEY, algorithms='HS256')
+
+    user = findUser(header['email'])
+    if user['email']==header['email'] and user['username']==header['username']:
+        return jsonify({'result': 'SUCCESS'})   # 사용자 정보가 DB에 있으면 SUCCESS 반환
+
+    return jsonify({'result': 'FAIL'})  # FAIL 반환
