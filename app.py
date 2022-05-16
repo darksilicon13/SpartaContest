@@ -3,8 +3,8 @@
 from flask import Flask, render_template, session,jsonify,request
 from pymongo import MongoClient
 from dotenv import load_dotenv
-import os
 import certifi
+import os
 #Flask App Setup
 app = Flask(__name__)
 ca = certifi.where()
