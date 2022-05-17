@@ -19,7 +19,7 @@ $(document).ready(function () {
   else if (window.sessionStorage.getItem("darkmode") === "false") {
     getBright();
     $("#comment-section").css('color', 'black');
-    $('#sidebar').css('background-color', 'white');
+    $('#sidebar').css('background-color', '#F7C72A');
     $('#prev-button').css('filter', 'invert(100%)');
     $('#next-button').css('filter', 'invert(100%)');
   }

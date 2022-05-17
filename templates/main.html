@@ -20,11 +20,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@200&display=swap" rel="stylesheet">
     <!-- jQuery    -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Infinite Scroll -->
+    <script src="https://unpkg.com/infinite-scroll@4/dist/infinite-scroll.pkgd.min.js"></script>
     <!-- External CSS -->
     <link type="text/css" rel="stylesheet" href="../static/css/style.css">
-    <title>2Slide Main</title>
+    <!--파비콘-->
+    <link rel="shortcut icon" type="image/x-icon" href="../static/images/favi2.png">
+    <title>TToODLe</title>
 
     <script>
 
@@ -32,49 +37,46 @@
 </head>
 <body>
 <div class="wrapper">
-    <div class="toggleBox"><input type="checkbox" class="checkbox" id="checkbox"><label for="checkbox" class="label">
-        <i class="fas fa-moon"></i>
-        <i class="fas fa-sun"></i>
-        <div class="ball"></div>
-    </label></div>
-    <div id="slide"><a id="logo" href="main.html">
-        <div id="Two">2</div>
-        <div id="S">S</div>
-        <div id="lide">l i d e</div>
-    </a></div>
-    <div id="toggle"></div>
-    <div id="sidebar">
-        <ul>
-            <li><a href="main.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="request.html">Request</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </div>
-    <!--슬라이드(보류중)-->
-    <!--<div id="mainPhoto">-->
-    <!--<img src="https://i.ytimg.com/vi/XAoQviSh7HQ/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDO59DlFMVL1Lc8lLbKT5dfHz9R_w">-->
-    <!--</div>-->
-    <div class="subTitle">
-        <p id="whatrud">What are U</p>
-        <p id="gonslide">gonna slide ?</p>
-    </div>
-    <div id="searchBox">
-        <div id="search">
-            <form class="searchForm">
-                <div class="searchBar">
-                    <input id="genreInput" type="text" placeholder="어떤 장르를 찾으세요?">
-                    <span></span>
-                    <label>#</label>
-                </div>
-            </form>
+    <div id="upperSide">
+        <div class="toggleBox"><input type="checkbox" class="checkbox" id="checkbox"><label for="checkbox"
+                                                                                            class="label">
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+            <div class="ball"></div>
+        </label></div>
+        <div id="slide"><a id="logo" href="main.html">
+            <img src="../static/img/logologo.png">
+        </a></div>
+        <div id="toggle"></div>
+        <div id="sidebar">
+            <ul>
+                <li><a href="main.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="request.html">Request</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
         </div>
-        <div id="genre">
-            <button onclick="filterObjects('all'); genreAppend()" class="genreBtn" value="Show All">showAll</button>
-            <button onclick="filterObjects('cat'); genreAppend()" class="genreBtn" value="Cat">cat</button>
-            <button onclick="filterObjects('dog'); genreAppend()" class="genreBtn" value="Dog">dog</button>
-            <button onclick="filterObjects('series'); genreAppend()" class="genreBtn" value="Series">series</button>
+        <div class="subTitle">
+            <p id="whatrud">What are U</p>
+            <p id="gonslide">gonna slide ?</p>
         </div>
+        <div id="searchBox">
+            <div id="search">
+                <form class="searchForm">
+                    <div class="searchBar">
+                        <input id="genreInput" type="text" placeholder="Search for the keyword . . 🫠">
+                        <span></span>
+                        <label>#</label>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="genre">
+        <a onclick="filterObjects('all'); genreAppend()" class="genreBtn" value="Show All"><img src="../static/img/category1.png"></a>
+        <a onclick="filterObjects('cat'); genreAppend()" class="genreBtn" value="Cat"><img src="../static/img/category2.png"></a>
+        <a onclick="filterObjects('dog'); genreAppend()" class="genreBtn" value="Dog"><img src="../static/img/category1.png"></a>
+        <a onclick="filterObjects('series'); genreAppend()" class="genreBtn" value="Series"><img src="../static/img/category2.png"></a>
     </div>
     <div class="videoList">
         <table class="table">
@@ -252,7 +254,7 @@
 <script>
     // main.html로 왔을때 다시 로컬스토리지 클리어
     window.onload = window.localStorage.clear();
-   $(document).ready(function () {
+    $(document).ready(function () {
         $.ajax({
             type: "GET",
             url: "/data",
@@ -268,7 +270,7 @@
                 <td onclick='getValue(${i})'>
                     <div class="videoDiv">
                         <a class="thumbnail">
-                            <img src=${thumbnail}>
+                            <img src=${thumbnail} id="thumbimg">
                         </a>
                     </div>
                     <div>
@@ -282,13 +284,14 @@
             }
         })
     });
-   function getValue(id) {
+
+    function getValue(id) {
         $.ajax({
             type: "GET",
             url: "/data",
             data: {},
             success: function (response) {
-                let dbjson=response['msg']
+                let dbjson = response['msg']
                 localStorage.setItem('channel', dbjson[id]['채널명']);
                 window.location.href = "/playlist";
             }
@@ -366,9 +369,14 @@
     function genreAppend() {
         const btnVal = $('.genreBtn').val();
         $('#genreInput').val(btnVal)
-
-
     }
+
+    //무한스크롤
+    $('.videoBox').infiniteScroll({
+        path: 'pagination__next',
+        append: '.post',
+        history: false,
+    })
 </script>
 <script src="../static/javascript/darkmode.js"></script>
 <script src="../static/javascript/infScroll.js.js"></script>

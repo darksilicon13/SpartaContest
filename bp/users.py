@@ -1,85 +1,113 @@
 # users.py - 회원가입 및 로그인 application
 
-from flask import Blueprint, request, redirect, url_for, render_template, session
-# from pymongo import MongoClient
+from flask import Blueprint, render_template, request, jsonify ,redirect, url_for, session
+from pymongo import MongoClient
+from dotenv import load_dotenv
+import os
 from flask_bcrypt import Bcrypt
-import json
+import jwt
+from datetime import datetime, timedelta
+
+# 환경 변수 Setup
+load_dotenv()
+ID = os.getenv('DB_ID')
+PW = os.getenv('DB_PW')
+JWT_SECRET_KEY = os.getenv('JWT_SECRET_KEY')
 
 # users Setup
-users = Blueprint('users', __name__, url_prefix="/login")
+users = Blueprint('users', __name__, url_prefix="/user")
 
-# MongoDB Setup - 배포할 때 연결
-# client = MongoClient('localhost', 27017)
-# db = client.S2lide
-# 회원 정보 json 데이터 가져와 객체 생성
-with open('src/temp.json', "r") as f:
-    doc = json.load(f)
+# MongoDB Atlas Setup - DB: s2lide
+client = MongoClient(f'mongodb+srv://{ID}:{PW}@s2lide.fwsiv.mongodb.net/?retryWrites=true&w=majority', 27017)
+coll = client.s2lide.users
 
 # bcrypt Setup
 bcrypt = Bcrypt()
 
+# DB에서 유저 찾기
+def findUser(email):
+    return coll.find_one({'email': email}, {'_id': False})
+
+# 로그인 페이지 렌더링
 @users.route('/')
+def render_login():
+    return render_template('main.html')
+
+# 유저 로그인
+@users.route('/login', methods=['POST'])
 def login():
-    '''
-    메인페이지 등에서 로그인 버튼 클릭시 라우터 함수 실행
-    로그인 페이지 렌더링 -> 프론트에서 처리?
-    '''
+    # form 데이터 받아와 변수에 저장
+    email = request.form['email']
+    password = request.form['password']
 
-# 로그인 페이지에서 로그인 버튼 클릭시 라우터 함수 실행
-'''
-username, password 모두 입력됐을 경우만 라우터 함수 실행 -> 프론트 처리?
-username, password 변수에 저장
-비밀번호 암호화
-DB에서 username 찾기(함수)
-    -> 없으면 return "사용자 정보가 없습니다."
-찾은 데이터의 password와 입력받은 password가 같은지 확인
-    -> 같다면 세션에 username 저장 후 return 메인 페이지로 이동
-    -> 다르다면 return "비밀번호가 틀렸습니다."
-bcrypt.checkpw("password".encode("utf-8"), pw_hash)
-# 즉 password 라는 비밀번호를 암호화하고, 이후에 체크하는 작업을 할때 해당 메소드를 통해 일치여부 확인 가능
-'''
+    user = findUser(email)  # DB에서 사용자 정보 받아와 user에 저장
 
-# 로그인 페이지에서 회원가입 버튼 클릭시 라우터 함수 실행
-'''
-회원가입 페이지 렌더링 -> 프론트?
-'''
+    if user:    # 유저 정보가 있으면 비밀번호 비교
+        if bcrypt.check_password_hash(user['password'], password):
+            # 비밀번호 일치하면 토큰 생성
+            payload = {
+                'email': email,
+                'username': user['username'],
+                'exp': datetime.utcnow() + timedelta(hours=8)   # 로그인 8시간 유지
+            }
+            token = jwt.encode(payload, JWT_SECRET_KEY, algorithm='HS256')
 
-# 회원가입 페이지에서 register 버튼 클릭시 라우터 함수 실행
+            return jsonify({'result': 'SUCCESS', 'token': token})   # SUCCESS와 토큰 반환
+
+        return jsonify({'result': 'FAIL', 'msg': '비밀번호가 틀렸습니다.'})   # FAIL과 msg 반환
+
+    return jsonify({'result': 'FAIL', 'msg': '유저 정보가 없습니다.'})   # FAIL과 msg 반환
+
+# 회원 가입 페이지 렌더링
+@users.route('/join')
+def render_join():
+    return render_template('main.html')
+
+# DB에 유저 정보 등록 - 회원 가입
 @users.route('/register', methods=['POST'])
 def register():
     # form 데이터 받아와 변수에 저장
-    userName = request.form['username']
+    username = request.form['username']
     email = request.form['email']
     password = request.form['password']
-    confirmPassword = request.form['confirmPassword']
-
-    # password와 confirmPassword가 같은지 확인 -> 프론트?
-    if password != confirmPassword:
-        return {'msg': '비밀번호가 일치하지 않습니다.'}
 
     # bcrypt 이용해서 비밀번호 암호화 - binary type
-    pw_hash = bcrypt.generate_password_hash(password.encode("utf-8"))
-    # 회원 정보 객체에 새로운 정보 추가
-    doc['users'].append({
-        'userName': userName,
-        'email': email,
-        'password': pw_hash.decode('utf8')  # json 파일로 저장하기 위해 binary 타입을 utf8로 디코드
-    })
+    pw_hash = bcrypt.generate_password_hash(password).decode("utf-8")
 
-    # DB에 회원 정보 저장(users collection에 객체 삽입)
-    # db.users.insert_one(doc)  #!mongoDB 연결 시 주석 해제
-    # 회원 정보 json 파일에 객체 삽입
-    with open('src/temp.json', 'w', encoding='utf-8') as f:
-        json.dump(doc, f, indent="\t")
+    # 회원 정보 dic 생성
+    dic = {
+        'username': username,
+        'email': email,
+        'password': pw_hash
+    }
+
+    # DB에 회원 정보 저장 - Collection: users
+    coll.insert_one(dic)
 
     # 회원 가입 완료 시 로그인 페이지로 이동
-    return redirect(url_for('home'))    # home -> 로그인 페이지로 수정 필요
+    return redirect(url_for('.render_login'))
 
-# username 확인하는 함수 - 중복체크 버튼 클릭 or focus 옮겨질 때 실행
-# 회원가입 시 아이디 중복 체크 / 로그인 시 유저 찾기에 사용
-'''
-username 변수에 저장
-DB에서 username 찾기
-    -> 있다면 return true
-    -> 없다면 return false
-'''
+# 이메일 중복 확인
+@users.route('/check', methods=['GET'])
+def check():
+    email = request.args.get('email')     # 전달 받은 데이터 변수에 저장
+
+    user = findUser(email)  # DB에서 데이터 찾기
+
+    if not user:
+        return jsonify({'result': False})    # DB에 데이터가 없으면 False 반환
+
+    return jsonify({'result': True})   # DB에 데이터가 있으면 True 반환
+
+# 사용자 인증 - 토큰 확인
+@users.route('/auth', methods=['GET'])
+def auth():
+    # 전달받은 토큰 디코딩
+    token = request.args.get('token')
+    header = jwt.decode(token, JWT_SECRET_KEY, algorithms='HS256')
+
+    user = findUser(header['email'])
+    if user['email']==header['email'] and user['username']==header['username']:
+        return jsonify({'result': 'SUCCESS'})   # 사용자 정보가 DB에 있으면 SUCCESS 반환
+
+    return jsonify({'result': 'FAIL'})  # FAIL 반환
