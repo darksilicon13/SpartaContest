@@ -690,10 +690,10 @@ tr {
 }
 
 .label {
-    background-color: #eb6383;
+    background-color: white;
     display: flex;
     border: 0.5px solid white;
-    border-radius: 50px;
+    border-radius: 5px;
     align-items: center;
     justify-content: space-between;
     padding: 5px;
@@ -710,7 +710,8 @@ tr {
     position: absolute;
     top: 2px;
     left: 2px;
-    border-radius: 50%;
+    border-radius: 5px;
+    border: .3px solid #E2314B;
     transition: transform 0.2s linear;
 }
 
