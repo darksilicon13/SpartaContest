@@ -1,6 +1,6 @@
 # users.py - 회원가입 및 로그인 application
 
-from flask import Blueprint, render_template, request, jsonify, redirect, url_for
+from flask import Blueprint, render_template, request, jsonify, redirect, url_for, make_response
 from pymongo import MongoClient
 from dotenv import load_dotenv
 import os
@@ -46,7 +46,11 @@ def login():
         # 로그인 성공 시 토큰 생성
         token = create_access_token(identity={'email': user['email'], 'username': user['username']}, expires_delta=timedelta(hours=8))
 
-        return jsonify({'result': 'SUCCESS', 'token': token})   # SUCCESS와 토큰 반환
+        # 쿠키에 토큰 저장 후 main.html로 이동
+        res = make_response(render_template('main.html'))
+        res.set_cookie('token', token)
+
+        return res
 
     return jsonify({'result': 'FAIL', 'msg': '아이디 혹은 비밀번호를 다시 확인해주세요.'})   # FAIL과 msg 반환
 

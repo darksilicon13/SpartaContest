@@ -1,6 +1,6 @@
 # app.py - main application
 
-from flask import Flask, render_template, jsonify, requestfrom bp.users import users
+from flask import Flask, render_template, jsonify, request
 from pymongo import MongoClient
 from dotenv import load_dotenv
 from flask_jwt_extended import JWTManager
@@ -22,9 +22,6 @@ jwt = JWTManager(app)
 load_dotenv()
 ID = os.getenv('DB_ID')
 PW = os.getenv('DB_PW')
-
-# BluePrint Setup
-app.register_blueprint(users)   # 로그인 및 회원 가입
 
 # MongoDB Atlas Setup
 client = MongoClient(f'mongodb+srv://{ID}:{PW}@s2lide.fwsiv.mongodb.net/?retryWrites=true&w=majority', 27017, tlsCAFile=ca)
@@ -53,7 +50,7 @@ def db_to_main():
 
 @app.route('/movie', methods=['GET'])
 def playlist():
-    dbjson = list(db.videoId.find({'채널명':request.args.get('channel')},{'_id':False}))
+    dbjson = list(db.videoId.find({'채널명': request.args.get('channel')}, {'_id': False}))
     return jsonify({'msg': dbjson})
 
 if __name__ == '__main__':
