@@ -6,10 +6,9 @@ from pymongo import MongoClient
 from dotenv import load_dotenv
 import certifi
 import os
-ca = certifi.where()
 #Flask App Setup
 app = Flask(__name__)
-
+ca = certifi.where()
 #MongoDB Setup
 load_dotenv()
 ID = os.getenv('DB_ID')

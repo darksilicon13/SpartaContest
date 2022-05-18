@@ -9,20 +9,9 @@ $(document).ready(function () {
   if (window.sessionStorage.getItem("darkmode") === null) window.sessionStorage.setItem("darkmode", "realtime");
 
   if (window.sessionStorage.getItem("darkmode") === 'realtime') time >= 18 || time < 7 ? getDark() : getBright();
-  else if (window.sessionStorage.getItem("darkmode") === "true") {
-    getDark();
-    $("#comment-section").css('color', 'white');
-    $('#sidebar').css('background-color', 'black');
-    $('#prev-button').css('filter', 'none');
-    $('#next-button').css('filter', 'none');
-  }
-  else if (window.sessionStorage.getItem("darkmode") === "false") {
-    getBright();
-    $("#comment-section").css('color', 'black');
-    $('#sidebar').css('background-color', '#F7C72A');
-    $('#prev-button').css('filter', 'invert(100%)');
-    $('#next-button').css('filter', 'invert(100%)');
-  }
+  else if (window.sessionStorage.getItem("darkmode") === "true") getDark();
+  else if (window.sessionStorage.getItem("darkmode") === "false") getBright();
+ 
 });
 
 
@@ -31,18 +20,10 @@ checkbox.addEventListener('change', () => {
   if (toggleLable.classList.contains("toggleLable")) {
     window.sessionStorage.setItem("darkmode", "false");
     getBright();
-    $("#comment-section").css('color', 'black');
-    $('#sidebar').css('background-color', 'white');
-    $('#prev-button').css('filter', 'invert(100%)');
-    $('#next-button').css('filter', 'invert(100%)');
 
   } else {
     window.sessionStorage.setItem("darkmode", "true");
     getDark();
-    $("#comment-section").css('color', 'white');
-    $('#sidebar').css('background-color', 'black');
-    $('#prev-button').css('filter', 'none');
-    $('#next-button').css('filter', 'none');
   }
 })
 
@@ -76,6 +57,10 @@ function getDark() {
     }
     document.body.classList.add("dark");
   }
+  $("#comment-section").css('color', 'white');
+  $('#sidebar').css('background-color', 'black');
+  $('#prev-button').css('filter', 'none');
+  $('#next-button').css('filter', 'none');
 }
 
 function getBright() {
@@ -98,4 +83,8 @@ function getBright() {
   else {
     document.body.classList.remove("dark");
   }
+  $("#comment-section").css('color', 'black');
+  $('#sidebar').css('background-color', 'white');
+  $('#prev-button').css('filter', 'invert(100%)');
+  $('#next-button').css('filter', 'invert(100%)');
 }
