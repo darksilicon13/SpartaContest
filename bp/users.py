@@ -1,18 +1,17 @@
 # users.py - 회원가입 및 로그인 application
 
-from flask import Blueprint, render_template, request, jsonify ,redirect, url_for, session
+from flask import Blueprint, render_template, request, jsonify, redirect, url_for, make_response
 from pymongo import MongoClient
 from dotenv import load_dotenv
 import os
 from flask_bcrypt import Bcrypt
-import jwt
-from datetime import datetime, timedelta
+from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
+from datetime import timedelta
 
 # 환경 변수 Setup
 load_dotenv()
 ID = os.getenv('DB_ID')
 PW = os.getenv('DB_PW')
-JWT_SECRET_KEY = os.getenv('JWT_SECRET_KEY')
 
 # users Setup
 users = Blueprint('users', __name__, url_prefix="/user")
@@ -31,7 +30,7 @@ def findUser(email):
 # 로그인 페이지 렌더링
 @users.route('/')
 def render_login():
-    return render_template('main.html')
+    return render_template('login.html')
 
 # 유저 로그인
 @users.route('/login', methods=['POST'])
@@ -42,21 +41,18 @@ def login():
 
     user = findUser(email)  # DB에서 사용자 정보 받아와 user에 저장
 
-    if user:    # 유저 정보가 있으면 비밀번호 비교
-        if bcrypt.check_password_hash(user['password'], password):
-            # 비밀번호 일치하면 토큰 생성
-            payload = {
-                'email': email,
-                'username': user['username'],
-                'exp': datetime.utcnow() + timedelta(hours=8)   # 로그인 8시간 유지
-            }
-            token = jwt.encode(payload, JWT_SECRET_KEY, algorithm='HS256')
+    # 유저 정보가 있고 비밀 번호가 일치하는지 검사
+    if user and bcrypt.check_password_hash(user['password'], password):
+        # 로그인 성공 시 토큰 생성
+        token = create_access_token(identity={'email': user['email'], 'username': user['username']}, expires_delta=timedelta(hours=8))
 
-            return jsonify({'result': 'SUCCESS', 'token': token})   # SUCCESS와 토큰 반환
+        # 쿠키에 토큰 저장 후 main.html로 이동
+        res = make_response(render_template('main.html'))
+        res.set_cookie('token', token)
 
-        return jsonify({'result': 'FAIL', 'msg': '비밀번호가 틀렸습니다.'})   # FAIL과 msg 반환
+        return res
 
-    return jsonify({'result': 'FAIL', 'msg': '유저 정보가 없습니다.'})   # FAIL과 msg 반환
+    return jsonify({'result': 'FAIL', 'msg': '아이디 혹은 비밀번호를 다시 확인해주세요.'})   # FAIL과 msg 반환
 
 # 회원 가입 페이지 렌더링
 @users.route('/join')
@@ -101,13 +97,13 @@ def check():
 
 # 사용자 인증 - 토큰 확인
 @users.route('/auth', methods=['GET'])
+@jwt_required()
 def auth():
-    # 전달받은 토큰 디코딩
-    token = request.args.get('token')
-    header = jwt.decode(token, JWT_SECRET_KEY, algorithms='HS256')
+    # 토큰에 저장된 정보 가져오기
+    cur_user = get_jwt_identity()
 
-    user = findUser(header['email'])
-    if user['email']==header['email'] and user['username']==header['username']:
+    user = findUser(cur_user['email'])
+    if user['email'] == cur_user['email'] and user['username'] == cur_user['username']:
         return jsonify({'result': 'SUCCESS'})   # 사용자 정보가 DB에 있으면 SUCCESS 반환
 
     return jsonify({'result': 'FAIL'})  # FAIL 반환
