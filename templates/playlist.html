@@ -29,6 +29,11 @@
 
 <body>
     <div class="wrapper">
+        <div class="toggleBox"><input type="checkbox" class="checkbox" id="checkbox"><label for="checkbox" class="label">
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+            <div class="ball"></div>
+        </label></div>
         <div id="slide"><a id="logo" href="main.html">
                 <div id="Two">2</div>
                 <div id="S">S</div>
@@ -46,7 +51,7 @@
             <!-- Carousel that contains frames -->
             <div id="carouselExampleControls" class="carousel slide" data-bs-interval="false">
                 <div class="carousel-inner" id="carousel-inner">
-                   
+
                 </div>
                 <button id="prev-button" class="carousel-control-prev" type="button"
                     data-bs-target="#carouselExampleControls" data-bs-slide="prev">
@@ -61,21 +66,43 @@
             </div>
             <div class="youtuber">
                 <a href="#"><img id="author"
-                        src="https://images.pexels.com/photos/127028/pexels-photo-127028.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"><span id="authorName">CatTube</span></a>
+                        src="https://images.pexels.com/photos/127028/pexels-photo-127028.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"><span
+                        id="authorName">CatTube</span></a>
             </div>
 
             <!-- Comment Posting Section -->
-            <!-- <form>
+            <form>
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">Comment</label>
-                    <textarea id="comment-textarea" class="form-control"
-                        id="exampleFormControlTextarea1" rows="1"></textarea>
+                    <textarea id="comment-textarea" class="form-control" id="exampleFormControlTextarea1"
+                        rows="1"></textarea>
                     <button id="post-button" class="btn btn-primary mt-1" type="submit">post</button>
                 </div>
-            </form> -->
+            </form>
 
             <!-- Comments Sections -->
-
+            <table id="comment-section" class="table table-borderless">
+                <thead>
+                    <tr>
+                        <th class="col-md-2">Commentor</th>
+                        <th class="col-md-8">Comment</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="col-md-2">Mark</td>
+                        <td class="col-md-8">@mdo</td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-2">Jacob</td>
+                        <td class="col-md-8">@fat</td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-2">Larry the Bird</td>
+                        <td class="col-md-8">@twitter</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 
@@ -163,9 +190,24 @@
     //     $('#post-button').hide()
     // });
 
+    function postComment() {
+        let id
+        let comment = $('#comment=textarea').val()
+
+        $.ajax({
+                type: "POST",
+                url: "/playlist",
+                data: { id_give: id, comment_give: comment },
+                success: function (response) { // 성공하면
+                    alert(response["msg"]);
+                    window.location.reload();
+                }
+            })
+    }
+
 
     // Bring comments from DB
-    // function showComments() {
+    // function showComment() {
     //     $('#comment-box').empty()
 
     //     let commentCount = Math.random() * 20;
@@ -204,6 +246,44 @@
 
 </script>
 <script>
+    $(document).ready(function () {
+    $.ajax({
+        type: "GET",
+        url: "/movie?channel="+localStorage.getItem('channel'),
+        data: {},
+        success: function (response) {
+            console.log(localStorage.getItem('channel'))
+            console.log(response['msg'][0]['videoId'])
+            const carousel = document.getElementById("carousel-inner")
+            length = response['msg'].length;
+            for (let i = length - 1; i >= 0; i--) {
+                videoId = response['msg'][i]['videoId']
+                if (i === length - 1) {
+                    temp_html = `<div class="carousel-item active">
+      <iframe src="https://www.youtube.com/embed/${videoId}" title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+         allowfullscreen></iframe>
+      </div>`;
+                    $(carousel).append(temp_html);
+                } else {
+                    temp_html = `<div class="carousel-item">
+       <iframe src="https://www.youtube.com/embed/${videoId}" title="YouTube video player" frameborder="0"
+           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+       </div>`;
+                    $(carousel).append(temp_html);
+                }
+            };
+        }
+    })
+});
+    $(document).ready(function () {
+        const name = window.sessionStorage.getItem("youtube")
+        document.getElementById("author").src = sessionStorage.getItem("icon");
+        document.getElementById("authorName").innerHTML = name;
+   });
+
+
     toggle.onclick = function () {
         toggle.classList.toggle('active');
         sidebar.classList.toggle('active');
@@ -221,8 +301,7 @@
     const searchbtn = document.getElementById("button-addon2");
     const searchinput = document.querySelector(".form-control");
 
-    searchbtn.addEventListener('click', ()=>
-    {
+    searchbtn.addEventListener('click', () => {
         youtube(searchinput.value);
     })
 
@@ -240,7 +319,9 @@
         const value = searchinput.value;
         youtube(value);
     });
-</script>
 
-<script src="../static/javascript/youtuber.js"></script>
+</script>
+<script src="../static/javascript/darkmode.js"></script>
+<!-- <script src="../static/javascript/youtuber.js"></script> -->
+
 </html>
