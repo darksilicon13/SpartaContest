@@ -1,71 +1,48 @@
-let movieList = $('#movielist')
-let items = $('.videoBox')
-let clones = [];
-let disableScroll = false;
-let scrollheight = 0;
-let scrollpos = 0;
-let clonesHeight = 0;
+// let intersectionObserver = new IntersectionObserver(function(entries){
+//     if(entries[0].intersectionRatio <= 0) return
+//
+//     loadItems(10);
+//     console.log('Loaded new items')
+// })
+// intersectionObserver.observe((document.querySelector('.scrollFooter')))
 
-function getScrollPos(){
-    return movieList.scrollTop; // Amount window scrolled
-}
+const io = new IntersectionObserver((entries, observer)=>{
+    entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
 
-function setScrollPos(pos){
-    movieList.scrollTop = pos
-}
+        if(page._scrollchk) return;
 
-function getClonesHeight(){
-    clonesHeight = 0;
-
-    clones.forEach(clone => {
-        clonesHeight += close.offsetHeight; // offsetHeight returns heigh of element
+        observer.observe(document.getElementById('sentinel'));
+        page._page += 1;
+        page.list.search();
     })
-    return clonesHeight
-}
+})
 
-//recalculate dimensions when screen is resized
-function reCalc(){
-    scrollpos = getScrollPos()
-    scrollheight = movieList.scrollHeight
-    clonesHeight = getClonesHeight()
-    if(scrollpos <= 0){
-        setScrollPos(1)
+io.observe(document.getElementById('sentinel'));
+
+$.ajax({
+    url: url,
+    data: param,
+    method: "GET",
+    dataType: "json",
+    success: function (result){
+        console.log(result);
+    },
+    error: function (err){
+        console.log(err);
+    },
+    beforeSend: function (){
+        _scrollchk = true;
+        //데이터가 로드 중임을 나타내는 flag입니다
+        document.getElementById('list').appendChild(skeleton.show())
+        //skeleton을 그리는 함수를 이용해 DOM에 추가
+        $('loading').show();
+        //loading animation을 가진 요소를 보여줍니다.
+    },
+    complete: function (){
+        _scrollchk = false;
+
+        $('.loading').hide();
+        skeleton.hide();
     }
-}
-
-function scrollUpdate(){
-    if(!disableScroll){
-        scrollpos = getScrollPos();
-        if(clonesHeight + scrollpos >= scrollheight){
-            setScrollPos(1)
-            disableScroll = true
-        }else if(scrollpos <= 0){
-            setScrollPos(scrollheight - clonesHeight)
-            disableScroll = true
-        }
-    }
-    if(disableScroll){
-        window.setTimeout(()=>{
-            disableScroll = false
-        },40)
-    }
-}
-
-function onLoad(){
-    items.forEach(item => {
-        const clone = item.cloneNode(true)
-        movieList.appendChild(clone)
-        clone.classList.add('js-clone')
-    })
-    clones = movieList.querySelectorAll('.js-clone')
-
-    reCalc();
-
-    movieList.addEventListener('scroll', () => {
-        window.requestAnimationFrame(scrollUpdate)
-    }, false)
-    window.addEventListener('resize', () => {
-        window.requestAnimationFrame(reCalc)
-    }, false)
-}
-window.onload = onLoad()
+})
