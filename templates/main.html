@@ -74,10 +74,14 @@
         </div>
     </div>
     <div id="genre">
-        <a onclick="filterObjects('all'); genreAppend()" class="genreBtn" value="Show All"><img src="../static/img/category1.png"></a>
-        <a onclick="filterObjects('cat'); genreAppend()" class="genreBtn" value="Cat"><img src="../static/img/category2.png"></a>
-        <a onclick="filterObjects('dog'); genreAppend()" class="genreBtn" value="Dog"><img src="../static/img/category1.png"></a>
-        <a onclick="filterObjects('series'); genreAppend()" class="genreBtn" value="Series"><img src="../static/img/category2.png"></a>
+        <a onclick="filterObjects('all'); genreAppend()" class="genreBtn" value="Show All"><img
+                src="../static/img/category1.png"></a>
+        <a onclick="filterObjects('cat'); genreAppend()" class="genreBtn" value="Cat"><img
+                src="../static/img/category2.png"></a>
+        <a onclick="filterObjects('dog'); genreAppend()" class="genreBtn" value="Dog"><img
+                src="../static/img/category1.png"></a>
+        <a onclick="filterObjects('series'); genreAppend()" class="genreBtn" value="Series"><img
+                src="../static/img/category2.png"></a>
     </div>
     <div class="videoList">
         <table class="table">
@@ -181,6 +185,12 @@
             </tr>
         </table>
     </div>
+    <div class="loader-ellips">
+        <span class="loader-ellips__dot"></span>
+        <span class="loader-ellips__dot"></span>
+        <span class="loader-ellips__dot"></span>
+        <span class="loader-ellips__dot"></span>
+    </div>
 </div>
 <footer class="footer">
     <div class="footer-title">
@@ -255,10 +265,33 @@
 <script>
     // main.html로 왔을때 다시 로컬스토리지 클리어
     window.onload = window.localStorage.clear();
-    $(document).ready(function () {
+
+    document.addEventListener("DOMContentLoaded", () => {
+        let options = {
+            root: null,
+            rootMargins: "0px", //마진 없음
+            threshold: 0.5 //footer가 50% 보여지면 동작
+        };
+        const observer = new IntersectionObserver(handleIntersect, options);
+        observer.observe(document.querySelector("footer")) //footer 발견 시 handleIntersect 함수 실행
+        getData();
+    })
+
+    function handleIntersect(entries) {
+        if (entries[0].isIntersecting) {
+            console.warn('푸터 발견')
+            getData();
+        }
+    }
+
+    function getData() {
+        let main = document.querySelector('#movielist');
+        console.log('fetch some JSON data')
         $.ajax({
             type: "GET",
             url: "/data",
+            // data: jsonify("{start: 10, end: 15}"),
+            // indexing이 안되있으면 order by로
             data: {},
             success: function (response) {
                 let dbjson = response['msg']
@@ -284,7 +317,8 @@
                 }
             }
         })
-    });
+    }
+
 
     function getValue(id) {
         $.ajax({
