@@ -42,7 +42,7 @@
         <div id="toggle"></div>
         <div id="sidebar">
             <ul>
-                <li><a href="#">Home</a></li>
+                <li><a href="main.html">Home</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Contact</a></li>
             </ul>
@@ -183,68 +183,6 @@
         </div>
     </footer>
 </body>
-<script type="text/javascript">
-
-    // $(document).ready(function () {
-    //     // showComments();
-    //     $('#post-button').hide()
-    // });
-
-    function postComment() {
-        let id
-        let comment = $('#comment=textarea').val()
-
-        $.ajax({
-                type: "POST",
-                url: "/playlist",
-                data: { id_give: id, comment_give: comment },
-                success: function (response) { // 성공하면
-                    alert(response["msg"]);
-                    window.location.reload();
-                }
-            })
-    }
-
-
-    // Bring comments from DB
-    // function showComment() {
-    //     $('#comment-box').empty()
-
-    //     let commentCount = Math.random() * 20;
-
-    //     let temp_html = `<tr>
-    //             <td>False Id</td>
-    //             <td>False Comment</td>
-    //         </tr>`
-    //     for (let i = 0; i < commentCount; i++) {
-    //         $('#comment-box').append(temp_html)
-    //     }
-
-    // }
-
-    // Bring video information from API
-    // function showSlides() {
-    //     $.ajax({
-    //         type: 'GET',
-    //         url: '/playlist',
-    //         data: {},
-    //         success: function (response) {
-    //             let videoLink
-    //             let imageLink
-    //             let alt
-    //             let temp_html = `<div class="carousel-item active">
-    //             <a href="${videoLink}" target="_blank"><img src="${imageLink}" class="d-block w-100"
-    //                     alt="${alt}"></a>
-    //         </div>`
-    //         }
-    //     })
-    // }
-
-    // function showPostBtn() {
-    //     $('post-button').show()
-    // }
-
-</script>
 <script>
     $(document).ready(function () {
     $.ajax({

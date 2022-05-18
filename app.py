@@ -1,19 +1,24 @@
 # app.py - main application
 
-from flask import Flask, render_template, session,jsonify,request
+from flask import Flask, render_template, session, jsonify, request
+from bp.users import users
 from pymongo import MongoClient
 from dotenv import load_dotenv
+import certifi
 import os
 #Flask App Setup
 app = Flask(__name__)
-
+ca = certifi.where()
 #MongoDB Setup
 load_dotenv()
 ID = os.getenv('DB_ID')
 PW = os.getenv('DB_PW')
 
+# BluePrint Setup
+app.register_blueprint(users)   # 로그인 및 회원 가입
+
 # MongoDB Atlas Setup
-client = MongoClient(f'mongodb+srv://{ID}:{PW}@s2lide.fwsiv.mongodb.net/?retryWrites=true&w=majority', 27017)
+client = MongoClient(f'mongodb+srv://{ID}:{PW}@s2lide.fwsiv.mongodb.net/?retryWrites=true&w=majority', 27017, tlsCAFile=ca)
 db = client.s2lide
 
 @app.route('/')
@@ -25,6 +30,11 @@ def db_to_playlist():
     dbjson = list(db.videoId.find({},{'_id':False}))
     return render_template('playlist.html')
 
+@app.route('/request')
+def request():
+    return render_template('request.html')
+
+# 쿼리 파라미터 받기
 @app.route('/data', methods=['GET'])
 def db_to_main():
     dbjson = list(db.link.find({},{'_id':False}))
