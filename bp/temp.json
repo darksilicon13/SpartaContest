@@ -1,0 +1,19 @@
+{
+	"users": [
+		{
+			"userName": "test",
+			"email": "abc@naver.com",
+			"password": "$2b$12$fvhk2EI6nPrrJzZTQholCOyFWjf9xsqp/8HS1R3REoQL2NWPVLHcu"
+		},
+		{
+			"userName": "slide",
+			"email": "hahahoho@gmail.com",
+			"password": "$2b$12$Mg.l2urOQ5yANwQ9a4v05upBHQeYs8MIivKxzVt0iTpeKTja9jpGC"
+		},
+		{
+			"userName": "third",
+			"email": "test@test.com",
+			"password": "$2b$12$cjlM4bC072OoTeX7.YFuAu4urUlYsRinZMYQEdUIzdFDIRt5csVs6"
+		}
+	]
+}
