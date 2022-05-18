@@ -35,6 +35,7 @@ def db_to_playlist():
 def request():
     return render_template('request.html')
 
+# 쿼리 파라미터 받기
 @app.route('/data', methods=['GET'])
 def db_to_main():
     dbjson = list(db.link.find({},{'_id':False}))
