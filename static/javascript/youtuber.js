@@ -1,14 +1,5 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-const APIKey = "AIzaSyCss8X8G9gN4Q9AO9NNhc9xZ-78TzjXq5U";  //API 키인데, 타임아웃시 데이터베이스에서 하나씩 가져왔으면 함.
-=======
-const APIKey = "AIzaSyCss8X8G9gN4Q9AO9NNhc9xZ-78TzjXq5U";  //API 키인데, 타임아웃시 데이터베이스에서 하나씩 가져왔으면 함. 
->>>>>>> 777687b05591f3913a5d2ca562dbcc7ea53b3b1a
-
-=======
-const APIKey = "AIzaSyBNNojaJ-hyukKmlBl2MGPLQMethTkO2uo";  //API 키인데, 타임아웃시 데이터베이스에서 하나씩 가져왔으면 함. 
+const APIKey = "AIzaSyBNNojaJ-hyukKmlBl2MGPLQMethTkO2uo";  //API 키인데, 타임아웃시 데이터베이스에서 하나씩 가져왔으면 함.
 // AIzaSyCss8X8G9gN4Q9AO9NNhc9xZ
->>>>>>> 870f9e4cec445fcd2ccdc02a8d212b33b5255063
 
 
 //playlist.html 에서 #author에 아이콘사진과 이름을 localStorage에서 가져와 바꾸는데 그 과정에서 태그 추가과정이 있었음
