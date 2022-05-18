@@ -7,6 +7,7 @@ import os
 from flask_bcrypt import Bcrypt
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
 from datetime import datetime
+from bson.objectid import ObjectId
 
 # 환경 변수 Setup
 load_dotenv()
@@ -19,6 +20,14 @@ comments = Blueprint('comments', __name__, url_prefix="/comments")
 # MongoDB Atlas Setup - DB: s2lide
 client = MongoClient(f'mongodb+srv://{ID}:{PW}@s2lide.fwsiv.mongodb.net/?retryWrites=true&w=majority', 27017)
 coll = client.s2lide.comments
+
+# MongoDB의 objectIDtoStr를 문자열로 변환하는 함수
+def objectIDtoStr(list):
+    result = []
+    for document in list:
+        document['_id'] = str(document['_id'])
+        result.append(document)
+    return result
 
 # videoId를 이용해 전체 댓글 출력
 @comments.route('/', methods=['GET'])
@@ -41,17 +50,18 @@ def upload():
 
     # 댓글 정보 dic 생성
     dic = {
-        title: title,
-        content: content,
-        username: username,
-        date: date
+        'title': title,
+        'content': content,
+        'username': username,
+        'date': date
     }
 
     # DB에 댓글 저장 - Collection: comments
-    coll.insert_one(dic)
+    objId = coll.insert_one(dic).inserted_id
 
-    # 회원 가입 완료 시 로그인 페이지로 이동
-    return jsonify({'msg': '저장을 완료했습니다.'})
+    res = make_response()
+
+    return jsonify({'msg': '저장을 완료했습니다.', 'objId': objId})  # 저장 완료 시 msg와 objId 반환
 
 # 댓글 수정
 @comments.route('/modify', methods=['POST'])
@@ -59,19 +69,15 @@ def modify():
     # form 데이터 받아와 변수에 저장
     title = request.form['title']
     content = request.form['content']
-    username = request.form['username']
-    date = datetime.now.strftime('%Y-%m-%d %H:%M')
+    objId = request.form['objId']
 
     # 댓글 정보 dic 생성
     dic = {
-        title: title,
-        content: content,
-        username: username,
-        date: date
+        'title': title,
+        'content': content
     }
 
-    # DB에 댓글 저장 - Collection: comments
-    coll.insert_one(dic)
+    # objId로 해당 댓글 수정
+    coll.update_one({'_id': ObjectId(objId)}, {'$set': dic})
 
-    # 회원 가입 완료 시 로그인 페이지로 이동
-    return jsonify({'msg': '저장을 완료했습니다.'})
+    return jsonify({'msg': '수정을 완료했습니다.'})  # 수정 완료 시 msg 반환
