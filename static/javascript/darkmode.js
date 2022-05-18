@@ -61,7 +61,6 @@ function getDark() {
   $('#sidebar').css('background-color', 'black');
   $('#prev-button').css('filter', 'none');
   $('#next-button').css('filter', 'none');
-  $('.name').css('color', 'white');
 }
 
 function getBright() {
@@ -88,5 +87,4 @@ function getBright() {
   $('#sidebar').css('background-color', 'white');
   $('#prev-button').css('filter', 'invert(100%)');
   $('#next-button').css('filter', 'invert(100%)');
-  $('.name').css('color', 'black');
 }
