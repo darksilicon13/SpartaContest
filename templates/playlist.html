@@ -44,9 +44,9 @@
                 <ul>
                     <li><a href="/">Home</a></li>
                     <li><a href="/user">Login</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="request.html">Request</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/request">Request</a></li>
+                    <li><a href="/contact">Contact</a></li>
                 </ul>
             </div>
 
@@ -163,8 +163,8 @@
                             class="fa-brands fa-youtube"></i></button>
                 </div>
                 <div class="footer-about">
-                    <a href="main.html">Home</a>
-                    <a href="#">About</a>
+                    <a href="/">Home</a>
+                    <a href="/about">About</a>
                     <a href="https://www.notion.so/2-3be792a4fe0c40388a1474532f4c5328" target="_blank">Team Notion</a>
                     <a href="#"></a>
                     <a href="#"></a>
@@ -207,12 +207,12 @@
                 };
             }
         })
-    });
-    $(document).ready(function () {
+
+
         const name = window.sessionStorage.getItem("youtube")
         document.getElementById("author").src = sessionStorage.getItem("icon");
         document.getElementById("authorName").innerHTML = name;
-        
+
         showComment();
     });
 

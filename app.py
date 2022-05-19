@@ -40,6 +40,18 @@ def home():
 def db_to_playlist():
     return render_template('playlist.html')
 
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
+
+@app.route('/customer_request')
+def customerequest():
+    return render_template('request.html')
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
 # 쿼리 파라미터 받기
 @app.route('/data', methods=['GET'])
 def db_to_main():
