@@ -218,19 +218,33 @@ table {
     margin-bottom: 100px;
 }
 
-footer {
+.footer {
     position: relative;
     transform: translateY(-100%);
-    font-family: 'Josefin Sans', sans-serif;
-    color: #eb6383;
+    font-family: 'NanumSquare', sans-serif;
+    color: #262626;
     width: 100%;
-    height: 300px;
+    height: 350px;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     text-align: center;
-    border-top: 1px solid #eb6383;
+    border-top: 1px solid #bbb;
+    background-color: #f7c72a;
+}
+
+.footer-logo{
+    width:400px;
+    height:250px;
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-left: 60px;
+
+}
+
+.footer-logo-img{
+    width:50% !important;
 }
 
 .footer-title {
@@ -252,11 +266,53 @@ footer {
     justify-content: space-evenly;
 }
 
+.footer-title {
+    display: flex;
+    padding: 20px;
+    width: 400px;
+    justify-content: space-evenly;
+    margin-top: 50px;
+}
+
+.footer-title-fst {
+    display: flex;
+}
+
+.footer-contents {
+    width: 850px;
+    display: flex;
+    margin-bottom: 40px;
+    margin-right:70px;
+    justify-content: space-between;
+
+}
+
+.poppinsFont{
+    font-family: 'Poppins', sans-serif;
+}
+
+.footer-fe-box,
+.footer-bett-box{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+.footer-be-box{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
 .footer-fe-box ul,
 .footer-be-box ul {
     padding: 0;
     margin: 0;
-    text-align: left;
 }
 
 .footer-name {
@@ -264,16 +320,33 @@ footer {
     justify-content: space-evenly;
     align-items: center;
     text-align: center;
+    font-size: 23px;
     margin-bottom: 10px;
+}
+
+.footer-name > ul {
+    font-family: 'Nanum Gothic', sans-serif;
 }
 
 .fa-github,
 .footer-about a {
-    color: #eb6383;
+    color: rgb(32, 32, 32);
+}
+
+.fa-github{
+    margin-left: 10px;
+}
+
+.division{
+    width:30px;
+    height:1px;
+    background-color: gray;
+    margin-bottom: 10px;
+
 }
 
 .fa-github:hover {
-    color: black;
+    color: white;
 }
 
 .footer-copy {
@@ -290,14 +363,18 @@ footer {
     justify-content: space-evenly;
 }
 
-#button-addon2 {
-    background-color: #eb6383;
-    border: none;
+.form-control{
+    width:200px !important;
 }
 
-.fa-youtube {
-    color: black;
+#button-addon2 {
+    margin-left: 10px;
+    width:60px;
+    background-color: #e2314b;
+    border: none;
+    color:white;
 }
+
 
 .footer-about {
     display: flex;
@@ -307,6 +384,8 @@ footer {
 
 .footer-about a {
     margin: 5px;
+    color: #262626;
+    font-family: 'Poppins', sans-serif;
 }
 
 
