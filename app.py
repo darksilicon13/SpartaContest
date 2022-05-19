@@ -30,6 +30,9 @@ db = client.s2lide
 # BluePrint Setup
 app.register_blueprint(users)   # 로그인 및 회원 가입
 
+# @app.route('/')
+# def home():
+#     return render_template('main.html')
 @app.route('/')
 def home():
     return render_template('main.html')

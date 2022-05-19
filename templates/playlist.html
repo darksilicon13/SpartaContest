@@ -31,14 +31,14 @@
     <div class="wrapper">
         <div id="upperSide">
             <div class="toggleBox"><input type="checkbox" class="checkbox" id="checkbox"><label for="checkbox"
-                                                                                                class="label">
-                <i class="fas fa-moon"></i>
-                <i class="fas fa-sun"></i>
-                <div class="ball"></div>
-            </label></div>
+                    class="label">
+                    <i class="fas fa-moon"></i>
+                    <i class="fas fa-sun"></i>
+                    <div class="ball"></div>
+                </label></div>
             <div id="slide"><a id="logo" href="/">
-                <img src="../static/img/logologo.png">
-            </a></div>
+                    <img src="../static/img/logologo.png">
+                </a></div>
             <div id="toggle"></div>
             <div id="sidebar">
                 <ul>
@@ -68,7 +68,7 @@
         </div>
         <div id="main">
             <!-- Carousel that contains frames -->
-            
+
             <div class="youtuber">
                 <a href="#"><img id="author"
                         src="https://images.pexels.com/photos/127028/pexels-photo-127028.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"><span
@@ -76,11 +76,11 @@
             </div>
 
             <!-- Comment Posting Section -->
-            <form>
+            <form id="comment-form">
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">Comment</label>
-                    <textarea id="comment-textarea" class="form-control" id="exampleFormControlTextarea1"
-                        rows="1"></textarea>
+                    <textarea id="comment-textarea" class="form-control" id="exampleFormControlTextarea1" rows="1"
+                        name="content"></textarea>
                     <button id="post-button" class="btn btn-primary mt-1" type="submit">post</button>
                 </div>
             </form>
@@ -190,41 +190,45 @@
 </body>
 <script>
     $(document).ready(function () {
-    $.ajax({
-        type: "GET",
-        url: "/movie?channel="+localStorage.getItem('channel'),
-        data: {},
-        success: function (response) {
-            console.log(localStorage.getItem('channel'))
-            console.log(response['msg'][0]['videoId'])
-            const carousel = document.getElementById("carousel-inner")
-            length = response['msg'].length;
-            for (let i = length - 1; i >= 0; i--) {
-                videoId = response['msg'][i]['videoId']
-                if (i === length - 1) {
-                    temp_html = `<div class="carousel-item active">
+        $.ajax({
+            type: "GET",
+            url: "/movie?channel=" + localStorage.getItem('channel'),
+            data: {},
+            success: function (response) {
+                console.log(localStorage.getItem('channel'))
+                console.log(response['msg'][0]['videoId'])
+                const carousel = document.getElementById("carousel-inner")
+                length = response['msg'].length;
+                for (let i = length - 1; i >= 0; i--) {
+                    videoId = response['msg'][i]['videoId']
+                    if (i === length - 1) {
+                        temp_html = `<div class="carousel-item active">
       <iframe src="https://www.youtube.com/embed/${videoId}" title="YouTube video player" frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
          allowfullscreen></iframe>
       </div>`;
-                    $(carousel).append(temp_html);
-                } else {
-                    temp_html = `<div class="carousel-item">
+                        $(carousel).append(temp_html);
+                    } else {
+                        temp_html = `<div class="carousel-item">
        <iframe src="https://www.youtube.com/embed/${videoId}" title="YouTube video player" frameborder="0"
            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen></iframe>
        </div>`;
-                    $(carousel).append(temp_html);
-                }
-            };
-        }
-    })
-});
+                        $(carousel).append(temp_html);
+                    }
+                };
+            }
+        })
+    });
     $(document).ready(function () {
         const name = window.sessionStorage.getItem("youtube")
         document.getElementById("author").src = sessionStorage.getItem("icon");
         document.getElementById("authorName").innerHTML = name;
-   });
+
+        // if(getCookie('token') === null){
+        //     document.getElementsById('comment-form').css('visibility', 'hidden');
+        // }
+    });
 
 
     toggle.onclick = function () {
@@ -238,17 +242,48 @@
         }
     }
 
-    
+
 
     //comment section function
-    $.ajax({
-        type: "POST",
-        url: '/comments/upload',
-        data: {},
-        success: function (response) {
 
-        }
-    })
+    
+
+    document.getElementById('post-button').onclick = () => {
+
+        const token = getCookie('token')
+
+        let channel = localStorage.getItem('channel')
+        let content = document.getElementById('comment-textarea').value
+        let username = 'lee'
+
+        $.ajax({
+            type: "POST",
+            url: '/comments/upload',
+            headers: { 'Authorization': `Bearer ${token}` },
+            data: {
+                'videoId': channel,
+                'content': content,
+                'username': username
+            },
+            success: console.log('SUCCESS')
+        })
+    }
+
+    function getCookie(key) {
+        var result = null;
+        var cookie = document.cookie.split(';');
+        cookie.some(function (item) {
+            item = item.replace(' ', '');
+
+            var dic = item.split('=');
+
+            if (key === dic[0]) {
+                result = dic[1];
+                return true;
+            }
+        });
+        return result;
+    }
 
 
     //footer
