@@ -45,7 +45,7 @@
             <i class="fas fa-sun"></i>
             <div class="ball"></div>
         </label></div>
-        <div id="slide"><a id="logo" href="main.html">
+        <div id="slide"><a id="logo" href="/">
             <img src="../static/img/logologo.png">
         </a></div>
         <div id="toggle"></div>
@@ -53,9 +53,9 @@
             <ul>
                 <li><a href="/">Home</a></li>
                 <li><a href="/user">Login</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="request.html">Request</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/customer_request">Request</a></li>
+                <li><a href="/contact">Contact</a></li>
             </ul>
         </div>
         <div class="waviy">
@@ -260,7 +260,8 @@
             data: {},
             success: function (response) {
                 let dbjson = response['msg']
-                localStorage.setItem('channel', dbjson[id]['채널명']);
+                localStorage.setItem('channel', dbjson[id]['채널명'])
+                sessionStorage.setItem('you',dbjson[id]['유튜버아이콘'])
                 window.location.href = "/playlist";
             }
         })
