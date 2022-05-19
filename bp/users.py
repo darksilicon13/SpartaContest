@@ -57,7 +57,7 @@ def login():
 # 회원 가입 페이지 렌더링
 @users.route('/join')
 def render_join():
-    return render_template('main.html')
+    return render_template('register.html')
 
 # DB에 유저 정보 등록 - 회원 가입
 @users.route('/register', methods=['POST'])

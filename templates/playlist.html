@@ -29,26 +29,27 @@
 
 <body>
     <div class="wrapper">
-        <div class="toggleBox"><input type="checkbox" class="checkbox" id="checkbox"><label for="checkbox" class="label">
-            <i class="fas fa-moon"></i>
-            <i class="fas fa-sun"></i>
-            <div class="ball"></div>
-        </label></div>
-        <div id="slide"><a id="logo" href="main.html">
-                <div id="Two">2</div>
-                <div id="S">S</div>
-                <div id="lide">l i d e</div>
-            </a></div>
-        <div id="toggle"></div>
-        <div id="sidebar">
-            <ul>
-                <li><a href="main.html">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </div>
-        <div id="main">
-            <!-- Carousel that contains frames -->
+        <div id="upperSide">
+            <div class="toggleBox"><input type="checkbox" class="checkbox" id="checkbox"><label for="checkbox"
+                    class="label">
+                    <i class="fas fa-moon"></i>
+                    <i class="fas fa-sun"></i>
+                    <div class="ball"></div>
+                </label></div>
+            <div id="slide"><a id="logo" href="/">
+                    <img src="../static/img/logologo.png">
+                </a></div>
+            <div id="toggle"></div>
+            <div id="sidebar">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/user">Login</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="request.html">Request</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
             <div id="carouselExampleControls" class="carousel slide" data-bs-interval="false">
                 <div class="carousel-inner" id="carousel-inner">
 
@@ -64,6 +65,10 @@
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
+        </div>
+        <div id="main">
+            <!-- Carousel that contains frames -->
+
             <div class="youtuber">
                 <a href="#"><img id="author"
                         src="https://images.pexels.com/photos/127028/pexels-photo-127028.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"><span
@@ -71,12 +76,12 @@
             </div>
 
             <!-- Comment Posting Section -->
-            <form onsubmit="return false;">
+            <form id="comment-form">
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">Comment</label>
-                    <textarea id="comment-textarea" class="form-control" id="exampleFormControlTextarea1"
-                        rows="1"></textarea>
-                    <button id="post-button" class="btn btn-primary mt-1" type="submit">post</button>
+                    <textarea id="comment-textarea" class="form-control" id="exampleFormControlTextarea1" rows="1"
+                        name="content"></textarea>
+                    <button id="post-button" class="btn btn-primary mt-1" type="submit" onclick="postComment">post</button>
                 </div>
             </form>
 
@@ -88,19 +93,7 @@
                         <th class="col-md-8">Comment</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td class="col-md-2">Mark</td>
-                        <td class="col-md-8">@mdo</td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-2">Jacob</td>
-                        <td class="col-md-8">@fat</td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-2">Larry the Bird</td>
-                        <td class="col-md-8">@twitter</td>
-                    </tr>
+                <tbody id="comment-body">
                 </tbody>
             </table>
         </div>
@@ -185,41 +178,43 @@
 </body>
 <script>
     $(document).ready(function () {
-    $.ajax({
-        type: "GET",
-        url: "/movie?channel="+localStorage.getItem('channel'),
-        data: {},
-        success: function (response) {
-            console.log(localStorage.getItem('channel'))
-            console.log(response['msg'][0]['videoId'])
-            const carousel = document.getElementById("carousel-inner")
-            length = response['msg'].length;
-            for (let i = length - 1; i >= 0; i--) {
-                videoId = response['msg'][i]['videoId']
-                if (i === length - 1) {
-                    temp_html = `<div class="carousel-item active">
+        $.ajax({
+            type: "GET",
+            url: "/movie?channel=" + localStorage.getItem('channel'),
+            data: {},
+            success: function (response) {
+                console.log(localStorage.getItem('channel'))
+                console.log(response['msg'][0]['videoId'])
+                const carousel = document.getElementById("carousel-inner")
+                length = response['msg'].length;
+                for (let i = length - 1; i >= 0; i--) {
+                    videoId = response['msg'][i]['videoId']
+                    if (i === length - 1) {
+                        temp_html = `<div class="carousel-item active">
       <iframe src="https://www.youtube.com/embed/${videoId}" title="YouTube video player" frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
          allowfullscreen></iframe>
       </div>`;
-                    $(carousel).append(temp_html);
-                } else {
-                    temp_html = `<div class="carousel-item">
+                        $(carousel).append(temp_html);
+                    } else {
+                        temp_html = `<div class="carousel-item">
        <iframe src="https://www.youtube.com/embed/${videoId}" title="YouTube video player" frameborder="0"
            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen></iframe>
        </div>`;
-                    $(carousel).append(temp_html);
-                }
-            };
-        }
-    })
-});
+                        $(carousel).append(temp_html);
+                    }
+                };
+            }
+        })
+    });
     $(document).ready(function () {
         const name = window.sessionStorage.getItem("youtube")
         document.getElementById("author").src = sessionStorage.getItem("icon");
         document.getElementById("authorName").innerHTML = name;
-   });
+        
+        showComment();
+    });
 
 
     toggle.onclick = function () {
@@ -234,31 +229,64 @@
     }
 
     //comment section function
-    document.getElementById('post-button').onclick = () => {
+
+    
+
+    function postComment() {
+
         const token = getCookie('token')
+
         let channel = localStorage.getItem('channel')
         let content = document.getElementById('comment-textarea').value
-        console.log(channel, content)
+        let username = 'lee'
+
         $.ajax({
             type: "POST",
             url: '/comments/upload',
             headers: { 'Authorization': `Bearer ${token}` },
             data: {
-                'channel': channel,
+                'videoId': channel,
                 'content': content,
-                'username': 'test'
+                'username': username
             },
             success: function (response){
                 console.log(response)
             }
         })
     }
+
+    function showComment() {
+        let channel = localStorage.getItem('channel')
+        alert(channel)
+        $.ajax({
+            type: "GET",
+            url: '/comments/' + channel,
+            data: {},
+            success: function (response) {
+                for (let i = 0; i < response.length; i++) {
+                    let content = response[i]['content'];
+                    let username = response[i]['username'];
+                    let temp_html = `<tr>
+                        <td class="col-md-2">${username}</td>
+                        <td class="col-md-8">${content}</td>
+                    </tr>`
+
+                    $('#comment-body').append(temp_html)
+                }
+            }
+        })
+    }
+
+
+
     function getCookie(key) {
         var result = null;
         var cookie = document.cookie.split(';');
         cookie.some(function (item) {
             item = item.replace(' ', '');
+
             var dic = item.split('=');
+
             if (key === dic[0]) {
                 result = dic[1];
                 return true;

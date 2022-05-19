@@ -21,100 +21,68 @@
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@200&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
     <!-- jQuery    -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Infinite Scroll -->
-    <script src="https://unpkg.com/infinite-scroll@4/dist/infinite-scroll.pkgd.min.js"></script>
+    <script src="https://unpkg.com/@webcreate/infinite-ajax-scroll@^3.0.0-beta.6/dist/infinite-ajax-scroll.min.js"></script>
     <!-- External CSS -->
     <link type="text/css" rel="stylesheet" href="../static/css/style.css">
     <!--파비콘-->
     <link rel="shortcut icon" type="image/x-icon" href="../static/img/favi2.png">
     <title>TToODLe</title>
-
-    <script>
-
-    </script>
 </head>
 <body>
 <div class="wrapper">
-    <div id="upperSide">
-        <div class="toggleBox"><input type="checkbox" class="checkbox" id="checkbox"><label for="checkbox"
-                                                                                            class="label">
-            <i class="fas fa-moon"></i>
-            <i class="fas fa-sun"></i>
-            <div class="ball"></div>
-        </label></div>
-        <div id="slide"><a id="logo" href="main.html">
-            <img src="../static/img/logologo.png">
-        </a></div>
-        <div id="toggle"></div>
-        <div id="sidebar">
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/user">Login</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="request.html">Request</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </div>
-        <div class="waviy">
-            <span style="--i:1" class="waviyW">W</span>
-            <span style="--i:2" class="waviyH">h</span>
-            <span style="--i:3" class="waviyE">e</span>
-            <span style="--i:4" class="waviyR">r</span>
-            <span style="--i:5" class="waviyE">e</span>
-            <span style="--i:6" class="waviyR1">R</span>
-            <span style="--i:7" class="waviyU">U</span>
-            <span style="--i:8" class="waviyG">g</span>
-            <span style="--i:9" class="waviyO">o</span>
-            <span style="--i:10" class="waviyQ">?</span>
-        </div>
-        <div id="searchBox">
-            <div id="search">
-                <form class="searchForm">
-                    <div class="searchBar">
-                        <input id="genreInput" type="text" placeholder="Search for the keyword . . 🫠">
-                        <span></span>
-                        <label id="searchShop">#</label>
-                    </div>
-                </form>
-            </div>
-        </div>
+    <div class="toggleBox"><input type="checkbox" class="checkbox" id="checkbox"><label for="checkbox" class="label">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun"></i>
+        <div class="ball"></div>
+    </label></div>
+    <div id="slide"><a id="logo" href="/">
+        <div id="Two">2</div>
+        <div id="S">S</div>
+        <div id="lide">l i d e</div>
+    </a></div>
+    <div id="toggle"></div>
+    <div id="sidebar">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="/request">Request</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
     </div>
-    <div id="genre">
-        <a onclick="filterObjects('videoBox'); genreAppend()" class="genreBtn" value="Show All"><img
-                src="../static/img/all.png"></a>
-        <a onclick="filterObjects('고양이'); genreAppend()" class="genreBtn" value="Cat"><img
-                src="../static/img/dog_3.png"></a>
-        <a onclick="filterObjects('강아지'); genreAppend()" class="genreBtn" value="Dog"><img src="../static/img/animal.png"></a>
-        <a onclick="filterObjects('Vlog'); genreAppend()" class="genreBtn" value="Series"><img
-                src="../static/img/music.png"></a>
-        <a onclick="filterObjects('일상'); genreAppend()" class="genreBtn" value="Show All"><img
-                src="../static/img/film.png"></a>
-        <a onclick="filterObjects('영화'); genreAppend()" class="genreBtn" value="Cat"><img src="../static/img/dog_3.png"></a>
-        <a onclick="filterObjects('애니'); genreAppend()" class="genreBtn" value="Dog"><img
-                src="../static/img/all.png"></a>
-        <a onclick="filterObjects('음악'); genreAppend()" class="genreBtn" value="Series"><img
-                src="../static/img/music.png"></a>
-        <a onclick="filterObjects('여행'); genreAppend()" class="genreBtn" value="Dog"><img
-                src="../static/img/all.png"></a>
-        <a onclick="filterObjects('ASMR'); genreAppend()" class="genreBtn" value="Series"><img
-                src="../static/img/dog_3.png"></a>
-        <a onclick="filterObjects('FUN'); genreAppend()" class="genreBtn" value="Series"><img
-                src="../static/img/dog_3.png"></a>
+    <!--슬라이드(보류중)-->
+    <!--<div id="mainPhoto">-->
+    <!--<img src="https://i.ytimg.com/vi/XAoQviSh7HQ/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDO59DlFMVL1Lc8lLbKT5dfHz9R_w">-->
+    <!--</div>-->
+    <div class="subTitle">
+        <p id="whatrud">What are U</p>
+        <p id="gonslide">gonna slide ?</p>
+    </div>
+    <div id="searchBox">
+        <div id="search">
+            <form class="searchForm">
+                <div class="searchBar">
+                    <input id="genreInput" type="text" placeholder="genre">
+                    <span></span>
+                    <label>#</label>
+                </div>
+            </form>
+        </div>
+        <div id="genre">
+            <button onclick="filterObjects('all'); genreAppend()" class="genreBtn" value="Show All">showAll</button>
+            <button onclick="filterObjects('cat'); genreAppend()" class="genreBtn" value="Cat">cat</button>
+            <button onclick="filterObjects('dog'); genreAppend()" class="genreBtn" value="Dog">dog</button>
+            <button onclick="filterObjects('series'); genreAppend()" class="genreBtn" value="Series">series</button>
+        </div>
     </div>
     <div class="videoList">
         <table class="table">
             <tr id="movielist">
+
             </tr>
         </table>
-    </div>
-    <div class="loader-ellips">
-        <span class="loader-ellips__dot"></span>
-        <span class="loader-ellips__dot"></span>
-        <span class="loader-ellips__dot"></span>
-        <span class="loader-ellips__dot"></span>
     </div>
 </div>
 <footer class="footer">
@@ -190,74 +158,94 @@
 <script>
     // main.html로 왔을때 다시 로컬스토리지 클리어
     window.onload = window.localStorage.clear();
+    var start = 0;
+    var working = false;
 
-    document.addEventListener("DOMContentLoaded", () => {
-        let options = {
-            root: null,
-            rootMargins: "0px", //마진 없음
-            threshold: 0.5 //footer가 50% 보여지면 동작
-        };
-        const observer = new IntersectionObserver(handleIntersect, options);
-        observer.observe(document.querySelector("footer")) //footer 발견 시 handleIntersect 함수 실행
-        getData();
-    })
+    $(document).ready(function () {
+        $.ajax({
+            type: "GET",
+            url: "/data" + start,
+            processData: false,
+            contentType: 'application/json',
+            data: '',
+            success: function (response) {
+                // response = JSON.parse(response)
+                let dbjson = response['msg']
 
-    function handleIntersect(entries) {
-        if (entries[0].isIntersecting) {
-            console.warn('footer  on  screen!!')
-            getData();
-        }
-    }
-
-    let cnt = 0;
-
-    function getData() {
-        let main = document.querySelector('#movielist');
-        console.log('fetch some JSON data')
-        $(document).ready(function () {
-            $.ajax({
-                type: "GET",
-                url: "/data",
-                data: {},
-                success: function (response) {
-                    cnt = counting(cnt)
-                    console.log(cnt)
-                    let dbjson = response["msg"];
-                    for (i = cnt; i < cnt + 8; i++) {
-                        channel = dbjson[i]["채널명"];
-                        keyword = dbjson[i]["키워드"];
-                        thumbnail = dbjson[i]["썸네일"];
-                        youtubericon = dbjson[i]["유튜버아이콘"];
-                        temp_html_td = `
-            <td onclick='getValue(${i})' class="videoBox show ${keyword}">
+                for (i = 0; i < dbjson.length; i++) {
+                    channel = dbjson[i]['채널명']
+                    keyword = dbjson[i]['키워드']
+                    thumbnail = dbjson[i]['썸네일']
+                    youtubericon = dbjson[i]['유튜버아이콘']
+                    temp_html_td = `
+                <td id="appendVid" onclick='getValue(${i})'>
                     <div class="videoDiv">
                         <a class="thumbnail">
-                            <img src=${thumbnail}>
+                            <img src=${thumbnail} id="thumbimg">
                         </a>
                     </div>
-                    <div class="videoText">
+                    <div>
                         <a class="thumbnail"><img class="channelImg" id=${i}
-                                                  src=${youtubericon}><name
-                                class="name">${channel}</name></a>
+                                                  src=${youtubericon}><span
+                                class="name">${channel}</span></a>
                     </div>
-                </td>`;
-                        $("#movielist").append(temp_html_td);
-                    }
-                    sessionStorage.setItem("start", "1");
-                },
-            });
-        });
-    }
+                </td>`
+                    $('#movielist').append(temp_html_td)
+                }
+                start += 5;
+            },
+            error: function (dbjson) {
+                console.log('something went wrong!!')
+            }
+        })
+    })
 
-    function counting(n) {
-        if (sessionStorage.getItem('start') !== "1") {
-            let cnt = n;
-            return cnt;
-        } else {
-            let cnt = n + 8;
-            return cnt;
+    $(window).scroll(function () {
+        if ($(this).scrollTop() + 1 >= $('#movielist').height - $(window).height()) {
+            if (working == false) {
+                working = true;
+                $.ajax({
+                    type: "GET",
+                    url: "/data" + start,
+                    processData: false,
+                    contentType: 'application/json',
+                    data: '',
+                    success: function (response) {
+                        // response = JSON.parse(response)
+                        let dbjson = response['msg']
+
+                        for (i = 0; i < dbjson.length; i++) {
+                            channel = dbjson[i]['채널명']
+                            keyword = dbjson[i]['키워드']
+                            thumbnail = dbjson[i]['썸네일']
+                            youtubericon = dbjson[i]['유튜버아이콘']
+                            temp_html_td = `
+                <td id="appendVid" onclick='getValue(${i})'>
+                    <div class="videoDiv">
+                        <a class="thumbnail">
+                            <img src=${thumbnail} id="thumbimg">
+                        </a>
+                    </div>
+                    <div>
+                        <a class="thumbnail"><img class="channelImg" id=${i}
+                                                  src=${youtubericon}><span
+                                class="name">${channel}</span></a>
+                    </div>
+                </td>`
+                            $('#movielist').append(temp_html_td)
+                        }
+                        start += 5;
+                        setTimeout(function () {
+                            working = false
+                        }, 4000)
+                    },
+                    error: function (dbjson) {
+                        console.log("something went Wrong !!!")
+                    }
+                })
+            }
         }
-    }
+    })
 
     function getValue(id) {
         $.ajax({
@@ -299,6 +287,7 @@
 
     filterObjects("all");
 
+
     function filterObjects(c) {
         var x, i;
         x = document.getElementsByClassName("videoBox");
@@ -309,7 +298,7 @@
         for (i = 0; i < x.length; i++) {
             removeClass(x[i], "show");
             if (x[i].className.indexOf(c) > -1) {
-                addClass(x[i], "show");
+                addClass(x[i], "show")
             }
         }
     }
@@ -328,6 +317,7 @@
     function removeClass(element, name) {
         var i, arr1, arr2;
         arr1 = element.className.split(" ");
+        console.log(arr1);
         arr2 = name.split(" ");
         for (i = 0; i < arr2.length; i++) {
             while (arr1.indexOf(arr2[i]) > -1) {
@@ -343,7 +333,7 @@
         $('#genreInput').val(btnVal)
     }
 
+    //무한스크롤
 </script>
 <script src="../static/javascript/darkmode.js"></script>
-<script src="../static/javascript/infScroll.js.js"></script>
 </html>

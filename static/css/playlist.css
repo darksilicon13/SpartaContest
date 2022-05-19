@@ -12,10 +12,22 @@ html, body {
     margin-bottom: 50px;
 }
 
+#upperSide{
+    background-color: #E2314B;
+    padding: 10px;
+}
+
 /* main - logo */
+#logo img {
+    width: 250px;
+    margin: auto;
+    transform: translateX(-40px);
+}
+
 #slide {
     width: 185px;
     margin: 30px auto;
+    font-size: 14px;
     font-family: 'Josefin Sans', sans-serif;
 }
 
@@ -29,42 +41,7 @@ html, body {
     text-decoration: none;
 }
 
-#slide #S {
-    margin: 0;
-    display: inline-block;
-    transition: .7s;
-
-}
-
-#slide #Two {
-    margin: 0;
-    display: inline-block;
-    transition: .7s;
-
-}
-
-#slide #lide {
-    margin: 0;
-    display: inline-block;
-    transition: .7s;
-}
-
-#slide:hover #lide {
-    transform: translateX(-16px);
-    transition: 1.5s;
-    color: transparent;
-}
-
-#slide:hover #S {
-    transform: translateX(30px);
-    transition: 1s;
-}
-
-#slide:hover #Two {
-    transform: translateX(70px);
-    transition: .9s;
-}
-/* main-logo */
+/*/ main - logo */
 
 
 /* navbar*/
@@ -86,7 +63,7 @@ html, body {
     position: absolute;
     width: 28px;
     height: 3px;
-    background: #eb6383;
+    background: #F7C72A;
     transform: translateY(-5px);
     transition: 0.2s;
 }
@@ -96,17 +73,20 @@ html, body {
     position: absolute;
     width: 28px;
     height: 3px;
-    background: #eb6383;
+    background: #F7C72A;
     transform: translateY(5px);
     transition: 0.2s;
 }
 
 #toggle.active::before {
     transform: translateY(0px) rotate(45deg);
+    background: #E2314B;
 }
 
 #toggle.active::after {
     transform: translateY(0px) rotate(-45deg);
+    background: #E2314B;
+
 }
 
 #sidebar {
@@ -116,7 +96,7 @@ html, body {
     right: -300px;
     width: 300px;
     height: 100vh;
-    background-color: white;
+    background: transparent;
     transition: 0.4s;
     z-index: 1;
 }
@@ -138,19 +118,19 @@ html, body {
 }
 
 #sidebar ul li a {
-    color: #eb6383;
+    color: #E2314B;
     text-decoration: none;
     font-size: 1.5em;
     letter-spacing: 2px;
 }
-/* navbar */
+
+/*/ navbar*/
 
 /* Carousel */
 #carouselExampleControls {
     width: 800px;
     height: 500px;
     margin: 50px auto 10px auto;
-    /* background-color: #eb6383; */
 }
 
 iframe {
@@ -158,15 +138,11 @@ iframe {
     height: 500px;
 }
 
-.youtuber a {
-    text-decoration: none;
-    color:black;
-}
-
 .carousel-inner {
     width: 800px;
     height: 500px;
     border-radius: 10px;
+    background-color: #F7C72A;
 }
 
 #prev-button {
@@ -186,8 +162,13 @@ iframe {
     border-radius: 50%;
 }
 
-.youtuber {
+.youtuber{
     display: inline;
+}
+
+.youtuber a {
+    text-decoration: none;
+    color:black;
 }
 
 #author {
@@ -344,7 +325,6 @@ footer {
     position: absolute;
     top: 35px;
     left: 10px;
-
 }
 
 .checkbox {
