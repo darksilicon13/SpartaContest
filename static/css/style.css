@@ -404,7 +404,7 @@ form .searchBar {
 
 
 .table a:hover {
-    background: linear-gradient(205deg, rgb(255, 255, 255, 1) 0%, rgba(213, 213, 213, 1) 66%);
+    background: #E2314B;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -457,12 +457,15 @@ td, th {
     height: 45px;
 }
 
-.name {
-    color:#E2314B;
+span.name {
+    color:#F7C72A;
     font-size: bold;
     font-family: 'Josefin Sans', sans-serif;
 }
 
+span.name:hover{
+    color:rgba(255, 0, 0, 0.7);
+}
 /*main*/
 
 /*Footer*/
