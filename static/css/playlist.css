@@ -13,7 +13,7 @@ html, body {
 }
 
 #upperSide{
-    background-color: #E2314B ;
+    background-color: #E2314B;
     padding: 10px;
 }
 
@@ -138,11 +138,6 @@ iframe {
     height: 500px;
 }
 
-.youtuber a {
-    text-decoration: none;
-    color:black;
-}
-
 .carousel-inner {
     width: 800px;
     height: 500px;
@@ -167,8 +162,13 @@ iframe {
     border-radius: 50%;
 }
 
-.youtuber {
+.youtuber{
     display: inline;
+}
+
+.youtuber a {
+    text-decoration: none;
+    color:black;
 }
 
 #author {
@@ -325,7 +325,6 @@ footer {
     position: absolute;
     top: 35px;
     left: 10px;
-
 }
 
 .checkbox {
