@@ -41,10 +41,6 @@ def db_to_playlist():
     dbjson = list(db.videoId.find({},{'_id':False}))
     return render_template('playlist.html')
 
-@app.route('/request')
-def request():
-    return render_template('request.html')
-
 # 쿼리 파라미터 받기
 @app.route('/data', methods=['GET'])
 def db_to_main():

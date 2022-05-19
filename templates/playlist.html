@@ -248,7 +248,9 @@
                 'content': content,
                 'username': 'test'
             },
-            success: console.log('SUCCESS')
+            success: function (response){
+                console.log(response)
+            }
         })
     }
     function getCookie(key) {
