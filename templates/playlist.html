@@ -76,7 +76,7 @@
             </div>
 
             <!-- Comment Posting Section -->
-            <form id="comment-form">
+            <form id="comment-form" onsubmit="return false;">
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">Comment</label>
                     <textarea id="comment-textarea" class="form-control" id="exampleFormControlTextarea1" rows="1"
@@ -245,8 +245,8 @@
                 'channel': channel,
                 'content': content
             },
-            success: function (response){
-                console.log(response)
+            success: function (){
+                document.getElementById('comment-textarea').value = ''
             }
         })
     }
