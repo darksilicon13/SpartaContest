@@ -75,23 +75,24 @@
                     <div class="searchBar">
                         <input id="genreInput" type="text" placeholder="Search for the keyword . . 🫠">
                         <span></span>
-                        <label>#</label>
+                        <label id="searchShop">#</label>
                     </div>
                 </form>
             </div>
         </div>
     </div>
     <div id="genre">
-        <a onclick="filterObjects('all'); genreAppend()" class="genreBtn" value="Show All"><img src="../static/img/all.png"></a>
-        <a onclick="filterObjects('cat'); genreAppend()" class="genreBtn" value="Cat"><img src="../static/img/dog_3.png"></a>
-        <a onclick="filterObjects('dog'); genreAppend()" class="genreBtn" value="Dog"><img src="../static/img/all.png"></a>
-        <a onclick="filterObjects('series'); genreAppend()" class="genreBtn" value="Series"><img src="../static/img/dog_3.png"></a>
-        <a onclick="filterObjects('all'); genreAppend()" class="genreBtn" value="Show All"><img src="../static/img/all.png"></a>
-        <a onclick="filterObjects('cat'); genreAppend()" class="genreBtn" value="Cat"><img src="../static/img/dog_3.png"></a>
-        <a onclick="filterObjects('dog'); genreAppend()" class="genreBtn" value="Dog"><img src="../static/img/all.png"></a>
-        <a onclick="filterObjects('series'); genreAppend()" class="genreBtn" value="Series"><img src="../static/img/dog_3.png"></a>
-        <a onclick="filterObjects('dog'); genreAppend()" class="genreBtn" value="Dog"><img src="../static/img/all.png"></a>
-        <a onclick="filterObjects('series'); genreAppend()" class="genreBtn" value="Series"><img src="../static/img/dog_3.png"></a>
+        <a onclick="filterObjects('videoBox'); genreAppend()" class="genreBtn" value="Show All"><img src="../static/img/all.png"></a>
+        <a onclick="filterObjects('고양이'); genreAppend()" class="genreBtn" value="Cat"><img src="../static/img/dog_3.png"></a>
+        <a onclick="filterObjects('강아지'); genreAppend()" class="genreBtn" value="Dog"><img src="../static/img/all.png"></a>
+        <a onclick="filterObjects('Vlog'); genreAppend()" class="genreBtn" value="Series"><img src="../static/img/dog_3.png"></a>
+        <a onclick="filterObjects('일상'); genreAppend()" class="genreBtn" value="Show All"><img src="../static/img/all.png"></a>
+        <a onclick="filterObjects('영화'); genreAppend()" class="genreBtn" value="Cat"><img src="../static/img/dog_3.png"></a>
+        <a onclick="filterObjects('애니'); genreAppend()" class="genreBtn" value="Dog"><img src="../static/img/all.png"></a>
+        <a onclick="filterObjects('음악'); genreAppend()" class="genreBtn" value="Series"><img src="../static/img/dog_3.png"></a>
+        <a onclick="filterObjects('여행'); genreAppend()" class="genreBtn" value="Dog"><img src="../static/img/all.png"></a>
+        <a onclick="filterObjects('ASMR'); genreAppend()" class="genreBtn" value="Series"><img src="../static/img/dog_3.png"></a>
+        <a onclick="filterObjects('FUN'); genreAppend()" class="genreBtn" value="Series"><img src="../static/img/dog_3.png"></a>
     </div>
     <div class="videoList">
         <table class="table">
@@ -215,16 +216,16 @@
             thumbnail = dbjson[i]["썸네일"];
             youtubericon = dbjson[i]["유튜버아이콘"];
             temp_html_td = `
-                <td onclick='getValue(${i})' class="videoBox show ${keyword}">
+            <td onclick='getValue(${i})' class="videoBox show ${keyword}">
                     <div class="videoDiv">
                         <a class="thumbnail">
                             <img src=${thumbnail}>
                         </a>
                     </div>
-                    <div>
+                    <div class="videoText">
                         <a class="thumbnail"><img class="channelImg" id=${i}
-                                                  src=${youtubericon}><span
-                                class="name">${channel}</span></a>
+                                                  src=${youtubericon}><name
+                                class="name">${channel}</name></a>
                     </div>
                 </td>`;
             $("#movielist").append(temp_html_td);
@@ -278,7 +279,6 @@
     function filterObjects(c) {
       var x, i;
       x = document.getElementsByClassName("videoBox");
-      console.log(x);
       if (c == "all") {
         c = "";
       }
