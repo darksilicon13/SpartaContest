@@ -44,9 +44,9 @@
                 <ul>
                     <li><a href="/">Home</a></li>
                     <li><a href="/user">Login</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="request.html">Request</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/request">Request</a></li>
+                    <li><a href="/contact">Contact</a></li>
                 </ul>
             </div>
 
@@ -163,8 +163,8 @@
                             class="fa-brands fa-youtube"></i></button>
                 </div>
                 <div class="footer-about">
-                    <a href="main.html">Home</a>
-                    <a href="#">About</a>
+                    <a href="/">Home</a>
+                    <a href="/about">About</a>
                     <a href="https://www.notion.so/2-3be792a4fe0c40388a1474532f4c5328" target="_blank">Team Notion</a>
                     <a href="#"></a>
                     <a href="#"></a>
@@ -207,13 +207,13 @@
                 };
             }
         })
-    });
-    $(document).ready(function () {
+
+
         const name = localStorage.getItem("channel")
         document.getElementById("author").src = sessionStorage.getItem('you');
         console.log(name)
         document.getElementById("authorName").innerHTML = name;
-        
+
         showComment();
     });
 
@@ -231,46 +231,46 @@
 
     //comment section function
 
-    
-
     function postComment() {
 
         const token = getCookie('token')
 
         let channel = localStorage.getItem('channel')
         let content = document.getElementById('comment-textarea').value
-        let username = 'lee'
 
         $.ajax({
             type: "POST",
             url: '/comments/upload',
             headers: { 'Authorization': `Bearer ${token}` },
             data: {
-                'videoId': channel,
-                'content': content,
-                'username': username
+                'channel': channel,
+                'content': content
             },
-            success: console.log('SUCCESS')
+            success: function (response){
+                console.log(response)
+            }
         })
     }
 
     function showComment() {
         let channel = localStorage.getItem('channel')
-        alert(channel)
         $.ajax({
             type: "GET",
             url: '/comments/' + channel,
             data: {},
             success: function (response) {
-                for (let i = 0; i < response.length; i++) {
-                    let content = response[i]['content'];
-                    let username = response[i]['username'];
-                    let temp_html = `<tr>
-                        <td class="col-md-2">${username}</td>
-                        <td class="col-md-8">${content}</td>
-                    </tr>`
+                if(response['result'] == 'SUCCESS'){
+                    let comments = response['comments']
+                    for (let i = 0; i < comments.length; i++) {
+                        let content = comments[i]['content'];
+                        let username = comments[i]['username'];
+                        let temp_html = `<tr>
+                            <td class="col-md-2">${username}</td>
+                            <td class="col-md-8">${content}</td>
+                        </tr>`
 
-                    $('#comment-body').append(temp_html)
+                        $('#comment-body').append(temp_html)
+                    }
                 }
             }
         })

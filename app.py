@@ -32,21 +32,25 @@ db = client.s2lide
 app.register_blueprint(users)   # 로그인 및 회원 가입
 app.register_blueprint(comments)   # 댓글
 
-# @app.route('/')
-# def home():
-#     return render_template('main.html')
 @app.route('/')
 def home():
     return render_template('main.html')
 
 @app.route('/playlist', methods=['GET'])
 def db_to_playlist():
-    dbjson = list(db.videoId.find({},{'_id':False}))
     return render_template('playlist.html')
 
-# @app.route('/request')
-# def request():
-#     return render_template('request.html')
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
+
+@app.route('/customer_request')
+def customerequest():
+    return render_template('request.html')
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
 
 # 쿼리 파라미터 받기
 @app.route('/data', methods=['GET'])
