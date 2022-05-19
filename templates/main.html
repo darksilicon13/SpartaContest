@@ -201,24 +201,24 @@
     function getData() {
         let main = document.querySelector('#movielist');
         console.log('fetch some JSON data')
-        $.ajax({
-            type: "GET",
-            url: "/data",
-            // data: jsonify("{start: 10, end: 15}"),
-            // indexing이 안되있으면 order by로
-            data: {},
-            success: function (response) {
-                let dbjson = response['msg']
-                for (i = 0; i < dbjson.length; i++) {
-                    channel = dbjson[i]['채널명']
-                    keyword = dbjson[i]['키워드']
-                    thumbnail = dbjson[i]['썸네일']
-                    youtubericon = dbjson[i]['유튜버아이콘']
-                    temp_html_td = `
-                <td onclick='getValue(${i})'>
+        $(document).ready(function () {
+      $.ajax({
+        type: "GET",
+        url: "/data",
+        data: {},
+        success: function (response) {
+          let dbjson = response["msg"];
+         
+          for (i = 0; i < dbjson.length; i++) {
+            channel = dbjson[i]["채널명"];
+            keyword = dbjson[i]["키워드"];
+            thumbnail = dbjson[i]["썸네일"];
+            youtubericon = dbjson[i]["유튜버아이콘"];
+            temp_html_td = `
+                <td onclick='getValue(${i})' class="videoBox show ${keyword}">
                     <div class="videoDiv">
                         <a class="thumbnail">
-                            <img src=${thumbnail} id="thumbimg">
+                            <img src=${thumbnail}>
                         </a>
                     </div>
                     <div>
@@ -226,11 +226,12 @@
                                                   src=${youtubericon}><span
                                 class="name">${channel}</span></a>
                     </div>
-                </td>`
-                    $('#movielist').append(temp_html_td)
-                }
-            }
-        })
+                </td>`;
+            $("#movielist").append(temp_html_td);
+          }
+        },
+      });
+    });
     }
 
 
