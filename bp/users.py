@@ -94,16 +94,3 @@ def check():
         return jsonify({'result': False})    # DB에 데이터가 없으면 False 반환
 
     return jsonify({'result': True})   # DB에 데이터가 있으면 True 반환
-
-# 사용자 인증 - 토큰 확인
-@users.route('/auth', methods=['GET'])
-@jwt_required()
-def auth():
-    # 토큰에 저장된 정보 가져오기
-    cur_user = get_jwt_identity()
-
-    user = findUser(cur_user['email'])
-    if user['email'] == cur_user['email'] and user['username'] == cur_user['username']:
-        return jsonify({'result': 'SUCCESS'})   # 사용자 정보가 DB에 있으면 SUCCESS 반환
-
-    return jsonify({'result': 'FAIL'})  # FAIL 반환
