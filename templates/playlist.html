@@ -29,26 +29,27 @@
 
 <body>
     <div class="wrapper">
-        <div class="toggleBox"><input type="checkbox" class="checkbox" id="checkbox"><label for="checkbox" class="label">
-            <i class="fas fa-moon"></i>
-            <i class="fas fa-sun"></i>
-            <div class="ball"></div>
-        </label></div>
-        <div id="slide"><a id="logo" href="main.html">
-                <div id="Two">2</div>
-                <div id="S">S</div>
-                <div id="lide">l i d e</div>
+        <div id="upperSide">
+            <div class="toggleBox"><input type="checkbox" class="checkbox" id="checkbox"><label for="checkbox"
+                                                                                                class="label">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+                <div class="ball"></div>
+            </label></div>
+            <div id="slide"><a id="logo" href="/">
+                <img src="../static/img/logologo.png">
             </a></div>
-        <div id="toggle"></div>
-        <div id="sidebar">
-            <ul>
-                <li><a href="main.html">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </div>
-        <div id="main">
-            <!-- Carousel that contains frames -->
+            <div id="toggle"></div>
+            <div id="sidebar">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/user">Login</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="request.html">Request</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
             <div id="carouselExampleControls" class="carousel slide" data-bs-interval="false">
                 <div class="carousel-inner" id="carousel-inner">
 
@@ -64,6 +65,10 @@
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
+        </div>
+        <div id="main">
+            <!-- Carousel that contains frames -->
+            
             <div class="youtuber">
                 <a href="#"><img id="author"
                         src="https://images.pexels.com/photos/127028/pexels-photo-127028.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"><span

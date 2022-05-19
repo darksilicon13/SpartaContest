@@ -277,42 +277,6 @@ form .searchBar {
     text-decoration: none;
 }
 
-#slide #S {
-    margin: 0;
-    display: inline-block;
-    transition: .7s;
-
-}
-
-#slide #Two {
-    margin: 0;
-    display: inline-block;
-    transition: .7s;
-
-}
-
-#slide #lide {
-    margin: 0;
-    display: inline-block;
-    transition: .7s;
-}
-
-#slide:hover #lide {
-    transform: translateX(-16px);
-    transition: 1.5s;
-    color: transparent;
-}
-
-#slide:hover #S {
-    transform: translateX(30px);
-    transition: 1s;
-}
-
-#slide:hover #Two {
-    transform: translateX(70px);
-    transition: .9s;
-}
-
 /*/ main - logo */
 
 /* navbar*/
@@ -404,7 +368,7 @@ form .searchBar {
 
 
 .table a:hover {
-    background: linear-gradient(205deg, rgb(255, 255, 255, 1) 0%, rgba(213, 213, 213, 1) 66%);
+    background: #e2314b;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -457,8 +421,8 @@ td, th {
     height: 45px;
 }
 
-.name {
-    color:#E2314B;
+span.name {
+    color:#F7C72A;
     font-size: bold;
     font-family: 'Josefin Sans', sans-serif;
 }

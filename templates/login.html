@@ -17,31 +17,35 @@
     <title>2Slide Login</title>
 </head>
 <body>
-    <div class="toggleBox"><input type="checkbox" class="checkbox" id="checkbox"><label for="checkbox" class="label">
-        <i class="fas fa-moon"></i>
-        <i class="fas fa-sun"></i>
-        <div class="ball"></div>
-    </label></div>
+<div class="toggleBox"><input type="checkbox" class="checkbox" id="checkbox"><label for="checkbox" class="label">
+    <i class="fas fa-moon"></i>
+    <i class="fas fa-sun"></i>
+    <div class="ball"></div>
+</label></div>
 <div class="center">
     <h1 class="title">login</h1>
-    <form method="post">
-        <div class="txt_field">
-            <input type="email" required>
-            <span></span>
-            <label>email</label>
-        </div>
-        <div class="txt_field">
-            <input type="password" required>
-            <span></span>
-            <label>Password</label>
-        </div>
-        <div class="pass">Forgot Password?</div>
-        <button type="submit" value="Login">login</button>
-        <div class="signup_link">
-            Not a member? <a href="register.html">Sign Up</a>
-        </div>
-    </form>
+    <div id="msg"></div>
+    <div id="logForm">
+        <form action="/user/login" method="post">
+            <div class="txt_field">
+                <input type="email" name="email" id="email" required>
+                <span></span>
+                <label>email</label>
+            </div>
+            <div class="txt_field">
+                <input type="password" name="password" id="password" required>
+                <span></span>
+                <label>Password</label>
+            </div>
+            <div class="pass">Forgot Password?</div>
+            <button type="submit" value="Login" id="loginSubmit">login</button>
+            <div class="signup_link">
+                Not a member? <a href="/user/join">Sign Up</a>
+            </div>
+        </form>
+    </div>
 </div>
 </body>
+<script src="../static/javascript/login.js"></script>
 <script src="../static/javascript/darkmode.js"></script>
 </html>
