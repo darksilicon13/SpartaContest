@@ -1,11 +1,10 @@
 # comments.py - 댓글 application
 
-from flask import Blueprint, render_template, request, jsonify, redirect, url_for, make_response
+from flask import Blueprint, request, jsonify, redirect, url_for
 from pymongo import MongoClient
 from dotenv import load_dotenv
 import os
-from flask_bcrypt import Bcrypt
-from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
+from flask_jwt_extended import jwt_required
 from datetime import datetime
 from bson.objectid import ObjectId
 
@@ -29,11 +28,11 @@ def objectIDtoStr(list):
         result.append(document)
     return result
 
-# videoId를 이용해 전체 댓글 출력
-@comments.route('/', methods=['GET'])
-def all_comments():
-    videoId = request.args.get('videoId')   # videoId 받아와 변수에 저장
-    comments = coll.find({'videoId': videoId}, {'_id': False})  # DB에서 전체 댓글 가져오기
+# channel을 이용해 전체 댓글 출력
+@comments.route('/<channel>', methods=['GET'])
+def all_comments(channel):
+    # channel = request.args.get('channel')   # videoId 받아와 변수에 저장
+    comments = list(coll.find({'channel': channel}, {'_id': False}))  # DB에서 전체 댓글 가져오기
 
     if comments:
         return jsonify(comments)    # 댓글이 있으면 댓글을 반환
@@ -41,39 +40,38 @@ def all_comments():
 
 # 댓글 저장
 @comments.route('/upload', methods=['POST'])
+@jwt_required()
 def upload():
     # form 데이터 받아와 변수에 저장
-    title = request.form['title']
+    channel = request.form['channel']
     content = request.form['content']
     username = request.form['username']
-    date = datetime.now()
+    date = datetime.now().strftime('%Y-%m-%d %H:%M')
 
     # 댓글 정보 dic 생성
     dic = {
-        'title': title,
+        'channel': channel,
         'content': content,
         'username': username,
         'date': date
     }
 
     # DB에 댓글 저장 - Collection: comments
-    objId = coll.insert_one(dic).inserted_id
+    # objId = str(coll.insert_one(dic).inserted_id) # 수정, 삭제 구현할 때 주석 해제
+    coll.insert_one(dic)
 
-    res = make_response()
-
-    return jsonify({'msg': '저장을 완료했습니다.', 'objId': objId})  # 저장 완료 시 msg와 objId 반환
+    # return jsonify({'msg': '저장을 완료했습니다.', 'objId': objId})  # 저장 완료 시 msg와 objId 반환하며 전체 댓글 redirect - 수정, 삭제 있는 Ver.
+    return redirect(url_for('.all_comments', channel=channel))
 
 # 댓글 수정
 @comments.route('/modify', methods=['POST'])
 def modify():
     # form 데이터 받아와 변수에 저장
-    title = request.form['title']
     content = request.form['content']
     objId = request.form['objId']
 
     # 댓글 정보 dic 생성
     dic = {
-        'title': title,
         'content': content
     }
 
