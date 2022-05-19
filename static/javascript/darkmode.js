@@ -35,8 +35,9 @@ function getDark() {
   toggleLable.classList.add("toggleLable");
   toggleBall.classList.add("toggleBall");
   // if (document.getElementById('authorName')!== null) 
-  if (page === "playlist.html") {
+  if (page === "playlist") {
     document.getElementById('authorName').style.color = 'white';
+    document.getElementById('authorName').style.fontWeight = 'bold';
   }
   else if (page === "") {
     $("#genre").css('background', 'linear-gradient( to top, #30343f, #171b26 )');
@@ -45,7 +46,7 @@ function getDark() {
     $("#checkbox").css('background-color', "transparent");
   }
   else {
-    if (page === "request.html") {
+    if (page === "request") {
       var list;
       list = document.querySelectorAll(".youtuberLink");
       for (var i = 0; i < list.length; ++i) {
@@ -71,8 +72,9 @@ function getBright() {
   toggleLable.classList.remove("toggleLable");
   toggleBall.classList.remove("toggleBall");
   // if (document.getElementById('authorName')!== null) 
-  if (page === "playlist.html"){
+  if (page === "playlist"){
     document.getElementById('authorName').style.color = 'black';
+    document.getElementById('authorName').style.fontWeight = 'bold';
   }
   else if (page === "") {
     $("#genre").css('background', 'linear-gradient( to top, white, white )');
