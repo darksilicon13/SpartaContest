@@ -39,12 +39,11 @@ function getDark() {
     document.getElementById('authorName').style.color = 'white';
   }
   else if (page === "") {
-    $("#upperSide").css('background-color', '#171b26');
     $("#genre").css('background', 'linear-gradient( to top, #30343f, #171b26 )');
     $("#genre").css('border-bottom', '2px solid #30343f');
     $('#searchShop').css('color', '#30343f');
     $("#checkbox").css('background-color', "transparent");
-    }
+  }
   else {
     if (page === "request.html") {
       var list;
@@ -60,6 +59,8 @@ function getDark() {
   $('#sidebar').css('background-color', '#30343f');
   $('#prev-button').css('filter', 'none');
   $('#next-button').css('filter', 'none');
+  $("#upperSide").css('background-color', '#171b26');
+  $('.form-group').css('color', 'white');
 }
 
 function getBright() {
@@ -70,9 +71,10 @@ function getBright() {
   toggleLable.classList.remove("toggleLable");
   toggleBall.classList.remove("toggleBall");
   // if (document.getElementById('authorName')!== null) 
-  if (page === "playlist.html") document.getElementById('authorName').style.color = 'black';
+  if (page === "playlist.html"){
+    document.getElementById('authorName').style.color = 'black';
+  }
   else if (page === "") {
-    $("#upperSide").css('background-color', '#E2314B');
     $("#genre").css('background', 'linear-gradient( to top, white, white )');
     $("#genre").css('border-bottom', '2px solid #f5f5f5');
     $('#searchShop').css('color', '#eb6383');
@@ -85,4 +87,5 @@ function getBright() {
   $('#sidebar').css('background-color', 'white');
   $('#prev-button').css('filter', 'invert(100%)');
   $('#next-button').css('filter', 'invert(100%)');
+  $("#upperSide").css('background-color', '#E2314B');
 } 
