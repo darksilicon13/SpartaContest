@@ -242,6 +242,38 @@
         }
     }
 
+    //comment section function
+    document.getElementById('post-button').onclick = () => {
+        const token = getCookie('token')
+        let channel = localStorage.getItem('channel')
+        let content = document.getElementById('comment-textarea').value
+        console.log(channel, content)
+        $.ajax({
+            type: "POST",
+            url: '/comments/upload',
+            headers: { 'Authorization': `Bearer ${token}` },
+            data: {
+                'channel': channel,
+                'content': content,
+                'username': 'test'
+            },
+            success: console.log('SUCCESS')
+        })
+    }
+    function getCookie(key) {
+        var result = null;
+        var cookie = document.cookie.split(';');
+        cookie.some(function (item) {
+            item = item.replace(' ', '');
+            var dic = item.split('=');
+            if (key === dic[0]) {
+                result = dic[1];
+                return true;
+            }
+        });
+        return result;
+    }
+
 
 
     //comment section function

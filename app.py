@@ -8,6 +8,7 @@ import certifi
 import os
 
 from bp.users import users
+from bp.comments import comments
 
 # Flask App Setup
 app = Flask(__name__)
@@ -29,6 +30,7 @@ db = client.s2lide
 
 # BluePrint Setup
 app.register_blueprint(users)   # 로그인 및 회원 가입
+app.register_blueprint(comments)   # 댓글
 
 # @app.route('/')
 # def home():
