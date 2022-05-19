@@ -1,7 +1,7 @@
 const checkbox = document.getElementById("checkbox");
 const toggleLable = document.querySelector(".label");
 const toggleBall = document.querySelector(".ball");
-const names = document.querySelectorAll(".videoText");
+const upperSide = document.getElementById("upperSide")
 
 $(document).ready(function () {
   var date = new Date();
@@ -28,6 +28,7 @@ checkbox.addEventListener('change', () => {
 })
 
 function getDark() {
+  console.log("어둡게");
   var path = window.location.pathname;
   var page = path.split("/").pop();
   document.body.classList.add("dark");
@@ -37,15 +38,13 @@ function getDark() {
   if (page === "playlist.html") {
     document.getElementById('authorName').style.color = 'white';
   }
-  else if (page === "main.html") {
-    var list;
-    list = document.querySelectorAll(".videoText > a");
-    console.log(list);
-    for (var i = 0; i < list.length; ++i) {
-      list[i].classList.remove('toggleBlack');
-      list[i].classList.add('toggleWhite');
+  else if (page === "") {
+    $("#upperSide").css('background-color', '#171b26');
+    $("#genre").css('background', 'linear-gradient( to top, #30343f, #171b26 )');
+    $("#genre").css('border-bottom', '2px solid #30343f');
+    $('#searchShop').css('color', '#30343f');
+    $("#checkbox").css('background-color', "transparent");
     }
-  }
   else {
     if (page === "request.html") {
       var list;
@@ -58,12 +57,13 @@ function getDark() {
     document.body.classList.add("dark");
   }
   $("#comment-section").css('color', 'white');
-  $('#sidebar').css('background-color', 'black');
+  $('#sidebar').css('background-color', '#30343f');
   $('#prev-button').css('filter', 'none');
   $('#next-button').css('filter', 'none');
 }
 
 function getBright() {
+  console.log("밝게");
   var path = window.location.pathname;
   var page = path.split("/").pop();
   document.body.classList.remove("dark");
@@ -71,14 +71,12 @@ function getBright() {
   toggleBall.classList.remove("toggleBall");
   // if (document.getElementById('authorName')!== null) 
   if (page === "playlist.html") document.getElementById('authorName').style.color = 'black';
-  else if (page === "main.html") {
-    var list;
-    list = document.querySelectorAll(".videoText > a");
-    console.log(list);
-    for (var i = 0; i < list.length; ++i) {
-      list[i].classList.remove('toggleWhite');
-      list[i].classList.add('toggleBlack');
-    }
+  else if (page === "") {
+    $("#upperSide").css('background-color', '#E2314B');
+    $("#genre").css('background', 'linear-gradient( to top, white, white )');
+    $("#genre").css('border-bottom', '2px solid #f5f5f5');
+    $('#searchShop').css('color', '#eb6383');
+    $("#checkbox").css('background-color', "#e2314b");
   }
   else {
     document.body.classList.remove("dark");
@@ -87,4 +85,4 @@ function getBright() {
   $('#sidebar').css('background-color', 'white');
   $('#prev-button').css('filter', 'invert(100%)');
   $('#next-button').css('filter', 'invert(100%)');
-}
+} 
