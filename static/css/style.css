@@ -277,42 +277,6 @@ form .searchBar {
     text-decoration: none;
 }
 
-#slide #S {
-    margin: 0;
-    display: inline-block;
-    transition: .7s;
-
-}
-
-#slide #Two {
-    margin: 0;
-    display: inline-block;
-    transition: .7s;
-
-}
-
-#slide #lide {
-    margin: 0;
-    display: inline-block;
-    transition: .7s;
-}
-
-#slide:hover #lide {
-    transform: translateX(-16px);
-    transition: 1.5s;
-    color: transparent;
-}
-
-#slide:hover #S {
-    transform: translateX(30px);
-    transition: 1s;
-}
-
-#slide:hover #Two {
-    transform: translateX(70px);
-    transition: .9s;
-}
-
 /*/ main - logo */
 
 /* navbar*/
