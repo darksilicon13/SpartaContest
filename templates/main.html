@@ -45,7 +45,7 @@
             <i class="fas fa-sun"></i>
             <div class="ball"></div>
         </label></div>
-        <div id="slide"><a id="logo" href="/">
+        <div id="slide"><a id="logo" href="main.html">
             <img src="../static/img/logologo.png">
         </a></div>
         <div id="toggle"></div>
@@ -58,31 +58,51 @@
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </div>
-        <div class="subTitle">
-            <p id="whatrud">What are U</p>
-            <p id="gonslide">gonna slide ?</p>
+        <div class="waviy">
+            <span style="--i:1" class="waviyW">W</span>
+            <span style="--i:2" class="waviyH">h</span>
+            <span style="--i:3" class="waviyE">e</span>
+            <span style="--i:4" class="waviyR">r</span>
+            <span style="--i:5" class="waviyE">e</span>
+            <span style="--i:6" class="waviyR1">R</span>
+            <span style="--i:7" class="waviyU">U</span>
+            <span style="--i:8" class="waviyG">g</span>
+            <span style="--i:9" class="waviyO">o</span>
+            <span style="--i:10" class="waviyQ">?</span>
         </div>
         <div id="searchBox">
             <div id="search">
                 <form class="searchForm">
                     <div class="searchBar">
-                        <input id="genreInput" type="text" placeholder="Search for the keyword . . .">
+                        <input id="genreInput" type="text" placeholder="Search for the keyword . . 🫠">
                         <span></span>
-                        <label>#</label>
+                        <label id="searchShop">#</label>
                     </div>
                 </form>
             </div>
         </div>
     </div>
     <div id="genre">
-        <a onclick="filterObjects('all'); genreAppend()" class="genreBtn" value="Show All"><img
-                src="../static/img/category1.png"></a>
-        <a onclick="filterObjects('cat'); genreAppend()" class="genreBtn" value="Cat"><img
-                src="../static/img/category2.png"></a>
-        <a onclick="filterObjects('dog'); genreAppend()" class="genreBtn" value="Dog"><img
-                src="../static/img/category1.png"></a>
-        <a onclick="filterObjects('series'); genreAppend()" class="genreBtn" value="Series"><img
-                src="../static/img/category2.png"></a>
+        <a onclick="filterObjects('videoBox'); genreAppend()" class="genreBtn" value="Show All"><img
+                src="../static/img/all.png"></a>
+        <a onclick="filterObjects('고양이'); genreAppend()" class="genreBtn" value="Cat"><img
+                src="../static/img/dog_3.png"></a>
+        <a onclick="filterObjects('강아지'); genreAppend()" class="genreBtn" value="Dog"><img src="../static/img/animal.png"></a>
+        <a onclick="filterObjects('Vlog'); genreAppend()" class="genreBtn" value="Series"><img
+                src="../static/img/music.png"></a>
+        <a onclick="filterObjects('일상'); genreAppend()" class="genreBtn" value="Show All"><img
+                src="../static/img/film.png"></a>
+        <a onclick="filterObjects('영화'); genreAppend()" class="genreBtn" value="Cat"><img src="../static/img/dog_3.png"></a>
+        <a onclick="filterObjects('애니'); genreAppend()" class="genreBtn" value="Dog"><img
+                src="../static/img/all.png"></a>
+        <a onclick="filterObjects('음악'); genreAppend()" class="genreBtn" value="Series"><img
+                src="../static/img/music.png"></a>
+        <a onclick="filterObjects('여행'); genreAppend()" class="genreBtn" value="Dog"><img
+                src="../static/img/all.png"></a>
+        <a onclick="filterObjects('ASMR'); genreAppend()" class="genreBtn" value="Series"><img
+                src="../static/img/dog_3.png"></a>
+        <a onclick="filterObjects('FUN'); genreAppend()" class="genreBtn" value="Series"><img
+                src="../static/img/dog_3.png"></a>
     </div>
     <div class="videoList">
         <table class="table">
@@ -90,12 +110,12 @@
             </tr>
         </table>
     </div>
-<!--    <div class="loader-ellips">-->
-<!--        <span class="loader-ellips__dot"></span>-->
-<!--        <span class="loader-ellips__dot"></span>-->
-<!--        <span class="loader-ellips__dot"></span>-->
-<!--        <span class="loader-ellips__dot"></span>-->
-<!--    </div>-->
+    <div class="loader-ellips">
+        <span class="loader-ellips__dot"></span>
+        <span class="loader-ellips__dot"></span>
+        <span class="loader-ellips__dot"></span>
+        <span class="loader-ellips__dot"></span>
+    </div>
 </div>
 <footer class="footer">
     <div class="footer-title">
@@ -184,46 +204,60 @@
 
     function handleIntersect(entries) {
         if (entries[0].isIntersecting) {
-            console.warn('푸터 발견')
+            console.warn('footer  on  screen!!')
             getData();
         }
     }
 
+    let cnt = 0;
+
     function getData() {
         let main = document.querySelector('#movielist');
         console.log('fetch some JSON data')
-        $.ajax({
-            type: "GET",
-            url: "/data",
-            // data: jsonify("{start: 10, end: 15}"),
-            // indexing이 안되있으면 order by로
-            data: {},
-            success: function (response) {
-                let dbjson = response['msg']
-                for (i = 0; i < dbjson.length; i++) {
-                    channel = dbjson[i]['채널명']
-                    keyword = dbjson[i]['키워드']
-                    thumbnail = dbjson[i]['썸네일']
-                    youtubericon = dbjson[i]['유튜버아이콘']
-                    temp_html_td = `
-                <td onclick='getValue(${i})'>
+        $(document).ready(function () {
+            $.ajax({
+                type: "GET",
+                url: "/data",
+                data: {},
+                success: function (response) {
+                    cnt = counting(cnt)
+                    console.log(cnt)
+                    let dbjson = response["msg"];
+                    for (i = cnt; i < cnt + 8; i++) {
+                        channel = dbjson[i]["채널명"];
+                        keyword = dbjson[i]["키워드"];
+                        thumbnail = dbjson[i]["썸네일"];
+                        youtubericon = dbjson[i]["유튜버아이콘"];
+                        temp_html_td = `
+            <td onclick='getValue(${i})' class="videoBox show ${keyword}">
                     <div class="videoDiv">
                         <a class="thumbnail">
-                            <img src=${thumbnail} id="thumbimg">
+                            <img src=${thumbnail}>
                         </a>
                     </div>
-                    <div>
+                    <div class="videoText">
                         <a class="thumbnail"><img class="channelImg" id=${i}
-                                                  src=${youtubericon}><span
-                                class="name">${channel}</span></a>
+                                                  src=${youtubericon}><name
+                                class="name">${channel}</name></a>
                     </div>
-                </td>`
-                    $('#movielist').append(temp_html_td)
-                }
-            }
-        })
+                </td>`;
+                        $("#movielist").append(temp_html_td);
+                    }
+                    sessionStorage.setItem("start", "1");
+                },
+            });
+        });
     }
 
+    function counting(n) {
+        if (sessionStorage.getItem('start') !== "1") {
+            let cnt = n;
+            return cnt;
+        } else {
+            let cnt = n + 8;
+            return cnt;
+        }
+    }
 
     function getValue(id) {
         $.ajax({
@@ -232,7 +266,8 @@
             data: {},
             success: function (response) {
                 let dbjson = response['msg']
-                localStorage.setItem('channel', dbjson[id]['채널명']);
+                localStorage.setItem('channel', dbjson[id]['채널명'])
+                sessionStorage.setItem('you',dbjson[id]['유튜버아이콘'])
                 window.location.href = "/playlist";
             }
         })
@@ -265,7 +300,6 @@
 
     filterObjects("all");
 
-
     function filterObjects(c) {
         var x, i;
         x = document.getElementsByClassName("videoBox");
@@ -276,7 +310,7 @@
         for (i = 0; i < x.length; i++) {
             removeClass(x[i], "show");
             if (x[i].className.indexOf(c) > -1) {
-                addClass(x[i], "show")
+                addClass(x[i], "show");
             }
         }
     }
@@ -295,7 +329,6 @@
     function removeClass(element, name) {
         var i, arr1, arr2;
         arr1 = element.className.split(" ");
-        console.log(arr1);
         arr2 = name.split(" ");
         for (i = 0; i < arr2.length; i++) {
             while (arr1.indexOf(arr2[i]) > -1) {
@@ -310,6 +343,7 @@
         const btnVal = $('.genreBtn').val();
         $('#genreInput').val(btnVal)
     }
+
 </script>
 <script src="../static/javascript/darkmode.js"></script>
 <script src="../static/javascript/infScroll.js.js"></script>
