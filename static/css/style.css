@@ -462,10 +462,6 @@ span.name {
     font-size: bold;
     font-family: 'Josefin Sans', sans-serif;
 }
-
-span.name:hover{
-    color:rgba(255, 0, 0, 0.7);
-}
 /*main*/
 
 /*Footer*/
