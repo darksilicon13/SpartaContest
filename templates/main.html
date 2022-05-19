@@ -83,12 +83,13 @@
         </div>
     </div>
     <div id="genre">
-        <a onclick="filterObjects('강아지'); genreAppend()" class="genreBtn" value="Dog"><img src="../static/img/all.png"></a>
-        <a onclick="filterObjects('Vlog'); genreAppend()" class="genreBtn" value="Series"><img
+        <a onclick="filterObjects('all'); genreAppend()" class="genreBtn" value="Dog"><img src="../static/img/all.png"></a>
+        <a onclick="filterObjects('고양이'); genreAppend()" class="genreBtn" value="Series"><img
                 src="../static/img/animal.png"></a>
-        <a onclick="filterObjects('일상'); genreAppend()" class="genreBtn" value="Show All"><img
+        <a onclick="filterObjects('Vlog'); genreAppend()" class="genreBtn" value="Show All"><img
                 src="../static/img/pudding.png"></a>
-        <a onclick="filterObjects('영화'); genreAppend()" class="genreBtn" value="Cat"><img src="../static/img/film_1.png"></a>
+        <a onclick="filterObjects('영화'); genreAppend()" class="genreBtn" value="Cat"><img
+                src="../static/img/film_1.png"></a>
         <a onclick="filterObjects('음악'); genreAppend()" class="genreBtn" value="Series"><img
                 src="../static/img/music.png"></a>
         <a onclick="filterObjects('여행'); genreAppend()" class="genreBtn" value="Dog"><img
@@ -214,15 +215,15 @@
                 url: "/data",
                 data: {},
                 success: function (response) {
-                    cnt = counting(cnt)
-                    console.log(cnt)
-                    let dbjson = response["msg"];
-                    for (i = cnt; i < cnt + 8; i++) {
-                        channel = dbjson[i]["채널명"];
-                        keyword = dbjson[i]["키워드"];
-                        thumbnail = dbjson[i]["썸네일"];
-                        youtubericon = dbjson[i]["유튜버아이콘"];
-                        temp_html_td = `
+                    if (sessionStorage.getItem("category") == "all") {
+                        cnt = counting(cnt)
+                        let dbjson = response["msg"];
+                        for (i = cnt; i < cnt + 8; i++) {
+                            channel = dbjson[i]["채널명"];
+                            keyword = dbjson[i]["키워드"];
+                            thumbnail = dbjson[i]["썸네일"];
+                            youtubericon = dbjson[i]["유튜버아이콘"];
+                            temp_html_td = `
             <td onclick='getValue(${i})' class="videoBox show ${keyword}">
                     <div class="videoDiv">
                         <a class="thumbnail">
@@ -235,9 +236,41 @@
                                 class="name">${channel}</name></a>
                     </div>
                 </td>`;
-                        $("#movielist").append(temp_html_td);
+                            $("#movielist").append(temp_html_td);
+                        }
+                        sessionStorage.setItem("start", "1");
+                    } else {
+                        if (sessionStorage.getItem("filterCnt") !== "done") {
+                            let c = sessionStorage.getItem("category")
+                            let dbjson = response["msg"];
+                            let count = 0;
+                            for (let k = 0; k < 200; k++) {
+                                keyword = dbjson[k]["키워드"];
+                                if (keyword === c) {
+                                    channel = dbjson[k]["채널명"];
+                                    keyword = dbjson[k]["키워드"];
+                                    thumbnail = dbjson[k]["썸네일"];
+                                    youtubericon = dbjson[k]["유튜버아이콘"];
+                                    temp_html_td = `
+                                                <td onclick='getValue(${k})' class="videoBox show ${keyword}">
+                                                    <div class="videoDiv">
+                                                        <a class="thumbnail">
+                                                        <img src=${thumbnail}>
+                                                    </a>
+                                                    </div>
+                                                    <div class="videoText">
+                                                        <a class="thumbnail"><img class="channelImg" id=${k}
+                                                                                 src=${youtubericon}><name
+                                                                class="name">${channel}</name></a>
+                                                    </div>
+                                                </td>`;
+                                    $("#movielist").append(temp_html_td);
+                                }
+                            }
+                            sessionStorage.setItem("filterCnt", "done");
+                        } else if (sessionStorage.getItem("filterCnt") === "done") return;
+
                     }
-                    sessionStorage.setItem("start", "1");
                 },
             });
         });
@@ -261,7 +294,7 @@
             success: function (response) {
                 let dbjson = response['msg']
                 localStorage.setItem('channel', dbjson[id]['채널명'])
-                sessionStorage.setItem('you',dbjson[id]['유튜버아이콘'])
+                sessionStorage.setItem('you', dbjson[id]['유튜버아이콘'])
                 window.location.href = "/playlist";
             }
         })
@@ -297,6 +330,49 @@
     function filterObjects(c) {
         var x, i;
         x = document.getElementsByClassName("videoBox");
+        sessionStorage.removeItem("filterCnt");
+        sessionStorage.setItem("category", c);
+
+        if (x.length < 100) {
+            $(document).ready(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "/data",
+                    data: {},
+                    success: function (response) {
+                        let dbjson = response["msg"];
+                        let count = 0;
+                        for (let k = 0; k < 200; k++) {
+                            keyword = dbjson[k]["키워드"];
+                            if (keyword === c) {
+
+                                channel = dbjson[k]["채널명"];
+                                keyword = dbjson[k]["키워드"];
+                                thumbnail = dbjson[k]["썸네일"];
+                                youtubericon = dbjson[k]["유튜버아이콘"];
+                                temp_html_td = `
+                                            <td onclick='getValue(${k})' class="videoBox show ${keyword}">
+                                                <div class="videoDiv">
+                                                    <a class="thumbnail">
+                                                    <img src=${thumbnail}>
+                                                </a>
+                                                </div>
+                                                <div class="videoText">
+                                                    <a class="thumbnail"><img class="channelImg" id=${k}
+                                                                             src=${youtubericon}><name
+                                                            class="name">${channel}</name></a>
+                                                </div>
+                                            </td>`;
+                                $("#movielist").append(temp_html_td);
+
+                            }
+                            count++
+                            if (count > 8) break;
+                        }
+                    },
+                });
+            });
+        }
         if (c == "all") {
             c = "";
         }
