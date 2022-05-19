@@ -236,18 +236,18 @@
 
         let channel = localStorage.getItem('channel')
         let content = document.getElementById('comment-textarea').value
-        let username = 'lee'
 
         $.ajax({
             type: "POST",
             url: '/comments/upload',
             headers: { 'Authorization': `Bearer ${token}` },
             data: {
-                'videoId': channel,
-                'content': content,
-                'username': username
+                'channel': channel,
+                'content': content
             },
-            success: console.log('SUCCESS')
+            success: function (response){
+                console.log(response)
+            }
         })
     }
 
@@ -258,15 +258,18 @@
             url: '/comments/' + channel,
             data: {},
             success: function (response) {
-                for (let i = 0; i < response.length; i++) {
-                    let content = response[i]['content'];
-                    let username = response[i]['username'];
-                    let temp_html = `<tr>
-                        <td class="col-md-2">${username}</td>
-                        <td class="col-md-8">${content}</td>
-                    </tr>`
+                if(response['result'] == 'SUCCESS'){
+                    let comments = response['comments']
+                    for (let i = 0; i < comments.length; i++) {
+                        let content = comments[i]['content'];
+                        let username = comments[i]['username'];
+                        let temp_html = `<tr>
+                            <td class="col-md-2">${username}</td>
+                            <td class="col-md-8">${content}</td>
+                        </tr>`
 
-                    $('#comment-body').append(temp_html)
+                        $('#comment-body').append(temp_html)
+                    }
                 }
             }
         })
