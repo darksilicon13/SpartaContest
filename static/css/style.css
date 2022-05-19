@@ -368,7 +368,7 @@ form .searchBar {
 
 
 .table a:hover {
-    background: linear-gradient(205deg, rgb(255, 255, 255, 1) 0%, rgba(213, 213, 213, 1) 66%);
+    background: #e2314b;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
