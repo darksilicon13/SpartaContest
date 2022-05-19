@@ -4,6 +4,7 @@ from flask import Blueprint, request, jsonify, redirect, url_for
 from pymongo import MongoClient
 from dotenv import load_dotenv
 import os
+import certifi
 from flask_jwt_extended import jwt_required, get_jwt_identity
 from datetime import datetime
 
@@ -14,9 +15,10 @@ PW = os.getenv('DB_PW')
 
 # users Setup
 comments = Blueprint('comments', __name__, url_prefix="/comments")
+ca = certifi.where()
 
 # MongoDB Atlas Setup - DB: s2lide
-client = MongoClient(f'mongodb+srv://{ID}:{PW}@s2lide.fwsiv.mongodb.net/?retryWrites=true&w=majority', 27017)
+client = MongoClient(f'mongodb+srv://{ID}:{PW}@s2lide.fwsiv.mongodb.net/?retryWrites=true&w=majority', 27017, tlsCAFile=ca)
 coll = client.s2lide.comments
 
 # channel을 이용해 전체 댓글 출력
