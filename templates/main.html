@@ -73,13 +73,13 @@
         </div>
         <div id="searchBox">
             <div id="search">
-                <form class="searchForm">
+                <div class="searchForm">
                     <div class="searchBar">
                         <input id="genreInput" type="text" placeholder="Search for the keyword . . 🫠">
                         <span></span>
                         <label id="searchShop">#</label>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>
@@ -144,12 +144,14 @@
                 <h3 class="poppinsFont">Back-End</h3>
                 <div class="footer-name">
                     <ul>전가영</ul>
-                    <icon><a href="https://github.com/dsyhwk1016" target="_blank"><i class="fa-brands fa-github fa-lg"></i></a>
+                    <icon><a href="https://github.com/dsyhwk1016" target="_blank"><i
+                            class="fa-brands fa-github fa-lg"></i></a>
                     </icon>
                 </div>
                 <div class="footer-name">
                     <ul>송기찬</ul>
-                    <icon><a href="https://github.com/gichan-song" target="_blank"><i class="fa-brands fa-github fa-lg"></i></a>
+                    <icon><a href="https://github.com/gichan-song" target="_blank"><i
+                            class="fa-brands fa-github fa-lg"></i></a>
                     </icon>
                 </div>
             </div>
@@ -158,14 +160,16 @@
                 <h3 class="poppinsFont">tutor</h3>
                 <div class="footer-name">
                     <ul>최영서</ul>
-                    <icon><a href="https://github.com/tomatophobia" target="_blank"><i class="fa-brands fa-github fa-lg"></i></a>
+                    <icon><a href="https://github.com/tomatophobia" target="_blank"><i
+                            class="fa-brands fa-github fa-lg"></i></a>
                     </icon>
                 </div>
             </div>
         </div>
         <div class="footer-searchbar">
             <div class="input-group mb-3">
-                <input type="text" class="form-control poppinsFont" placeholder="Quick-Search" aria-label="Recipient's username"
+                <input type="text" class="form-control poppinsFont" placeholder="Quick-Search"
+                       aria-label="Recipient's username"
                        aria-describedby="button-addon2" onkeyup="if(window.event.keyCode==13){youtube(this.value)}">
                 <button class="btn btn-outline-secondary poppinsFont" type="button" id="button-addon2">go ▸
 
@@ -313,9 +317,50 @@
     }
     const searchbtn = document.getElementById("button-addon2");
     const searchinput = document.querySelector(".form-control");
+    const searchkey = document.getElementById('genreInput')
 
     searchbtn.addEventListener('click', () => {
         youtube(searchinput.value);
+    })
+    searchkey.addEventListener('keyup', (e) => {
+        if (e.key == 'Enter') {
+            var x, i;
+            x = document.getElementsByClassName("videoBox");
+            for (i = 0; i < x.length; i++) {
+                removeClass(x[i], "show");
+            }
+            $.ajax({
+                type: "GET",
+                url: "/search?input=" + searchkey.value,
+                data: {},
+                success: function (response) {
+                    let dbjson = response['msg']
+                    for (let i = dbjson.length - 1; i > -1; i--) {
+                        // console.log(response['msg'][i]['채널명'])
+                        channel = dbjson[i]["채널명"];
+                        keyword = dbjson[i]["키워드"];
+                        thumbnail = dbjson[i]["썸네일"];
+                        youtubericon = dbjson[i]["유튜버아이콘"];
+                        temp_html_td = `
+                                            <td onclick='getValue(${i})' class="videoBox show ${keyword}">
+                                                <div class="videoDiv">
+                                                    <a class="thumbnail">
+                                                    <img src=${thumbnail}>
+                                                </a>
+                                                </div>
+                                                <div class="videoText">
+                                                    <a class="thumbnail"><img class="channelImg" id=${i}
+                                                                             src=${youtubericon}><name
+                                                            class="name">${channel}</name></a>
+                                                </div>
+                                            </td>`;
+                        $("#movielist").append(temp_html_td);
+
+
+                    }
+                }
+            })
+        }
     })
 
     function youtube(value) {
