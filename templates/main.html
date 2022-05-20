@@ -23,6 +23,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@200&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap" rel="stylesheet">
     <!-- jQuery    -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Infinite Scroll -->
@@ -117,7 +118,7 @@
     <div class="footer-logo"><img class="footer-logo-img" src="../static/img/footer_logo.png"></div>
     <div class="footer-contents">
         <div class="footer-fe-box">
-            <div><h3 class="poppinsFont">Front-End</h3></div>
+            <div><h3 class="poppinsFont">Frontend</h3></div>
             <div class="footer-name">
                 <ul>최준묵</ul>
                 <a href="https://github.com/dan-studio" target="_blank"><i class="fa-brands fa-github fa-lg"></i></a>
@@ -141,7 +142,7 @@
         </div>
         <div class="footer-bett-box">
             <div class="footer-be-box">
-                <h3 class="poppinsFont">Back-End</h3>
+                <h3 class="poppinsFont">Backend</h3>
                 <div class="footer-name">
                     <ul>전가영</ul>
                     <icon><a href="https://github.com/dsyhwk1016" target="_blank"><i
@@ -185,7 +186,7 @@
             </div>
         </div>
     </div>
-    <div class="footer-copy"><p class="poppinsFont">Copyright © 2022 TToODLe Team. All rights reserved.</p></div>
+    <div class="footer-copy2"><p>Copyright © 2022 TToODLe Team. All rights reserved.</p></div>
 </footer>
 </body>
 <script>
@@ -206,7 +207,7 @@
     function handleIntersect(entries) {
         if (entries[0].isIntersecting) {
             console.warn('footer  on  screen!!')
-            getData();
+            setTimeout(()=>{getData()},1000)//로딩시 1초 지연
         }
     }
 
@@ -453,12 +454,6 @@
             }
         }
         element.className = arr1.join(" ");
-    }
-
-    //버튼 클릭시 입력창에 해당 값 넣기
-    function genreAppend() {
-        const btnVal = $('.genreBtn').val();
-        $('#genreInput').val(btnVal)
     }
 
 </script>
