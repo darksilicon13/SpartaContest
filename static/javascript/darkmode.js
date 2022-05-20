@@ -90,4 +90,5 @@ function getBright() {
   $('#prev-button').css('filter', 'invert(100%)');
   $('#next-button').css('filter', 'invert(100%)');
   $("#upperSide").css('background-color', '#E2314B');
+  $('.form-group').css('color', 'black');
 } 

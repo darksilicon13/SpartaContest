@@ -201,11 +201,12 @@ table {
 
 }
 
-
 #post-button {
     display: block;
     margin-left: auto;
     margin-right: 0;
+    background-color: #E2314B;
+    border: none;
 }
 /* Comment section */
 
@@ -277,7 +278,6 @@ table {
     margin-bottom: 40px;
     margin-right:92px;
     justify-content: space-between;
-
 }
 
 .poppinsFont{
@@ -369,10 +369,10 @@ table {
     justify-content: space-evenly;
 }
 
-.form-control{
+#quick-search{
     font-size: 15px;
     margin-top: 12px;
-    width:150px !important;
+    width:150px;
     height: 35px;
 }
 
