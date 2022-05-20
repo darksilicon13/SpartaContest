@@ -300,7 +300,7 @@
             data: {},
             success: function (response) {
                 let dbjson = response['msg']
-                localStorage.setItem('channel', dbjson[id]['채널명'])
+                sessionStorage.setItem('channel', dbjson[id]['채널명'])
                 sessionStorage.setItem('you', dbjson[id]['유튜버아이콘'])
                 window.location.href = "/playlist";
             }

@@ -174,10 +174,10 @@
     $(document).ready(function () {
         $.ajax({
             type: "GET",
-            url: "/movie?channel=" + localStorage.getItem('channel'),
+            url: "/movie?channel=" + sessionStorage.getItem('channel'),
             data: {},
             success: function (response) {
-                console.log(localStorage.getItem('channel'))
+                console.log(sessionStorage.getItem('channel'))
                 console.log(response['msg'][0]['videoId'])
                 const carousel = document.getElementById("carousel-inner")
                 length = response['msg'].length;
@@ -203,7 +203,7 @@
         })
 
 
-        const name = localStorage.getItem("channel")
+        const name = sessionStorage.getItem("channel")
         document.getElementById("author").src = sessionStorage.getItem('you');
         console.log(name)
         document.getElementById("authorName").innerHTML = name;
@@ -248,7 +248,7 @@
     }
 
     function showComment() {
-        let channel = localStorage.getItem('channel')
+        let channel = sessionStorage.getItem('channel')
         $.ajax({
             type: "GET",
             url: '/comments/' + channel,
