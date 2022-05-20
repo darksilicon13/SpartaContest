@@ -86,6 +86,7 @@
                                  aria-labelledby="userinfo-tab"><h1 class="title">login</h1>
                                 <div id="logForm">
                                     <form action="/user/login" method="post">
+                                        <div id="msg"></div>
                                         <div class="txt_field">
                                             <input type="email" name="email" class="email" required>
                                             <span></span>
@@ -121,7 +122,8 @@
                                             <label>Password</label>
                                         </div>
                                         <div class="txt_field">
-                                            <input type="password" name="conformPassword" class="confirmPassword" required>
+                                            <input type="password" name="conformPassword" class="confirmPassword"
+                                                   required>
                                             <span></span>
                                             <label>Confirm Pasword</label>
                                         </div>
@@ -282,7 +284,9 @@
     function handleIntersect(entries) {
         if (entries[0].isIntersecting) {
             console.warn('footer  on  screen!!')
-            setTimeout(()=>{getData()},1000)//로딩시 1초 지연
+            setTimeout(() => {
+                getData()
+            }, 1000)//로딩시 1초 지연
         }
     }
 
@@ -493,5 +497,4 @@
 </script>
 <script src="../static/javascript/darkmode.js"></script>
 <script src="../static/javascript/login.js"></script>
-
 </html>

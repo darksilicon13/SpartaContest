@@ -14,11 +14,13 @@ $('#loginSubmit').on('click', function (e) {
                 url: '/user/login',
                 data: {'email': email, 'password': password},
                 success: function (data) {
-                    $('#logForm').hide();
-                    $('#msg').html('<span style="color: #eb6383">로그인 성공!</span>');
+                    if(data.result == 'SUCCESS'){
+                    alert(data.msg)
+                    }else{
+                    alert(data.msg)
+                    }
                 }, statusCode: {
                     400: function () {
-                        $('#msg').html('<span style="color: #eb6383">Bad request parameters</span>')
                     },
                 },
                 error: function (err) {
@@ -49,7 +51,7 @@ $('#registerSubmit').on('click', function (e) {
             $.ajax({
                 type: "POST",
                 url: '/user/register',
-                data: {'username': username, 'email': email, 'password': password},
+                data: JSON.stringify({'username': username, 'email': email, 'password': password}),
                 success: function (data) {
                     $('#regForm').hide();
                     $('#msg').html('<span style="color: #eb6383">회원가입 성공!</span>');
