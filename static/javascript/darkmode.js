@@ -46,13 +46,9 @@ function getDark() {
     $("#checkbox").css('background-color', "transparent");
   }
   else {
-    if (page === "request") {
-      var list;
-      list = document.querySelectorAll(".youtuberLink");
-      for (var i = 0; i < list.length; ++i) {
-        list[i].classList.remove('toggleBlack');
-        list[i].classList.add('toggleWhite');
-      }
+    if (page === "customer_request") {
+      $('.youtuberLink').css('color', 'white');
+      
     }
     document.body.classList.add("dark");
   }
@@ -62,6 +58,7 @@ function getDark() {
   $('#next-button').css('filter', 'none');
   $("#upperSide").css('background-color', '#171b26');
   $('.form-group').css('color', 'white');
+  $("#checkbox").css('border','1px solid white');
 }
 
 function getBright() {
@@ -80,10 +77,14 @@ function getBright() {
     $("#genre").css('background', 'linear-gradient( to top, white, white )');
     $("#genre").css('border-bottom', '2px solid #f5f5f5');
     $('#searchShop').css('color', '#eb6383');
-    $("#checkbox").css('background-color', "#e2314b");
   }
+  else if (page === "customer_request") {
+    $('.youtuberLink').css('color', 'black');
+  }
+
   else {
     document.body.classList.remove("dark");
+  
   }
   $("#comment-section").css('color', 'black');
   $('#sidebar').css('background-color', 'white');
@@ -91,4 +92,5 @@ function getBright() {
   $('#next-button').css('filter', 'invert(100%)');
   $("#upperSide").css('background-color', '#E2314B');
   $('.form-group').css('color', 'black');
+  $("#checkbox").css('background-color', "transparent");
 } 

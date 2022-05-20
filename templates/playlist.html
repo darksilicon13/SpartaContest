@@ -25,7 +25,9 @@
     <!-- External CSS -->
     <link type="text/css" rel="stylesheet" href="../static/css/playlist.css">
 
-    <title>Document</title>
+    <!--파비콘-->
+    <link rel="shortcut icon" type="image/x-icon" href="../static/img/favi2.png">
+    <title>TToODLe</title>
 </head>
 
 <body>
@@ -46,7 +48,7 @@
                     <li><a href="/">Home</a></li>
                     <li><a href="/user">Login</a></li>
                     <li><a href="/about">About</a></li>
-                    <li><a href="/request">Request</a></li>
+                    <li><a href="/customer_request">Request</a></li>
                     <li><a href="/contact">Contact</a></li>
                 </ul>
             </div>
@@ -82,7 +84,7 @@
                     <label for="comment-textarea">Comment</label>
                     <textarea id="comment-textarea" class="form-control" rows="1"
                         name="content"></textarea>
-                    <button id="post-button" class="btn btn-primary mt-1" type="submit" onclick="postComment">post</button>
+                    <button id="post-button" class="btn btn-primary mt-1" type="submit" onclick="postComment()">post</button>
                 </div>
             </form>
 
@@ -172,10 +174,10 @@
     $(document).ready(function () {
         $.ajax({
             type: "GET",
-            url: "/movie?channel=" + localStorage.getItem('channel'),
+            url: "/movie?channel=" + sessionStorage.getItem('channel'),
             data: {},
             success: function (response) {
-                console.log(localStorage.getItem('channel'))
+                console.log(sessionStorage.getItem('channel'))
                 console.log(response['msg'][0]['videoId'])
                 const carousel = document.getElementById("carousel-inner")
                 length = response['msg'].length;
@@ -201,7 +203,7 @@
         })
 
 
-        const name = localStorage.getItem("channel")
+        const name = sessionStorage.getItem("channel")
         document.getElementById("author").src = sessionStorage.getItem('you');
         console.log(name)
         document.getElementById("authorName").innerHTML = name;
@@ -227,7 +229,7 @@
 
         const token = getCookie('token')
 
-        let channel = localStorage.getItem('channel')
+        let channel = sessionStorage.getItem('channel')
         let content = document.getElementById('comment-textarea').value
 
         $.ajax({
@@ -242,10 +244,11 @@
                 document.getElementById('comment-textarea').value = ''
             }
         })
+        window.location.reload();
     }
 
     function showComment() {
-        let channel = localStorage.getItem('channel')
+        let channel = sessionStorage.getItem('channel')
         $.ajax({
             type: "GET",
             url: '/comments/' + channel,

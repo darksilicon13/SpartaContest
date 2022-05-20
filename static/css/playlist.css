@@ -3,6 +3,7 @@ html, body {
     padding: 0;
     width:100%;
     height: 100%;
+    transition: background-color 200ms linear;
 }
 
 #main {
@@ -15,6 +16,7 @@ html, body {
 #upperSide{
     background-color: #E2314B;
     padding: 10px;
+    transition: background-color 200ms linear;
 }
 
 /* main - logo */
@@ -377,7 +379,7 @@ table {
 #button-addon2 {
     margin-top: 13px;
     margin-left: 5px;
-    width:42px;
+    width:60px;
     height: 34px;
     background-color: #e2314b;
     font-size: 15px;
@@ -419,12 +421,13 @@ table {
 .checkbox {
     opacity: 0;
     position: absolute;
+    background-color: transparent;
 }
 
 .label {
-    background-color: white;
+    background-color: transparent;
     display: flex;
-    border: 0.5px solid #E2314B;
+    border: 0.5px solid white;
     border-radius: 5px;
     align-items: center;
     justify-content: space-between;
@@ -436,14 +439,13 @@ table {
 }
 
 .ball {
-    background-color: white;
+    background-color:#f7c72a;
     width: 20px;
     height: 20px;
     position: absolute;
     top: 2px;
     left: 2px;
     border-radius: 5px;
-    border: .3px solid #E2314B;
     transition: transform 0.2s linear;
 }
 
@@ -454,11 +456,11 @@ table {
 }
 
 .dark {
-    background-color: black;
+    background-color: #181a26;
 }
 
 .toggleLable {
-    background-color: black;
+    background-color: transparent;
     color: orange
 }
 
