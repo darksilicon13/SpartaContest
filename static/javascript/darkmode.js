@@ -77,7 +77,6 @@ function getBright() {
     $("#genre").css('background', 'linear-gradient( to top, white, white )');
     $("#genre").css('border-bottom', '2px solid #f5f5f5');
     $('#searchShop').css('color', '#eb6383');
-    $("#checkbox").css('background-color', "#e2314b");
   }
   else if (page === "customer_request") {
     $('.youtuberLink').css('color', 'black');
@@ -93,4 +92,5 @@ function getBright() {
   $('#next-button').css('filter', 'invert(100%)');
   $("#upperSide").css('background-color', '#E2314B');
   $('.form-group').css('color', 'black');
+  $("#checkbox").css('background-color', "transparent");
 } 
