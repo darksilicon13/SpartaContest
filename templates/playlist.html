@@ -79,9 +79,11 @@
             <!-- Comment Posting Section -->
             <form id="comment-form" onsubmit="return false;">
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Leave a comment..." aria-describedby="button-addon2">
-                    <button id="post-button" class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="postComment">Post</button>
-                  </div>
+                    <input id="comment-input" type="text" class="form-control" placeholder="Leave a comment..."
+                        aria-describedby="button-addon2">
+                    <button id="post-button" class="btn btn-outline-secondary" type="button" id="button-addon2"
+                        onclick="postComment()">Post</button>
+                </div>
             </form>
 
             <!-- Comments Sections -->
@@ -99,72 +101,83 @@
     </div>
 
     <footer class="footer">
-    <div class="footer-logo"><img class="footer-logo-img" src="../static/img/footer_logo.png"></div>
-    <div class="footer-contents">
-        <div class="footer-fe-box">
-            <div><h3 class="poppinsFont">Frontend</h3></div>
-            <div class="footer-name">
-                <ul>최준묵</ul>
-                <a href="https://github.com/dan-studio" target="_blank"><i class="fa-brands fa-github fa-lg"></i></a>
-            </div>
-            <div class="footer-name">
-                <ul>노지애</ul>
-                <div><a href="https://github.com/jiaero" target="_blank"><i class="fa-brands fa-github fa-lg"></i></a>
+        <div class="footer-logo"><img class="footer-logo-img" src="../static/img/footer_logo.png"></div>
+        <div class="footer-contents">
+            <div class="footer-fe-box">
+                <div>
+                    <h3 class="poppinsFont">Frontend</h3>
                 </div>
-            </div>
-            <div class="footer-name">
-                <ul>이현규</ul>
-                <icon><a href="https://github.com/darksilicon13" target="_blank"><i
-                        class="fa-brands fa-github fa-lg"></i></a>
-                </icon>
-            </div>
-            <div class="footer-name">
-                <ul>이정민</ul>
-                <icon><a href="https://github.com/froggy1014" target="_blank"><i class="fa-brands fa-github fa-lg"></i></a>
-                </icon>
-            </div>
-        </div>
-        <div class="footer-bett-box">
-            <div class="footer-be-box">
-                <h3 class="poppinsFont">Backend</h3>
                 <div class="footer-name">
-                    <ul>전가영</ul>
-                    <icon><a href="https://github.com/dsyhwk1016" target="_blank"><i class="fa-brands fa-github fa-lg"></i></a>
+                    <ul>최준묵</ul>
+                    <a href="https://github.com/dan-studio" target="_blank"><i
+                            class="fa-brands fa-github fa-lg"></i></a>
+                </div>
+                <div class="footer-name">
+                    <ul>노지애</ul>
+                    <div><a href="https://github.com/jiaero" target="_blank"><i
+                                class="fa-brands fa-github fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="footer-name">
+                    <ul>이현규</ul>
+                    <icon><a href="https://github.com/darksilicon13" target="_blank"><i
+                                class="fa-brands fa-github fa-lg"></i></a>
                     </icon>
                 </div>
                 <div class="footer-name">
-                    <ul>송기찬</ul>
-                    <icon><a href="https://github.com/gichan-song" target="_blank"><i class="fa-brands fa-github fa-lg"></i></a>
+                    <ul>이정민</ul>
+                    <icon><a href="https://github.com/froggy1014" target="_blank"><i
+                                class="fa-brands fa-github fa-lg"></i></a>
                     </icon>
                 </div>
             </div>
-            <div class="division"></div>
-            <div class="footer-be-box">
-                <h3 class="poppinsFont">tutor</h3>
-                <div class="footer-name">
-                    <ul>최영서</ul>
-                    <icon><a href="https://github.com/tomatophobia" target="_blank"><i class="fa-brands fa-github fa-lg"></i></a>
-                    </icon>
+            <div class="footer-bett-box">
+                <div class="footer-be-box">
+                    <h3 class="poppinsFont">Backend</h3>
+                    <div class="footer-name">
+                        <ul>전가영</ul>
+                        <icon><a href="https://github.com/dsyhwk1016" target="_blank"><i
+                                    class="fa-brands fa-github fa-lg"></i></a>
+                        </icon>
+                    </div>
+                    <div class="footer-name">
+                        <ul>송기찬</ul>
+                        <icon><a href="https://github.com/gichan-song" target="_blank"><i
+                                    class="fa-brands fa-github fa-lg"></i></a>
+                        </icon>
+                    </div>
+                </div>
+                <div class="division"></div>
+                <div class="footer-be-box">
+                    <h3 class="poppinsFont">tutor</h3>
+                    <div class="footer-name">
+                        <ul>최영서</ul>
+                        <icon><a href="https://github.com/tomatophobia" target="_blank"><i
+                                    class="fa-brands fa-github fa-lg"></i></a>
+                        </icon>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-searchbar">
+                <div class="input-group mb-3">
+                    <input id="quick-search" type="text" class="form-control poppinsFont" placeholder="Quick-Search"
+                        aria-label="Recipient's username" aria-describedby="button-addon2"
+                        onkeyup="if(window.event.keyCode==13){youtube(this.value)}">
+                    <button class="btn btn-outline-secondary poppinsFont" type="button" id="button-addon2">go</button>
+                </div>
+                <div class="footer-about">
+                    <a href="main.html">Home</a>
+                    <a href="#">About</a>
+                    <a href="https://www.notion.so/2-3be792a4fe0c40388a1474532f4c5328" target="_blank">Team Notion</a>
+                    <a href="#"></a>
+                    <a href="#"></a>
                 </div>
             </div>
         </div>
-        <div class="footer-searchbar">
-            <div class="input-group mb-3">
-                <input id="quick-search" type="text" class="form-control poppinsFont" placeholder="Quick-Search" aria-label="Recipient's username"
-                       aria-describedby="button-addon2" onkeyup="if(window.event.keyCode==13){youtube(this.value)}">
-                <button class="btn btn-outline-secondary poppinsFont" type="button" id="button-addon2">go</button>
-            </div>
-            <div class="footer-about">
-                <a href="main.html">Home</a>
-                <a href="#">About</a>
-                <a href="https://www.notion.so/2-3be792a4fe0c40388a1474532f4c5328" target="_blank">Team Notion</a>
-                <a href="#"></a>
-                <a href="#"></a>
-            </div>
+        <div class="footer-copy2">
+            <p>Copyright © 2022 TToODLe Team. All rights reserved.</p>
         </div>
-    </div>
-    <div class="footer-copy2"><p>Copyright © 2022 TToODLe Team. All rights reserved.</p></div>
-</footer>
+    </footer>
 </body>
 <script>
     $(document).ready(function () {
@@ -232,7 +245,7 @@
         }
 
         let channel = sessionStorage.getItem('channel')
-        let content = document.getElementById('comment-textarea').value
+        let content = document.getElementById('comment-input').value
 
         $.ajax({
             type: "POST",
@@ -243,7 +256,7 @@
                 'content': content
             },
             success: function () {
-                document.getElementById('comment-textarea').value = ''
+                document.getElementById('comment-input').value = ''
             }
         })
         window.location.reload();
