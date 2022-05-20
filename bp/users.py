@@ -47,12 +47,20 @@ def login():
         token = create_access_token(identity={'email': user['email'], 'username': user['username']}, expires_delta=timedelta(hours=8))
 
         # 쿠키에 토큰 저장 후 main.html로 이동
-        res = make_response(render_template('main.html'))
+        res = make_response(render_template('main.html', logged=True))
         res.set_cookie('token', token)
 
         return res
 
     return jsonify({'result': 'FAIL', 'msg': '아이디 혹은 비밀번호를 다시 확인해주세요.'})   # FAIL과 msg 반환
+
+# 유저 로그아웃
+@users.route('/logout', methods=['POST'])
+def logout():
+    res = make_response(render_template('main.html'))
+    res.delete_cookie('token')
+
+    return res
 
 # 회원 가입 페이지 렌더링
 @users.route('/join')
