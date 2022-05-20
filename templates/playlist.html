@@ -229,6 +229,13 @@
 
         const token = getCookie('token')
 
+        if(token === null)
+        {
+            alert('You need to login to leave a comment!');
+            window.location.reload();
+            return;
+        }
+
         let channel = sessionStorage.getItem('channel')
         let content = document.getElementById('comment-textarea').value
 
@@ -270,8 +277,6 @@
             }
         })
     }
-
-
 
     function getCookie(key) {
         var result = null;
