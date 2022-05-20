@@ -247,6 +247,13 @@
         let channel = sessionStorage.getItem('channel')
         let content = document.getElementById('comment-input').value
 
+        const whitespace = /\w*/g
+        if(content.match(whitespace)) {
+            alert("Nothing to comment!");
+            window.location.reload();
+            return;
+        }
+
         $.ajax({
             type: "POST",
             url: '/comments/upload',
