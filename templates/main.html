@@ -145,12 +145,14 @@
                 <h3 class="poppinsFont">Backend</h3>
                 <div class="footer-name">
                     <ul>전가영</ul>
-                    <icon><a href="https://github.com/dsyhwk1016" target="_blank"><i class="fa-brands fa-github fa-lg"></i></a>
+                    <icon><a href="https://github.com/dsyhwk1016" target="_blank"><i
+                            class="fa-brands fa-github fa-lg"></i></a>
                     </icon>
                 </div>
                 <div class="footer-name">
                     <ul>송기찬</ul>
-                    <icon><a href="https://github.com/gichan-song" target="_blank"><i class="fa-brands fa-github fa-lg"></i></a>
+                    <icon><a href="https://github.com/gichan-song" target="_blank"><i
+                            class="fa-brands fa-github fa-lg"></i></a>
                     </icon>
                 </div>
             </div>
@@ -159,14 +161,16 @@
                 <h3 class="poppinsFont">tutor</h3>
                 <div class="footer-name">
                     <ul>최영서</ul>
-                    <icon><a href="https://github.com/tomatophobia" target="_blank"><i class="fa-brands fa-github fa-lg"></i></a>
+                    <icon><a href="https://github.com/tomatophobia" target="_blank"><i
+                            class="fa-brands fa-github fa-lg"></i></a>
                     </icon>
                 </div>
             </div>
         </div>
         <div class="footer-searchbar">
             <div class="input-group mb-3">
-                <input type="text" class="form-control poppinsFont" placeholder="Quick-Search" aria-label="Recipient's username"
+                <input type="text" class="form-control poppinsFont" placeholder="Quick-Search"
+                       aria-label="Recipient's username"
                        aria-describedby="button-addon2" onkeyup="if(window.event.keyCode==13){youtube(this.value)}">
                 <button class="btn btn-outline-secondary poppinsFont" type="button" id="button-addon2">go ▸
 
@@ -203,7 +207,7 @@
     function handleIntersect(entries) {
         if (entries[0].isIntersecting) {
             console.warn('footer  on  screen!!')
-            getData();
+            setTimeout(()=>{getData()},1000)//로딩시 1초 지연
         }
     }
 
@@ -409,12 +413,6 @@
             }
         }
         element.className = arr1.join(" ");
-    }
-
-    //버튼 클릭시 입력창에 해당 값 넣기
-    function genreAppend() {
-        const btnVal = $('.genreBtn').val();
-        $('#genreInput').val(btnVal)
     }
 
 </script>
