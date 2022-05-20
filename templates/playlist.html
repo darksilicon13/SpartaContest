@@ -73,19 +73,15 @@
             <!-- Carousel that contains frames -->
 
             <div class="youtuber">
-                <a href="#"><img id="author"
-                        src="" alt="thumbnail"><span
-                        id="authorName"></span></a>
+                <a href="#"><img id="author" src="" alt="thumbnail"><span id="authorName"></span></a>
             </div>
 
             <!-- Comment Posting Section -->
             <form id="comment-form" onsubmit="return false;">
-                <div class="form-group">
-                    <label for="comment-textarea">Comment</label>
-                    <textarea id="comment-textarea" class="form-control" rows="1"
-                        name="content"></textarea>
-                    <button id="post-button" class="btn btn-primary mt-1" type="submit" onclick="postComment()">post</button>
-                </div>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Leave a comment..." aria-describedby="button-addon2">
+                    <button id="post-button" class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="postComment">Post</button>
+                  </div>
             </form>
 
             <!-- Comments Sections -->
@@ -229,8 +225,7 @@
 
         const token = getCookie('token')
 
-        if(token === null)
-        {
+        if (token === null) {
             alert('You need to login to leave a comment!');
             window.location.reload();
             return;
@@ -247,7 +242,7 @@
                 'channel': channel,
                 'content': content
             },
-            success: function (){
+            success: function () {
                 document.getElementById('comment-textarea').value = ''
             }
         })
@@ -261,7 +256,7 @@
             url: '/comments/' + channel,
             data: {},
             success: function (response) {
-                if(response['result'] == 'SUCCESS'){
+                if (response['result'] == 'SUCCESS') {
                     let comments = response['comments']
                     for (let i = 0; i < comments.length; i++) {
                         let content = comments[i]['content'];
