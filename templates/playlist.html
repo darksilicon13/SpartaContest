@@ -229,7 +229,7 @@
 
         const token = getCookie('token')
 
-        let channel = localStorage.getItem('channel')
+        let channel = sessionStorage.getItem('channel')
         let content = document.getElementById('comment-textarea').value
 
         $.ajax({
