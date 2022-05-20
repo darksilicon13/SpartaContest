@@ -788,11 +788,15 @@ td, th {
 
 /*uploadPage*/
 .mypost {
-    color: #eb6383;
+    color: #f6c72a;
     max-width: 500px;
     width: 95%;
     margin: 100px auto 0px auto;
     font-family: 'Nunito', sans-serif;
+}
+
+.form-control-request{
+    width:100% !important;
 }
 
 .mybtn {
@@ -805,7 +809,8 @@ td, th {
     width: 120px;
     height: 50px;
     border: 3px solid white;
-    background: #eb6383;
+    background: #f6c72a;
+    font-size: 20px;
     color: white;
     border-radius: 10px;
     font-weight: 700;
@@ -827,7 +832,7 @@ td, th {
 }
 
 .table {
-    color: #eb6383;
+    color: #f6c72a;
 }
 
 .tableStyle {
@@ -835,7 +840,11 @@ td, th {
 }
 
 .youtuberLink {
-    color: #2d2d2d;
+    color: white;
+}
+
+.pagetitle{
+    color:#f6c72a;
 }
 
 
@@ -901,13 +910,9 @@ tr {
 
 .label {
     margin-left: 13px;
-    background-color: #E2314B;
     display: flex;
-    border: 0.5px solid #F7C72A;
     border-radius: 7px;
-    display: flex;
-    border: 0.5px solid white;
-    border-radius: 5px;
+    border: 1px solid white;
     align-items: center;
     justify-content: space-between;
     padding: 5px;
@@ -1034,3 +1039,4 @@ tr {
 #sidebar{
     background-color: #f7c72a!important;
 }
+

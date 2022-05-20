@@ -25,8 +25,10 @@
     ​
     <!-- External CSS -->
     <link type="text/css" rel="stylesheet" href="../static/css/style.css">
+    <!--파비콘-->
+    <link rel="shortcut icon" type="image/x-icon" href="../static/img/favi2.png">
+    <title>TToODLe</title>
 
-    <title>2Slide Main</title>
 </head>
 <body>
 <div class="wrapper">
@@ -36,19 +38,17 @@
         <div class="ball"></div>
     </label></div>
     <div id="slide"><a id="logo" href="/">
-        <div id="Two">2</div>
-        <div id="S">S</div>
-        <div id="lide">l i d e</div>
+        <img src="../static/img/logologo.png">
     </a></div>
     <div>
         <div class="mypost">
-            <h3 class="pagetitle">Upload Request . . 💖</h3>
+            <h3 class="pagetitle">Upload Request . . 💛</h3>
             <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <input type="email" class="form-control form-control-request" id="floatingInput" placeholder="name@example.com">
                 <label for="floatingInput">Youtuber</label>
             </div>
             <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <input type="email" class="form-control form-control-request" id="floatingInput" placeholder="name@example.com">
                 <label for="floatingInput">Comment</label>
             </div>
             <div class="mybtn">
@@ -83,7 +83,6 @@
                 </tbody>
             </table>
         </div>
-
     </div>
 
     <div id="toggle"></div>
@@ -95,21 +94,14 @@
             <li><a href="/contact">Contact</a></li>
         </ul>
     </div>
-    <!--슬라이드(보류중)-->
-    <!--<div id="mainPhoto">-->
-    <!--<img src="https://i.ytimg.com/vi/XAoQviSh7HQ/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDO59DlFMVL1Lc8lLbKT5dfHz9R_w">-->
-    <!--</div>-->
+    
 </div>
 <footer class="footer">
-    <div class="footer-title">
-        <div class="footer-title-fst">
-            <h1 id="2slideteam">2Slide Team</h1><span>with</span>
-        </div>
-        <div><img class="footer-img" src="https://spartacodingclub.kr/v5/icons/logo_v2.svg"/></div>
-    </div>
+    
+    <div class="footer-logo"><img class="footer-logo-img" src="../static/img/footer_logo.png"></div>
     <div class="footer-contents">
         <div class="footer-fe-box">
-            <h4>< 프론트엔드 ></h4>
+            <div><h3 class="poppinsFont">Frontend</h3></div>
             <div class="footer-name">
                 <ul>최준묵</ul>
                 <a href="https://github.com/dan-studio" target="_blank"><i class="fa-brands fa-github fa-lg"></i></a>
@@ -131,35 +123,45 @@
                 </icon>
             </div>
         </div>
-        <div class="footer-be-box">
-            <h4>< 백엔드 ></h4>
-            <div class="footer-name">
-                <ul>전가영</ul>
-                <icon><a href="https://github.com/dsyhwk1016" target="_blank"><i class="fa-brands fa-github fa-lg"></i></a>
-                </icon>
+        <div class="footer-bett-box">
+            <div class="footer-be-box">
+                <h3 class="poppinsFont">Backend</h3>
+                <div class="footer-name">
+                    <ul>전가영</ul>
+                    <icon><a href="https://github.com/dsyhwk1016" target="_blank"><i
+                            class="fa-brands fa-github fa-lg"></i></a>
+                    </icon>
+                </div>
+                <div class="footer-name">
+                    <ul>송기찬</ul>
+                    <icon><a href="https://github.com/gichan-song" target="_blank"><i
+                            class="fa-brands fa-github fa-lg"></i></a>
+                    </icon>
+                </div>
             </div>
-            <div class="footer-name">
-                <ul>송기찬</ul>
-                <icon><a href="https://github.com/gichan-song" target="_blank"><i class="fa-brands fa-github fa-lg"></i></a>
-                </icon>
-            </div>
-            <h4>< 튜터 ></h4>
-            <div class="footer-name">
-                <ul>최영서</ul>
-                <icon><a href="https://github.com/tomatophobia" target="_blank"><i
-                        class="fa-brands fa-github fa-lg"></i></a>
-                </icon>
+            <div class="division"></div>
+            <div class="footer-be-box">
+                <h3 class="poppinsFont">tutor</h3>
+                <div class="footer-name">
+                    <ul>최영서</ul>
+                    <icon><a href="https://github.com/tomatophobia" target="_blank"><i
+                            class="fa-brands fa-github fa-lg"></i></a>
+                    </icon>
+                </div>
             </div>
         </div>
         <div class="footer-searchbar">
             <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Quick-Search" aria-label="Recipient's username"
-                       aria-describedby="button-addon2" onKeyUp="if(window.event.keyCode==13){youtube(this.value)}">
-                <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i
-                        class="fa-brands fa-youtube"></i></button>
+                <input type="text" class="form-control poppinsFont" placeholder="Quick-Search"
+                       aria-label="Recipient's username"
+                       aria-describedby="button-addon2" onkeyup="if(window.event.keyCode==13){youtube(this.value)}">
+                <button class="btn btn-outline-secondary poppinsFont" type="button" id="button-addon2">go ▸
+
+
+                </button>
             </div>
             <div class="footer-about">
-                <a onClick="window.location.reload()">Home</a>
+                <a href="main.html">Home</a>
                 <a href="#">About</a>
                 <a href="https://www.notion.so/2-3be792a4fe0c40388a1474532f4c5328" target="_blank">Team Notion</a>
                 <a href="#"></a>
@@ -167,7 +169,7 @@
             </div>
         </div>
     </div>
-    <div class="footer-copy"><p>Copyright © 2022 S2Slide Team. All rights reserved.</p></div>
+    <div class="footer-copy2"><p>Copyright © 2022 TToODLe Team. All rights reserved.</p></div>
 </footer>
 </body>
 <script>
