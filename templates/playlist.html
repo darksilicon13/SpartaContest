@@ -52,7 +52,7 @@
                     <li><a href="/contact">Contact</a></li>
                 </ul>
             </div>
-
+            <!-- Carousel that contains frames -->
             <div id="carouselExampleControls" class="carousel slide" data-bs-interval="false">
                 <div class="carousel-inner" id="carousel-inner">
 
@@ -70,7 +70,7 @@
             </div>
         </div>
         <div id="main">
-            <!-- Carousel that contains frames -->
+
 
             <div class="youtuber">
                 <a href="#"><img id="author" src="" alt="thumbnail"><span id="authorName"></span></a>
@@ -248,7 +248,7 @@
         let content = document.getElementById('comment-input').value
 
         const whitespace = /\w*/g
-        if(content.match(whitespace)) {
+        if (content.match(whitespace)) {
             alert("Nothing to comment!");
             window.location.reload();
             return;

@@ -52,7 +52,16 @@ function getDark() {
     }
     document.body.classList.add("dark");
   }
-  $("#comment-section").css('color', 'white');
+  $('#post-button').css('background-color', '#f7c72a')
+  $('#post-button').css("color", "#000000");
+  $('#post-button').hover(function() {
+    $(this).css("color", "#FFFFFF");
+    $(this).css("background-color", "#000000");
+  }, function(){
+    $(this).css("color", "#000000");
+    $(this).css('background-color', '#f7c72a')
+  });
+  $("#comment-section").css('color', '#e7e7e7');
   $('#sidebar').css('background-color', '#30343f');
   $('#prev-button').css('filter', 'none');
   $('#next-button').css('filter', 'none');
@@ -86,6 +95,15 @@ function getBright() {
     document.body.classList.remove("dark");
   
   }
+  $('#post-button').css('background-color', '#f7c72a')
+  $('#post-button').css("color", "#000000");
+  $('#post-button').hover(function() {
+    $(this).css("color", "#FFFFFF");
+    $(this).css("background-color", "#E2314B");
+  }, function(){
+    $(this).css("color", "#000000");
+    $(this).css('background-color', '#f7c72a')
+  });
   $("#comment-section").css('color', 'black');
   $('#sidebar').css('background-color', 'white');
   $('#prev-button').css('filter', 'invert(100%)');

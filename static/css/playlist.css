@@ -21,8 +21,8 @@ html, body {
 
 /* main - logo */
 #logo img {
-    width: 250px;
-    margin: auto;
+    width: 185px;
+    margin-bottom: 10px 20px 10px 20px ;
     transform: translateX(-40px);
 }
 
@@ -126,6 +126,19 @@ html, body {
     letter-spacing: 2px;
 }
 
+.dropdown .dropbtn {
+    color: #eb6383;
+    font-size: 1.5em;
+    border: none;
+    outline: none;
+    background-color: white;
+    margin: -9px;
+}
+
+#sidebar ul li a:hover {
+    color: #e2314b;
+}
+
 /*/ navbar*/
 
 /* Carousel */
@@ -178,7 +191,7 @@ iframe {
     width: 80px;
     object-fit: cover;
     border-radius: 50%;
-    margin: 10px 10px 10px 20px;
+    margin: 10px 10px 30px 0px;
 }
 
 /* Comment section */
@@ -188,10 +201,19 @@ iframe {
     color:black;
 }
 
+#comment-input {
+    font-family: 'Prompt', sans-serif;
+}
+
 #comment-section {
+    font-family: 'Prompt', sans-serif;
     width: 100%;
     margin-bottom: 20px;
     border-collapse: collapse;
+}
+
+#comment-body {
+    font-family: 'Nanum Gothic', sans-serif;
 }
 
 /* Comment section */
