@@ -183,31 +183,17 @@ iframe {
 
 /* Comment section */
 
-
-.form-group {
+.comment-form {
     margin: 20px;
     color:black;
 }
 
-#comment {
-    width: 50%;
-    margin-top: 50px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-table {
+#comment-section {
     width: 100%;
     margin-bottom: 20px;
     border-collapse: collapse;
-
 }
 
-#post-button {
-    display: block;
-    margin-left: auto;
-    margin-right: 0;
-}
 /* Comment section */
 
 
