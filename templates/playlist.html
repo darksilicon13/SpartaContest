@@ -247,8 +247,8 @@
         let channel = sessionStorage.getItem('channel')
         let content = document.getElementById('comment-input-bar').value
 
-        const whitespace = /^$|\s+/;
-        if (!whitespace.test(content)) {
+        const whitespace = /^\s*$/;
+        if (whitespace.test(content)) {
             alert("Nothing to comment!");
             window.location.reload();
             return;
