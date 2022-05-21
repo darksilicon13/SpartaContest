@@ -98,6 +98,7 @@ html, body {
     background: transparent;
     transition: 0.4s;
     z-index: 1;
+    font-family: 'Orbitron', sans-serif;
 }
 
 #sidebar.active {
@@ -207,20 +208,34 @@ iframe {
     align-items: center;
 }
 
+
+.commnet-input-box{
+    width:80%;
+    display: flex;
+    justify-content: center;
+}
+
+.commnet-input-box>form{
+    width:50%;
+}
+
 .comment-form {
     margin: 20px;
     color:black;
+    display:flex;
+    align-items: center;
+    text-align: center;
 }
 
-#comment-input {
+
+
+#comment-input2 {
     font-family: 'Prompt', sans-serif;
-    margin-left: auto;
-    margin-right: auto;
+    margin:0;
+    height:100%;
 }
 
-.input-group{
-    width:800px !important;
-}
+
 
 #comment-section {
     font-family: 'Prompt', sans-serif;
@@ -237,6 +252,7 @@ iframe {
 }
 
 /* Comment section */
+
 
 
 /*Footer*/
@@ -427,9 +443,6 @@ iframe {
     width: 70px;
     height: 40px;
   }
-  
-  /*/Footer*/
-
 
 /* Dark Mode */
 

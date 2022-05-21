@@ -38,9 +38,9 @@ function getDark() {
   if (page === "playlist") {
     document.getElementById('authorName').style.color = 'white';
     document.getElementById('authorName').style.fontWeight = 'bold';
-    $('#post-button').css('background-color', '#f7c72a');
-    $('#post-button').css("color", "#000000");
-    $('#post-button').hover(function () {
+    $('#post-button2').css('background-color', '#f7c72a');
+    $('#post-button2').css("color", "#000000");
+    $('#post-button2').hover(function () {
       $(this).css("color", "#FFFFFF");
       $(this).css("background-color", "#000000");
     }, function () {
@@ -71,14 +71,15 @@ function getDark() {
   else {
     if (page === "customer_request") {
       $('.youtuberLink').css('color', 'white');
-
     }
     document.body.classList.add("dark");
+    
   }
   $('#sidebar').css('background-color', '#30343f');
   $("#upperSide").css('background-color', '#171b26');
   $('.form-group').css('color', 'white');
   $("#checkbox").css('border', '1px solid white');
+  
 }
 
 function getBright() {
@@ -92,9 +93,9 @@ function getBright() {
   if (page === "playlist") {
     document.getElementById('authorName').style.color = 'black';
     document.getElementById('authorName').style.fontWeight = 'bold';
-    $('#post-button').css('background-color', '#f7c72a')
-    $('#post-button').css("color", "#000000");
-    $('#post-button').hover(function () {
+    $('#post-button2').css('background-color', '#f7c72a')
+    $('#post-button2').css("color", "#000000");
+    $('#post-button2').hover(function () {
       $(this).css("color", "#FFFFFF");
       $(this).css("background-color", "#E2314B");
     }, function () {
@@ -120,6 +121,7 @@ function getBright() {
   }
   else if (page === "customer_request") {
     $('.youtuberLink').css('color', 'black');
+    $('body').css("background","white");
   }
   else if (page === "feedback"){
     $('body').css("background","#6a9141")
@@ -128,7 +130,7 @@ function getBright() {
   }
   else {
     document.body.classList.remove("dark");
-
+    $('body').css("background","white");
   }
   $('#sidebar').css('background-color', '#f7c72a');
   $("#upperSide").css('background-color', '#E2314B');

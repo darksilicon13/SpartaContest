@@ -501,6 +501,7 @@ form .searchBar {
   background: transparent;
   transition: 0.4s;
   z-index: 1;
+  font-family: 'Orbitron', sans-serif;
 }
 
 #sidebar.active {
@@ -822,7 +823,8 @@ th {
 
 /*/Footer*/
 
-/*uploadPage*/
+/* request */
+
 .mypost {
   color: #f6c72a;
   max-width: 500px;
@@ -864,7 +866,7 @@ th {
   width: 400px;
   border-radius: 10px;
   text-align: center;
-  font-family: "Merriweather Sans", sans-serif;
+  font-family: "Orbitron", sans-serif;
 }
 
 .table {
@@ -882,6 +884,8 @@ th {
 .pagetitle {
   color: #f6c72a;
 }
+
+/* request  */
 
 /* Video Featuring  */
 
@@ -1071,7 +1075,7 @@ tr {
   background-color: #f7c72a !important;
 }
 
-/* about */
+/* Feedback */
 
 .about-title{
     display: flex;
@@ -1139,9 +1143,6 @@ tr {
     transition: background-color 200ms linear;
 }
 
-/* .about-btn > button > span{
-    font-size:30px;
-} */
 
 #about-message{
     height:150px;
@@ -1154,6 +1155,11 @@ tr {
     align-items: center;
 }
 
-body{
-    background:#5f9334;
+/* Feedback */
+
+.about-us-box{
+    display:flex;
+    justify-content: center;
 }
+
+/* Feedback */
