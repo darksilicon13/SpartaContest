@@ -281,6 +281,10 @@
         const observer = new IntersectionObserver(handleIntersect, options);
         observer.observe(document.querySelector("footer")) //footer 발견 시 handleIntersect 함수 실행
         getData();
+        if(getCookie('token') != null){
+            const logoutButton = `<a id="logoutButton" type="button" onclick="logout()">Logout</a>`
+            $('#loginButton').replaceWith(logoutButton) //로그인 되면 해당 버튼 로그아웃으로 변경
+        }
     })
 
     function handleIntersect(entries) {

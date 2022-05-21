@@ -1,3 +1,4 @@
+// 로그인 동작
 $('#loginSubmit').on('click', function (e) {
     e.preventDefault();
     let email = $('.email').val();
@@ -7,7 +8,7 @@ $('#loginSubmit').on('click', function (e) {
 
     if (email != '' && password != '') {
         if (!regex.test(email)) {
-            $('#msg').html('<span style="color: #eb6383">유요한 이메일 형식이 아닙니다</span>')
+            $('#msg').html('<span style="color: #eb6383">유효한 이메일 형식이 아닙니다</span>')
         } else {
             $.ajax({
                 type: "POST",
@@ -17,7 +18,7 @@ $('#loginSubmit').on('click', function (e) {
                     if (data.result == 'SUCCESS') {
                         alert(data.msg)
                         $('#exampleModal').modal('hide') //로그인 후 alert 확인 클릭하면 modal 숨기기
-                        const logoutButton = `<a id="logoutButton" type="button" onclick="">logout</a>`
+                        const logoutButton = `<a id="logoutButton" type="button" onclick="logout()">Logout</a>`
                         $('#loginButton').replaceWith(logoutButton) //로그인 되면 해당 버튼 로그아웃으로 변경
                     } else {
                         alert(data.msg)
@@ -36,12 +37,28 @@ $('#loginSubmit').on('click', function (e) {
     }
 })
 
+// 로그아웃 동작
+function logout() {
+    alert('로그아웃')
+    $.ajax({
+        type: "POST",
+        url: '/user/logout',
+        data: {},
+        success: function () {
+            const loginButton = `<a id="loginButton" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Login</a>`
+            $('#logoutButton').replaceWith(loginButton)
+            window.location.reload()
+        }
+    })
+}
+
+// 이메일 검사
 $('#signup .email').blur(function () {
     let email = $($('.email')[1]).val();
     let regex = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i; //이메일 정규식
 
     if (!regex.test(email)) {
-        $('#email-warning').html('<span style="color: #eb6383">유요한 이메일 형식이 아닙니다</span>')
+        $('#email-warning').html('<span style="color: #eb6383">유효한 이메일 형식이 아닙니다</span>')
     } else {
         $.ajax({
             type: "GET",
@@ -60,6 +77,7 @@ $('#signup .email').focus(function () {
     $('#email-warning').html('')
 })
 
+// 회원가입
 $('#registerSubmit').on('click', function (e) {
     e.preventDefault()
 
@@ -79,16 +97,14 @@ $('#registerSubmit').on('click', function (e) {
                 success: function (data) {
                     if (data.result == 'SUCCESS') {
                         let inputs = document.querySelectorAll('#regForm input')
-                        for(let i = 0; i < inputs.length; i++){
+                        for (let i = 0; i < inputs.length; i++) {
                             inputs[i].value = null
                         }
 
                         $('#signup').removeClass('show active')
                         $('#signup-tab').removeClass('active')
                         $('#login').addClass('show active')
-                        $('#login-tab').removeClass('active')
                         $('#login-tab').addClass('active')
-
                     }
                 }
             })
@@ -122,4 +138,21 @@ if (key === "userinfo") {
     $("#wishlist").removeClass("show active");
     $("#myreview").addClass("show active");
 
+}
+
+// 쿠키 확인
+function getCookie(key) {
+    var result = null;
+    var cookie = document.cookie.split(';');
+    cookie.some(function (item) {
+        item = item.replace(' ', '');
+
+        var dic = item.split('=');
+
+        if (key === dic[0]) {
+            result = dic[1];
+            return true;
+        }
+    });
+    return result;
 }
