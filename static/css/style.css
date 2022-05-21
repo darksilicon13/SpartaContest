@@ -790,7 +790,8 @@ th {
 .footer-copy2 {
     font-family: "Prompt", sans-serif;
     font-size: 13px;
-    margin-right: 20px;
+    width: 1850px;
+    margin: auto;
     position: absolute;
     bottom: 0;
     right: 0;
@@ -840,6 +841,9 @@ th {
 /*/Footer*/
 
 /* request */
+#reqBody{
+    background-color: #e2314b;
+}
 
 .mypost {
     color: #f6c72a;
@@ -870,7 +874,7 @@ th {
     font-weight: 700;
     cursor: pointer;
     outline: none;
-    font-family: "Josefin Sans", sans-serif;
+    font-family: 'Prompt', sans-serif;
     transition: 0.7s;
 }
 

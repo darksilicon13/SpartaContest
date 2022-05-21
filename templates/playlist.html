@@ -157,10 +157,10 @@
             </div>
 
             <!-- Comment Posting Section -->
-            <div class="commnet-input-box">
+            <div id="comment-input-box">
                 <form id="comment-form" onsubmit="return false;">
                     <div class="input-group mb-3">
-                        <input id="comment-input2" type="text" class="form-control" placeholder="Leave a comment..."
+                        <input id="comment-input" type="text" class="form-control" placeholder="Leave a comment..."
                             aria-describedby="button-addon2">
                         <button id="post-button2" class="btn btn-outline-secondary" type="button" id="button-addon2"
                             onclick="postComment()">Post
@@ -252,11 +252,9 @@
                     </button>
                 </div>
                 <div class="footer-about">
-                    <a href="main.html">Home</a>
-                    <a href="#">About</a>
+                    <a href="/" target="_blank">Home</a>
+                    <a href="/about" target="_blank">About</a>
                     <a href="https://www.notion.so/2-3be792a4fe0c40388a1474532f4c5328" target="_blank">Team Notion</a>
-                    <a href="#"></a>
-                    <a href="#"></a>
                 </div>
             </div>
         </div>
@@ -334,8 +332,8 @@
         let channel = sessionStorage.getItem('channel')
         let content = document.getElementById('comment-input').value
 
-        const whitespace = /\w*/g
-        if (content.match(whitespace)) {
+        const whitespace = /^\s*$/;
+        if (whitespace.test(content)) {
             alert("Nothing to comment!");
             window.location.reload();
             return;
