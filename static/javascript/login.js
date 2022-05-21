@@ -16,10 +16,10 @@ $('#loginSubmit').on('click', function (e) {
                 data: {'email': email, 'password': password},
                 success: function (data) {
                     if (data.result == 'SUCCESS') {
-                        alert(data.msg)
                         $('#exampleModal').modal('hide') //로그인 후 alert 확인 클릭하면 modal 숨기기
                         const logoutButton = `<a id="logoutButton" type="button" onclick="logout()">Logout</a>`
                         $('#loginButton').replaceWith(logoutButton) //로그인 되면 해당 버튼 로그아웃으로 변경
+                        location.reload();
                     } else {
                         alert(data.msg)
                     }
@@ -39,7 +39,6 @@ $('#loginSubmit').on('click', function (e) {
 
 // 로그아웃 동작
 function logout() {
-    alert('로그아웃')
     $.ajax({
         type: "POST",
         url: '/user/logout',
@@ -51,6 +50,8 @@ function logout() {
         }
     })
 }
+//로그인 했을 시 00님 환영합니다!
+
 
 // 이메일 검사
 $('#signup .email').blur(function () {

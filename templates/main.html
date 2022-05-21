@@ -50,18 +50,7 @@
         <div id="slide"><a id="logo" href="/">
             <img src="../static/img/logologo.png">
         </a></div>
-        <div id="toggle"></div>
-        <div id="sidebar">
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a id="loginButton" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Login
-                </a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/customer_request">Request</a></li>
-                <li><a href="/contact">Contact</a></li>
-            </ul>
-        </div>
+
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="0" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -140,16 +129,16 @@
             </div>
         </div>
         <div class="waviy">
-            <span style="--i:1" class="waviyW">W</span>
-            <span style="--i:2" class="waviyH">h</span>
-            <span style="--i:3" class="waviyE">e</span>
-            <span style="--i:4" class="waviyR">r</span>
-            <span style="--i:5" class="waviyE">e</span>
-            <span style="--i:6" class="waviyR1">R</span>
-            <span style="--i:7" class="waviyU">U</span>
-            <span style="--i:8" class="waviyG">g</span>
-            <span style="--i:9" class="waviyO">o</span>
-            <span style="--i:10" class="waviyQ">?</span>
+            <span style="--i:1" class="waviyW">S</span>
+            <span style="--i:2" class="waviyH">C</span>
+            <span style="--i:3" class="waviyE">R</span>
+            <span style="--i:4" class="waviyR">O</span>
+            <span style="--i:5" class="waviyE">L</span>
+            <span style="--i:6" class="waviyR1">L</span>
+            <span style="--i:7" class="waviyU">D</span>
+            <span style="--i:8" class="waviyG">O</span>
+            <span style="--i:9" class="waviyO">W</span>
+            <span style="--i:10" class="waviyQ">N</span>
         </div>
         <div id="searchBox">
             <div id="search">
@@ -163,6 +152,18 @@
             </div>
         </div>
     </div>
+    <div id="toggle"></div>
+        <div id="sidebar">
+            <ul>
+                <li id="loggedIn"></li>
+                <li><a id="loginButton" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Login
+                </a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/customer_request">Request</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </div>
     <div id="genre">
         <a onclick="filterObjects('all'); genreAppend()" class="genreBtn" value="Dog"><img src="../static/img/all.png"></a>
         <a onclick="filterObjects('고양이'); genreAppend()" class="genreBtn" value="Series"><img
@@ -281,9 +282,11 @@
         const observer = new IntersectionObserver(handleIntersect, options);
         observer.observe(document.querySelector("footer")) //footer 발견 시 handleIntersect 함수 실행
         getData();
-        if(getCookie('token') != null){
+        if (getCookie('token') != null) {
             const logoutButton = `<a id="logoutButton" type="button" onclick="logout()">Logout</a>`
             $('#loginButton').replaceWith(logoutButton) //로그인 되면 해당 버튼 로그아웃으로 변경
+            const loggedInMessage = `<li id="loggedIn">$(data.msg) 님 환영합니다 🎉</li>`
+            $('#loggedIn').replaceWith(loggedInMessage)
         }
     })
 
@@ -500,6 +503,12 @@
         element.className = arr1.join(" ");
     }
 
+    //스크롤시 색상 변경
+    $(document).ready(function () {
+        $(window).scroll(function () {
+            $('#upperSide').css("opacity", 1 - $(window).scrollTop() / 500)
+        })
+    })
 </script>
 <script src="../static/javascript/darkmode.js"></script>
 <script src="../static/javascript/login.js"></script>
