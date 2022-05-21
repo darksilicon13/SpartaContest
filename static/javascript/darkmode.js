@@ -44,6 +44,12 @@ function getDark() {
     $("#genre").css('border-bottom', '2px solid #30343f');
     $('#searchShop').css('color', '#30343f');
     $("#checkbox").css('background-color', "transparent");
+    $(".email").css('border-bottom', "2px solid #30343f");
+    $(".password").css('border-bottom', "2px solid #30343f");
+    $(".username").css('border-bottom', "2px solid #30343f");
+    $(".confirmPassword").css('border-bottom', "2px solid #30343f");
+    $("button.submit").css('background-color', '#f7c72a');
+    $(".modal-content").removeClass('modal-content-color');
   }
   else {
     if (page === "customer_request") {
@@ -86,6 +92,9 @@ function getBright() {
     $("#genre").css('background', 'linear-gradient( to top, white, white )');
     $("#genre").css('border-bottom', '2px solid #f5f5f5');
     $('#searchShop').css('color', '#eb6383');
+    $("button.submit").css('background-color', 'red');
+    $(".modal-content").addClass('modal-content-color');
+    
   }
   else if (page === "customer_request") {
     $('.youtuberLink').css('color', 'black');
