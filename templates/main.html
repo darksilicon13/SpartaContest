@@ -285,7 +285,8 @@
         if (getCookie('token') != null) {
             const logoutButton = `<a id="logoutButton" type="button" onclick="logout()">Logout</a>`
             $('#loginButton').replaceWith(logoutButton) //로그인 되면 해당 버튼 로그아웃으로 변경
-            const loggedInMessage = `<li id="loggedIn">$(data.msg) 님 환영합니다 🎉</li>`
+            const username = sessionStorage.getItem('username')
+            const loggedInMessage = `<li id="loggedIn">${username} 님 환영합니다 🎉</li>`
             $('#loggedIn').replaceWith(loggedInMessage)
         }
     })
