@@ -19,6 +19,7 @@ $('#loginSubmit').on('click', function (e) {
                         $('#exampleModal').modal('hide') //로그인 후 alert 확인 클릭하면 modal 숨기기
                         const logoutButton = `<a id="logoutButton" type="button" onclick="logout()">Logout</a>`
                         $('#loginButton').replaceWith(logoutButton) //로그인 되면 해당 버튼 로그아웃으로 변경
+                        sessionStorage.setItem('username', data.msg);
                         location.reload();
                     } else {
                         alert(data.msg)
@@ -47,6 +48,7 @@ function logout() {
             const loginButton = `<a id="loginButton" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Login</a>`
             $('#logoutButton').replaceWith(loginButton)
             window.location.reload()
+            sessionStorage.removeItem('username');
         }
     })
 }

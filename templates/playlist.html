@@ -21,7 +21,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
     <!-- External CSS -->
     <link type="text/css" rel="stylesheet" href="../static/css/playlist.css">
 
@@ -128,7 +128,7 @@
                 </a></li>
                 <li><a href="/about">About</a></li>
                 <li><a href="/customer_request">Request</a></li>
-                <li><a href="/contact">Contact</a></li>
+                <li><a href="/feedback">Feedback</a></li>
             </ul>
         </div>
         <!-- Carousel that contains frames -->
@@ -156,15 +156,17 @@
         </div>
 
         <!-- Comment Posting Section -->
-        <form id="comment-form" onsubmit="return false;">
-            <div class="input-group mb-3">
-                <input id="comment-input" type="text" class="form-control" placeholder="Leave a comment..."
-                       aria-describedby="button-addon2">
-                <button id="post-button" class="btn btn-outline-secondary" type="button" id="button-addon2"
-                        onclick="postComment()">Post
-                </button>
-            </div>
-        </form>
+        <div class="commnet-input-box">
+            <form id="comment-form" onsubmit="return false;">
+                <div class="input-group mb-3">
+                    <input id="comment-input2" type="text" class="form-control" placeholder="Leave a comment..."
+                           aria-describedby="button-addon2">
+                    <button id="post-button2" class="btn btn-outline-secondary" type="button" id="button-addon2"
+                            onclick="postComment()">Post
+                    </button>
+                </div>
+            </form>
+        </div>
 
         <!-- Comments Sections -->
         <table id="comment-section" class="table table-borderless">
@@ -184,18 +186,14 @@
     <div class="footer-logo"><img class="footer-logo-img" src="../static/img/footer_logo.png"></div>
     <div class="footer-contents">
         <div class="footer-fe-box">
-            <div>
-                <h3 class="poppinsFont">Frontend</h3>
-            </div>
+            <div><h3 class="poppinsFont">Frontend</h3></div>
             <div class="footer-name">
                 <ul>최준묵</ul>
-                <a href="https://github.com/dan-studio" target="_blank"><i
-                        class="fa-brands fa-github fa-lg"></i></a>
+                <a href="https://github.com/dan-studio" target="_blank"><i class="fa-brands fa-github fa-lg"></i></a>
             </div>
             <div class="footer-name">
                 <ul>노지애</ul>
-                <div><a href="https://github.com/jiaero" target="_blank"><i
-                        class="fa-brands fa-github fa-lg"></i></a>
+                <div><a href="https://github.com/jiaero" target="_blank"><i class="fa-brands fa-github fa-lg"></i></a>
                 </div>
             </div>
             <div class="footer-name">
@@ -206,8 +204,7 @@
             </div>
             <div class="footer-name">
                 <ul>이정민</ul>
-                <icon><a href="https://github.com/froggy1014" target="_blank"><i
-                        class="fa-brands fa-github fa-lg"></i></a>
+                <icon><a href="https://github.com/froggy1014" target="_blank"><i class="fa-brands fa-github fa-lg"></i></a>
                 </icon>
             </div>
         </div>
@@ -240,10 +237,13 @@
         </div>
         <div class="footer-searchbar">
             <div class="input-group mb-3">
-                <input id="quick-search" type="text" class="form-control poppinsFont" placeholder="Quick-Search"
-                       aria-label="Recipient's username" aria-describedby="button-addon2"
-                       onkeyup="if(window.event.keyCode==13){youtube(this.value)}">
-                <button class="btn btn-outline-secondary poppinsFont" type="button" id="button-addon2">go</button>
+                <input type="text" class="form-control poppinsFont" placeholder="Quick-Search"
+                       aria-label="Recipient's username"
+                       aria-describedby="button-addon2" onkeyup="if(window.event.keyCode==13){youtube(this.value)}">
+                <button class="btn btn-outline-secondary poppinsFont" type="button" id="button-addon2">go 
+
+
+                </button>
             </div>
             <div class="footer-about">
                 <a href="main.html">Home</a>
@@ -254,9 +254,7 @@
             </div>
         </div>
     </div>
-    <div class="footer-copy2">
-        <p>Copyright © 2022 TToODLe Team. All rights reserved.</p>
-    </div>
+    <div class="footer-copy2"><p>Copyright © 2022 TToODLe Team. All rights reserved.</p></div>
 </footer>
 </body>
 <script>

@@ -93,7 +93,7 @@
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="signup" role="tabpanel"
-                                 aria-labelledby="signup-tab"><h1 class="sub_title">register</h1>
+                                 aria-labelledby="signup-tab"><h1 class="sub_title">Register</h1>
                                 <div id="regForm">
                                     <form>
                                         <div id="email-warning"></div>
@@ -138,7 +138,9 @@
             <span style="--i:7" class="waviyU">D</span>
             <span style="--i:8" class="waviyG">O</span>
             <span style="--i:9" class="waviyO">W</span>
-            <span style="--i:10" class="waviyQ">N</span>
+            <span style="--i:10" class="waviyW">N</span>
+            <span style="--i:12" class="waviyR">⬇︎</span>
+
         </div>
         <div id="searchBox">
             <div id="search">
@@ -252,7 +254,7 @@
                 <input type="text" class="form-control poppinsFont" placeholder="Quick-Search"
                        aria-label="Recipient's username"
                        aria-describedby="button-addon2" onkeyup="if(window.event.keyCode==13){youtube(this.value)}">
-                <button class="btn btn-outline-secondary poppinsFont" type="button" id="button-addon2">go ▸
+                <button class="btn btn-outline-secondary poppinsFont" type="button" id="button-addon2">go 
 
 
                 </button>
@@ -285,7 +287,8 @@
         if (getCookie('token') != null) {
             const logoutButton = `<a id="logoutButton" type="button" onclick="logout()">Logout</a>`
             $('#loginButton').replaceWith(logoutButton) //로그인 되면 해당 버튼 로그아웃으로 변경
-            const loggedInMessage = `<li id="loggedIn">$(data.msg) 님 환영합니다 🎉</li>`
+            const username = sessionStorage.getItem('username')
+            const loggedInMessage = `<li id="loggedIn">${username} 님 환영합니다 🎉</li>`
             $('#loggedIn').replaceWith(loggedInMessage)
         }
     })
