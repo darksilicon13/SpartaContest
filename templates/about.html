@@ -43,9 +43,9 @@
     </a></div>
     <div>
         <div class="mypost">
-            <h3 class="pagetitle">About Us 👨‍👩‍👧‍👦‍</h3>
+            <h3 class="pagetitle">About TTOODLE 👨‍👩‍👧‍👦‍</h3>
         </div>
-      <div class="about-us-box">
+        <div class="about-us-box">
             <div>
                 <img src="../static/img/jeongmin.gif">
             </div>
@@ -64,16 +64,19 @@
             <div>
                 <img src="../static/img/hyun.png">
             </div>
-      </div>
+        </div>
     </div>
 </div>
 <div id="toggle"></div>
 <div id="sidebar">
     <ul>
-        <li><a href="/">Home</a></li>
+        <li id="loggedIn"></li>
+        <li><a id="loginButton" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Login
+        </a></li>
         <li><a href="/about">About</a></li>
         <li><a href="/customer_request">Request</a></li>
-        <li><a href="/contact">Contact</a></li>
+        <li><a href="/feedback">Feedback</a></li>
     </ul>
 </div>
 <script>
@@ -171,5 +174,19 @@
     <div class="footer-copy2"><p>Copyright © 2022 TToODLe Team. All rights reserved.</p></div>
 </footer>
 </body>
+<script>
+    window.onload = window.localStorage.clear();
+
+    document.addEventListener("DOMContentLoaded", () => {
+        if (getCookie('token') != null) {
+            const logoutButton = `<a id="logoutButton" type="button" onclick="logout()">Logout</a>`
+            $('#loginButton').replaceWith(logoutButton) //로그인 되면 해당 버튼 로그아웃으로 변경
+            const username = sessionStorage.getItem('username')
+            const loggedInMessage = `<li id="loggedIn">${username} 님 환영합니다 🥰</li>`
+            $('#loggedIn').replaceWith(loggedInMessage)
+        }
+    })
+</script>
 <script src="../static/javascript/darkmode.js"></script>
+<script src="../static/javascript/login.js"></script>
 </html>

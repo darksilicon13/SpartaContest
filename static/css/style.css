@@ -448,6 +448,11 @@ form .searchBar {
 /*/ main - logo */
 
 /* navbar*/
+#loggedIn{
+  font-family: 'Prompt', sans-serif;
+  margin-top: 15px;
+}
+
 #toggle {
   position: fixed;
   top: 20px;
@@ -665,6 +670,11 @@ th {
   margin-left: 60px;
 }
 
+.footer-logo a{
+  margin: 10px;
+  color: black;
+}
+
 .footer-logo-img {
   width: 50% !important;
 }
@@ -675,6 +685,11 @@ th {
   width: 400px;
   justify-content: space-evenly;
   margin-top: 50px;
+}
+
+#footerlink4 img{
+  height: 32px;
+  width: 32px;
 }
 
 .footer-title-fst {

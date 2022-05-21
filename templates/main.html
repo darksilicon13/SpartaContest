@@ -154,17 +154,17 @@
         </div>
     </div>
     <div id="toggle"></div>
-        <div id="sidebar">
-            <ul>
-                <li id="loggedIn"></li>
-                <li><a id="loginButton" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Login
-                </a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/customer_request">Request</a></li>
-                <li><a href="/feedback">Feedback</a></li>
-            </ul>
-        </div>
+    <div id="sidebar">
+        <ul>
+            <li id="loggedIn"></li>
+            <li><a id="loginButton" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Login
+            </a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/customer_request">Request</a></li>
+            <li><a href="/feedback">Feedback</a></li>
+        </ul>
+    </div>
     <div id="genre">
         <a onclick="filterObjects('all'); genreAppend()" class="genreBtn" value="Dog"><img src="../static/img/all.png"></a>
         <a onclick="filterObjects('고양이'); genreAppend()" class="genreBtn" value="Series"><img
@@ -287,7 +287,7 @@
             const logoutButton = `<a id="logoutButton" type="button" onclick="logout()">Logout</a>`
             $('#loginButton').replaceWith(logoutButton) //로그인 되면 해당 버튼 로그아웃으로 변경
             const username = sessionStorage.getItem('username')
-            const loggedInMessage = `<li id="loggedIn">${username} 님 환영합니다 🎉</li>`
+            const loggedInMessage = `<li id="loggedIn">${username} 님 환영합니다 🥰</li>`
             $('#loggedIn').replaceWith(loggedInMessage)
         }
     })
