@@ -11,7 +11,7 @@ $(document).ready(function () {
   if (window.sessionStorage.getItem("darkmode") === 'realtime') time >= 18 || time < 7 ? getDark() : getBright();
   else if (window.sessionStorage.getItem("darkmode") === "true") getDark();
   else if (window.sessionStorage.getItem("darkmode") === "false") getBright();
- 
+
 });
 
 
@@ -38,6 +38,18 @@ function getDark() {
   if (page === "playlist") {
     document.getElementById('authorName').style.color = 'white';
     document.getElementById('authorName').style.fontWeight = 'bold';
+    $('#post-button').css('background-color', '#f7c72a')
+    $('#post-button').css("color", "#000000");
+    $('#post-button').hover(function () {
+      $(this).css("color", "#FFFFFF");
+      $(this).css("background-color", "#000000");
+    }, function () {
+      $(this).css("color", "#000000");
+      $(this).css('background-color', '#f7c72a')
+    });
+    $("#comment-section").css('color', '#e7e7e7');
+    $('#prev-button').css('filter', 'none');
+    $('#next-button').css('filter', 'none');
   }
   else if (page === "") {
     $("#genre").css('background', 'linear-gradient( to top, #30343f, #171b26 )');
@@ -54,26 +66,14 @@ function getDark() {
   else {
     if (page === "customer_request") {
       $('.youtuberLink').css('color', 'white');
-      
+
     }
     document.body.classList.add("dark");
   }
-  $('#post-button').css('background-color', '#f7c72a')
-  $('#post-button').css("color", "#000000");
-  $('#post-button').hover(function() {
-    $(this).css("color", "#FFFFFF");
-    $(this).css("background-color", "#000000");
-  }, function(){
-    $(this).css("color", "#000000");
-    $(this).css('background-color', '#f7c72a')
-  });
-  $("#comment-section").css('color', '#e7e7e7');
   $('#sidebar').css('background-color', '#30343f');
-  $('#prev-button').css('filter', 'none');
-  $('#next-button').css('filter', 'none');
   $("#upperSide").css('background-color', '#171b26');
   $('.form-group').css('color', 'white');
-  $("#checkbox").css('border','1px solid white');
+  $("#checkbox").css('border', '1px solid white');
 }
 
 function getBright() {
@@ -84,9 +84,21 @@ function getBright() {
   toggleLable.classList.remove("toggleLable");
   toggleBall.classList.remove("toggleBall");
   // if (document.getElementById('authorName')!== null) 
-  if (page === "playlist"){
+  if (page === "playlist") {
     document.getElementById('authorName').style.color = 'black';
     document.getElementById('authorName').style.fontWeight = 'bold';
+    $('#post-button').css('background-color', '#f7c72a')
+    $('#post-button').css("color", "#000000");
+    $('#post-button').hover(function () {
+      $(this).css("color", "#FFFFFF");
+      $(this).css("background-color", "#E2314B");
+    }, function () {
+      $(this).css("color", "#000000");
+      $(this).css('background-color', '#f7c72a')
+    });
+    $("#comment-section").css('color', 'black');
+    $('#prev-button').css('filter', 'invert(100%)');
+    $('#next-button').css('filter', 'invert(100%)');
   }
   else if (page === "") {
     $("#genre").css('background', 'linear-gradient( to top, white, white )');
@@ -94,7 +106,7 @@ function getBright() {
     $('#searchShop').css('color', '#eb6383');
     $("button.submit").css('background-color', 'red');
     $(".modal-content").addClass('modal-content-color');
-    
+
   }
   else if (page === "customer_request") {
     $('.youtuberLink').css('color', 'black');
@@ -102,21 +114,9 @@ function getBright() {
 
   else {
     document.body.classList.remove("dark");
-  
+
   }
-  $('#post-button').css('background-color', '#f7c72a')
-  $('#post-button').css("color", "#000000");
-  $('#post-button').hover(function() {
-    $(this).css("color", "#FFFFFF");
-    $(this).css("background-color", "#E2314B");
-  }, function(){
-    $(this).css("color", "#000000");
-    $(this).css('background-color', '#f7c72a')
-  });
-  $("#comment-section").css('color', 'black');
   $('#sidebar').css('background-color', 'white');
-  $('#prev-button').css('filter', 'invert(100%)');
-  $('#next-button').css('filter', 'invert(100%)');
   $("#upperSide").css('background-color', '#E2314B');
   $('.form-group').css('color', 'black');
   $("#checkbox").css('background-color', "transparent");
