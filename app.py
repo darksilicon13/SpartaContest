@@ -41,7 +41,7 @@ def db_to_playlist():
     return render_template('playlist.html')
 
 @app.route('/feedback')
-def contact():
+def feedback():
     return render_template('feedback.html')
 
 @app.route('/customer_request')
