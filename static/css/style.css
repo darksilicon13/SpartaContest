@@ -129,9 +129,14 @@ body {
 
 .modal-content-color {
   background-color: #f7c72a !important;
-  height: 600px !important;
+  height: 650px !important;
   border-radius: 20px !important;
 }
+
+.modal-content-color2 {
+    height: 650px !important;
+    border-radius: 20px !important;
+  }
 
 .modal-body {
   display: flex;
@@ -173,7 +178,6 @@ form .txt_field {
 
 .txt_field input {
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.909);
   border-radius: 15px;
   padding:30px;
   height: 40px;
@@ -231,7 +235,7 @@ button.submit {
   font-weight: 700;
   cursor: pointer;
   outline: none;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: 'Prompt', sans-serif;
   transition: 0.7s;
   margin: auto;
 }
@@ -260,6 +264,15 @@ button[type="submit"]:hover {
 
 .signup_link a:hover {
   text-decoration: underline;
+}
+
+.nav-link{
+    color:#e2314b !important;
+    
+}
+
+.nav-link.active{
+    color:black !important;
 }
 
 /*/ login */
@@ -488,6 +501,7 @@ form .searchBar {
   background: transparent;
   transition: 0.4s;
   z-index: 1;
+  font-family: 'Orbitron', sans-serif;
 }
 
 #sidebar.active {
@@ -809,7 +823,8 @@ th {
 
 /*/Footer*/
 
-/*uploadPage*/
+/* request */
+
 .mypost {
   color: #f6c72a;
   max-width: 500px;
@@ -851,7 +866,7 @@ th {
   width: 400px;
   border-radius: 10px;
   text-align: center;
-  font-family: "Merriweather Sans", sans-serif;
+  font-family: "Orbitron", sans-serif;
 }
 
 .table {
@@ -869,6 +884,8 @@ th {
 .pagetitle {
   color: #f6c72a;
 }
+
+/* request  */
 
 /* Video Featuring  */
 
@@ -1058,7 +1075,7 @@ tr {
   background-color: #f7c72a !important;
 }
 
-/* about */
+/* Feedback */
 
 .about-title{
     display: flex;
@@ -1123,11 +1140,9 @@ tr {
     border-radius: 10px;
     font-family:'Prompt', sans-serif;
     font-size:16px;
+    transition: background-color 200ms linear;
 }
 
-/* .about-btn > button > span{
-    font-size:30px;
-} */
 
 #about-message{
     height:150px;
@@ -1140,6 +1155,11 @@ tr {
     align-items: center;
 }
 
-body{
-    background:#5f9334;
+/* Feedback */
+
+.about-us-box{
+    display:flex;
+    justify-content: center;
 }
+
+/* Feedback */
