@@ -120,7 +120,7 @@ $('#registerSubmit').on('click', function (e) {
 
 //Login Modal
 let key = "${param.key}";
-console.log(key);
+
 if (key === "userinfo") {
 
     $("#myreview-tab").removeClass("active");
