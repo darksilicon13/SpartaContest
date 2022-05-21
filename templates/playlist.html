@@ -46,7 +46,6 @@
             <div id="sidebar">
                 <ul>
                     <li><a href="/">Home</a></li>
-                    <li><a href="/user">Login</a></li>
                     <li><a href="/about">About</a></li>
                     <li><a href="/customer_request">Request</a></li>
                     <li><a href="/contact">Contact</a></li>
@@ -80,7 +79,7 @@
             <!-- Comment Posting Section -->
             <form id="comment-form" onsubmit="return false;">
                 <div id="comment-input" class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Leave a comment..."
+                    <input id="comment-input-bar" type="text" class="form-control" placeholder="Leave a comment..."
                         aria-describedby="button-addon2">
                     <button id="post-button" class="btn btn-outline-secondary" type="button" id="button-addon2"
                         onclick="postComment()">Post</button>
@@ -246,10 +245,10 @@
         }
 
         let channel = sessionStorage.getItem('channel')
-        let content = document.getElementById('comment-input').value
+        let content = document.getElementById('comment-input-bar').value
 
-        const whitespace = /\w*/g
-        if (content.match(whitespace)) {
+        const whitespace = /^$|\s+/;
+        if (!whitespace.test(content)) {
             alert("Nothing to comment!");
             window.location.reload();
             return;
@@ -264,7 +263,7 @@
                 'content': content
             },
             success: function () {
-                document.getElementById('comment-input').value = ''
+                document.getElementById('comment-input-bar').value = ''
             }
         })
         window.location.reload();
