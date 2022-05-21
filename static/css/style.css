@@ -224,7 +224,7 @@ button.submit {
 }
 
 button[type="submit"]:hover {
-    color: #eb6383;
+    color: #e2314b;
     background: white;
 }
 
@@ -232,7 +232,7 @@ button[type="submit"]:hover {
     margin: 30px 0;
     text-align: center;
     font-size: 16px;
-    color: #eb6383;
+    color: #e2314b;
 }
 
 .signup_link a {
