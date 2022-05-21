@@ -69,17 +69,18 @@
                 </button>
             </div>
         </div>
-        <div id="main">
+        <div id="downside">
 
-
-            <div class="youtuber">
-                <a href="#"><img id="author" src="" alt="thumbnail"><span id="authorName"></span></a>
+            <div id="youtuber-div">
+                <div class="youtuber">
+                    <a href="#"><img id="author" src="" alt="thumbnail"><span id="authorName"></span></a>
+                </div>
             </div>
 
             <!-- Comment Posting Section -->
             <form id="comment-form" onsubmit="return false;">
-                <div class="input-group mb-3">
-                    <input id="comment-input" type="text" class="form-control" placeholder="Leave a comment..."
+                <div id="comment-input" class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Leave a comment..."
                         aria-describedby="button-addon2">
                     <button id="post-button" class="btn btn-outline-secondary" type="button" id="button-addon2"
                         onclick="postComment()">Post</button>

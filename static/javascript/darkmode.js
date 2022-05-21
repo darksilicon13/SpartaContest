@@ -38,7 +38,7 @@ function getDark() {
   if (page === "playlist") {
     document.getElementById('authorName').style.color = 'white';
     document.getElementById('authorName').style.fontWeight = 'bold';
-    $('#post-button').css('background-color', '#f7c72a')
+    $('#post-button').css('background-color', '#f7c72a');
     $('#post-button').css("color", "#000000");
     $('#post-button').hover(function () {
       $(this).css("color", "#FFFFFF");
@@ -50,6 +50,8 @@ function getDark() {
     $("#comment-section").css('color', '#e7e7e7');
     $('#prev-button').css('filter', 'none');
     $('#next-button').css('filter', 'none');
+    $('#youtuber-div').css('background', 'linear-gradient(to top, #30343f, #171b26)');
+    $('#downside').css('background-color', '#30343f');
   }
   else if (page === "") {
     $("#genre").css('background', 'linear-gradient( to top, #30343f, #171b26 )');
@@ -94,11 +96,13 @@ function getBright() {
       $(this).css("background-color", "#E2314B");
     }, function () {
       $(this).css("color", "#000000");
-      $(this).css('background-color', '#f7c72a')
+      $(this).css('background-color', '#f7c72a');
     });
     $("#comment-section").css('color', 'black');
     $('#prev-button').css('filter', 'invert(100%)');
     $('#next-button').css('filter', 'invert(100%)');
+    $('#youtuber-div').css('background', 'linear-gradient(to top, #ffffff, #E2314B)');
+    $('#downside').css('background-color', '#ffffff');
   }
   else if (page === "") {
     $("#genre").css('background', 'linear-gradient( to top, white, white )');

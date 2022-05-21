@@ -6,13 +6,6 @@ html, body {
     transition: background-color 200ms linear;
 }
 
-#main {
-    width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 50px;
-}
-
 #upperSide{
     background-color: #E2314B;
     padding: 10px;
@@ -177,8 +170,15 @@ iframe {
     border-radius: 50%;
 }
 
+#youtuber-div {
+    background: linear-gradient(to bottom, #e2314b, #ffffff)
+}
+
 .youtuber{
-    display: inline;
+    /* display: inline; */
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .youtuber a {
@@ -203,6 +203,9 @@ iframe {
 
 #comment-input {
     font-family: 'Prompt', sans-serif;
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #comment-section {
@@ -210,6 +213,10 @@ iframe {
     width: 100%;
     margin-bottom: 20px;
     border-collapse: collapse;
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
 }
 
 #comment-body {
