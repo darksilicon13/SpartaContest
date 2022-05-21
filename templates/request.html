@@ -121,17 +121,18 @@
         <div class="mypost">
             <h3 class="pagetitle">Upload Request . . 💛</h3>
             <div class="form-floating mb-3">
-                <input type="email" class="form-control form-control-request" id="floatingInput"
-                       placeholder="name@example.com">
-                <label for="floatingInput">Youtuber</label>
+                <input type="text" class="form-control form-control-request" id="youtuberLink"
+                       placeholder="https://www.youtube.com/channel/">
+                <label for="youtuberLink">Youtuber</label>
             </div>
             <div class="form-floating mb-3">
-                <input type="email" class="form-control form-control-request" id="floatingInput2"
-                       placeholder="name@example.com">
-                <label for="floatingInput">Comment</label>
+                <input type="text" class="form-control form-control-request" id="reqComment"
+                       placeholder="comment">
+                <label for="reqComment">Comment</label>
             </div>
+            <div id="warning" style="text-align: center"></div>
             <div class="mybtn">
-                <button type="submit">submit ✨</button>
+                <button id="reqBtn" type="submit">submit ✨</button>
             </div>
         </div>
         <div class="tableStyle">
@@ -144,21 +145,6 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td class="youtuberLink">https://www.youtube.com/channel/UCuZu8NrpBG4WPXRi-hPBl-A</td>
-                    <td>I want a new vlogger 👀</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td class="youtuberLink">https://www.youtube.com/channel/UCKVzPeUvluKR9EDTn8Q-bkw</td>
-                    <td>I'm into Lofi Vibes 🎵</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td class="youtuberLink">https://www.youtube.com/channel/UCf3b81YFYvGMtx3KBrnpsLg</td>
-                    <td>Please add this channel 🙏</td>
-                </tr>
                 </tbody>
             </table>
         </div>
@@ -271,6 +257,38 @@
 </footer>
 </body>
 <script>
+    $('#reqBtn').on('click', ()=>{
+        let chLink = $('#youtuberLink').val()
+        let comment = $('#reqComment').val()
+
+        if(chLink == '' || comment == ''){
+            $('#warning').html('<span style="color: #eb6383">모든 입력란을 채워주세요!</span>')
+        }else{
+            $.ajax({
+                type: "POST",
+                url: '/requests/upload',
+                data: {'chLink': chLink, 'comment': comment},
+                success: function (data) {
+                    if (data['result'] == 'SUCCESS') {
+                        $('tbody').empty()
+                        let req = data['requests']
+
+                        for (let i = 0; i < req.length; i++) {
+                            temp_html = `<tr>
+                                <th scope="row">${i + 1}</th>
+                                <td class="youtuberLink">${req[i]['chLink']}</td>
+                                <td>${req[i]['comment']}</td>
+                            </tr>`
+                            $('tbody').append(temp_html)
+                        }
+                    } else {
+                        $('tbody').append(data['msg'])
+                    }
+                }
+            })
+        }
+    })
+
     toggle.onclick = function () {
         toggle.classList.toggle('active');
         sidebar.classList.toggle('active');
@@ -289,8 +307,7 @@
         window.open("https://www.youtube.com/results?search_query=" + value);
         searchinput.value = "";
     }
-</script>
-<script>
+
     window.onload = window.localStorage.clear();
 
     document.addEventListener("DOMContentLoaded", () => {
@@ -301,6 +318,28 @@
             const loggedInMessage = `<li id="loggedIn">${username} 님 환영합니다 🥰</li>`
             $('#loggedIn').replaceWith(loggedInMessage)
         }
+        $.ajax({
+                type: "GET",
+                url: '/requests',
+                data: {},
+                success: function (data) {
+                    if (data['result'] == 'SUCCESS') {
+                        $('tbody').empty()
+                        let req = data['requests']
+
+                        for (let i = 0; i < req.length; i++) {
+                            temp_html = `<tr>
+                                <th scope="row">${i + 1}</th>
+                                <td class="youtuberLink">${req[i]['chLink']}</td>
+                                <td>${req[i]['comment']}</td>
+                            </tr>`
+                            $('tbody').append(temp_html)
+                        }
+                    } else {
+                        $('tbody').append(data['msg'])
+                    }
+                }
+            })
     })
 </script>
 <script src="../static/javascript/darkmode.js"></script>
