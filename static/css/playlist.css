@@ -1,19 +1,12 @@
 html, body {
     margin: 0;
     padding: 0;
-    width: 100%;
+    width:100%;
     height: 100%;
     transition: background-color 200ms linear;
 }
 
-#main {
-    width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 50px;
-}
-
-#upperSide {
+#upperSide{
     background-color: #E2314B;
     padding: 10px;
     transition: background-color 200ms linear;
@@ -22,7 +15,7 @@ html, body {
 /* main - logo */
 #logo img {
     width: 185px;
-    margin-bottom: 10px;
+    margin-bottom: 10px 20px 10px 20px ;
     transform: translateX(-40px);
 }
 
@@ -45,7 +38,7 @@ html, body {
 
 /*/ main - logo */
 
-@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+
 /* navbar*/
 #toggle {
     position: fixed;
@@ -58,7 +51,6 @@ html, body {
     justify-content: center;
     align-items: center;
     z-index: 2;
-    font-family: 'Orbitron', sans-serif;
 }
 
 #toggle::before {
@@ -140,29 +132,6 @@ html, body {
     color: #e2314b;
 }
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: white;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-}
-
-.dropdown-content a {
-    float: none;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-    right: 100%;
-    top: 1px;
-}
-
 /*/ navbar*/
 
 /* Carousel */
@@ -193,7 +162,6 @@ iframe {
     margin-right: -85px;
     filter: invert(100%);
 }
-
 /* Carousel */
 
 /* Youtuber Link/ Thumbnail */
@@ -202,13 +170,20 @@ iframe {
     border-radius: 50%;
 }
 
-.youtuber {
-    display: inline;
+#youtuber-div {
+    background: linear-gradient(to bottom, #e2314b, #ffffff)
+}
+
+.youtuber{
+    /* display: inline; */
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .youtuber a {
     text-decoration: none;
-    color: black;
+    color:black;
 }
 
 #author {
@@ -223,11 +198,14 @@ iframe {
 
 .comment-form {
     margin: 20px;
-    color: black;
+    color:black;
 }
 
 #comment-input {
     font-family: 'Prompt', sans-serif;
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #comment-section {
@@ -235,6 +213,10 @@ iframe {
     width: 100%;
     margin-bottom: 20px;
     border-collapse: collapse;
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
 }
 
 #comment-body {
@@ -267,18 +249,18 @@ iframe {
     background-color: #f7c72a;
 }
 
-.footer-logo {
-    width: 300px;
-    height: 185px;
-    display: flex;
+.footer-logo{
+    width:300px;
+    height:185px;
+    display:flex;
     flex-direction: column;
     justify-content: flex-start;
     margin-left: 60px;
 
 }
 
-.footer-logo-img {
-    width: 50% !important;
+.footer-logo-img{
+    width:50% !important;
 }
 
 .footer-title {
@@ -286,7 +268,7 @@ iframe {
     padding: 20px;
     width: 400px;
     justify-content: space-evenly;
-    margin-top: 50px;
+    margin-top:50px;
 }
 
 .footer-title-fst {
@@ -309,11 +291,11 @@ iframe {
     width: 650px;
     display: flex;
     margin-bottom: 40px;
-    margin-right: 92px;
+    margin-right:92px;
     justify-content: space-between;
 }
 
-.poppinsFont {
+.poppinsFont{
     font-family: 'Prompt', sans-serif;
     font-size: 20px;
 }
@@ -321,16 +303,16 @@ iframe {
 .footer-fe-box {
     margin-top: 9px;
     margin-bottom: 2px;
-    display: flex;
+    display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
 }
 
-.footer-bett-box {
+.footer-bett-box{
     margin-top: 14px;
-    display: flex;
+    display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -338,8 +320,8 @@ iframe {
 }
 
 
-.footer-be-box {
-    display: flex;
+.footer-be-box{
+    display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -370,13 +352,13 @@ iframe {
     color: rgb(32, 32, 32);
 }
 
-.fa-github {
+.fa-github{
     margin-left: 10px;
 }
 
-.division {
-    width: 30px;
-    height: 1px;
+.division{
+    width:30px;
+    height:1px;
     background-color: gray;
     margin-bottom: 10px;
 
@@ -402,22 +384,22 @@ iframe {
     justify-content: space-evenly;
 }
 
-#quick-search {
+#quick-search{
     font-size: 15px;
     margin-top: 12px;
-    width: 150px;
+    width:150px;
     height: 35px;
 }
 
 #button-addon2 {
     margin-top: 13px;
     margin-left: 5px;
-    width: 60px;
+    width:60px;
     height: 34px;
     background-color: #e2314b;
     font-size: 15px;
     border: none;
-    color: white;
+    color:white;
 }
 
 
@@ -472,7 +454,7 @@ iframe {
 }
 
 .ball {
-    background-color: #f7c72a;
+    background-color:#f7c72a;
     width: 20px;
     height: 20px;
     position: absolute;

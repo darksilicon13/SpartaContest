@@ -42,7 +42,7 @@ def login():
         token = create_access_token(identity={'email': user['email'], 'username': user['username']}, expires_delta=timedelta(hours=8))
 
         # 쿠키에 토큰 저장 후 main.html로 이동
-        res = make_response(jsonify({'result': 'SUCCESS', 'msg': user['username']}))
+        res = make_response(jsonify({'result': 'SUCCESS', 'msg': user['username']+'님으로 로그인 되었습니다.'}))
         res.set_cookie('token', token)
 
         return res
