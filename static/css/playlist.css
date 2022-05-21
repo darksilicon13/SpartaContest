@@ -200,6 +200,13 @@ iframe {
 
 /* Comment section */
 
+#main{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .comment-form {
     margin: 20px;
     color:black;
@@ -207,9 +214,12 @@ iframe {
 
 #comment-input {
     font-family: 'Prompt', sans-serif;
-    width: 800px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.input-group{
+    width:800px !important;
 }
 
 #comment-section {

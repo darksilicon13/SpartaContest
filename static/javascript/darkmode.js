@@ -58,12 +58,13 @@ function getDark() {
     $("#genre").css('border-bottom', '2px solid #30343f');
     $('#searchShop').css('color', '#30343f');
     $("#checkbox").css('background-color', "transparent");
-    $(".email").css('border-bottom', "2px solid #30343f");
-    $(".password").css('border-bottom', "2px solid #30343f");
-    $(".username").css('border-bottom', "2px solid #30343f");
-    $(".confirmPassword").css('border-bottom', "2px solid #30343f");
     $("button.submit").css('background-color', '#f7c72a');
     $(".modal-content").removeClass('modal-content-color');
+    $('body').css("background","#30343f")
+  }
+  else if (page === "contact"){
+    $('body').css("background","#4b652f");
+    $('.about-btn>button').css("background", "#6b9042");
   }
   else {
     if (page === "customer_request") {
@@ -110,12 +111,16 @@ function getBright() {
     $('#searchShop').css('color', '#eb6383');
     $("button.submit").css('background-color', 'red');
     $(".modal-content").addClass('modal-content-color');
-
+    $('body').css("background","white")
   }
   else if (page === "customer_request") {
     $('.youtuberLink').css('color', 'black');
   }
-
+  else if (page === "contact"){
+    $('body').css("background","#6a9141")
+    $('.about-btn>button').css("background", "#4b652e")
+    
+  }
   else {
     document.body.classList.remove("dark");
 
