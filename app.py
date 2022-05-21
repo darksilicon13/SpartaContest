@@ -40,9 +40,9 @@ def home():
 def db_to_playlist():
     return render_template('playlist.html')
 
-@app.route('/contact')
+@app.route('/feedback')
 def contact():
-    return render_template('contact.html')
+    return render_template('feedback.html')
 
 @app.route('/customer_request')
 def customerequest():
