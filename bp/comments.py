@@ -24,7 +24,7 @@ coll = client.s2lide.comments
 # channel을 이용해 전체 댓글 출력
 @comments.route('/<channel>', methods=['GET'])
 def all_comments(channel):
-    comments = list(coll.find({'channel': channel}, {'_id': False}))  # DB에서 전체 댓글 가져오기
+    comments = list(coll.find({'channel': channel}, {'_id': False}).sort('date', -1))  # DB에서 전체 댓글 가져오기
 
     if comments:
         return jsonify({'result': 'SUCCESS', 'comments': comments})    # 댓글이 있으면 댓글을 반환

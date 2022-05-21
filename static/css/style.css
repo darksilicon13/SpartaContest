@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
     margin: 0;
     padding: 0;
     width: 100%;
@@ -6,14 +7,14 @@ html, body {
     transition: background-color 200ms linear;
 }
 
-
-@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap");
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Orbitron', sans-serif;
+    font-family: "Orbitron", sans-serif;
 }
+
 .waviyW {
     font-size: 115px;
 }
@@ -22,7 +23,7 @@ html, body {
     font-size: 95px;
 }
 
-.waviyE{
+.waviyE {
     font-size: 85px;
 }
 
@@ -37,6 +38,7 @@ html, body {
 .waviyR1 {
     font-size: 90px;
 }
+
 .waviyU {
     font-size: 95px;
 }
@@ -63,33 +65,34 @@ html, body {
 }
 
 .waviy span {
-    font-family: 'Orbitron', sans-serif;
+    font-family: "Orbitron", sans-serif;
     position: relative;
     display: inline-block;
     color: #fff;
     text-transform: uppercase;
     animation: waviy 1s infinite;
-    animation-delay: calc(.1s * var(--i));
-
+    animation-delay: calc(0.1s * var(--i));
 }
 
 @keyframes waviy {
-    0%, 40%, 100% {
-        transform: translateY(0)
+    0%,
+    40%,
+    100% {
+        transform: translateY(0);
     }
     20% {
-        transform: translateY(-20px)
+        transform: translateY(-20px);
     }
 }
 
-
-#upperSide{
-    background-color: #E2314B ;
+#upperSide {
+    background-color: #e2314b;
     padding: 12px;
     transition: background-color 200ms linear;
 }
-#upperSide{
-    background-color: #E2314B;
+
+#upperSide {
+    background-color: #e2314b;
     padding: 10px;
 }
 
@@ -101,7 +104,9 @@ html, body {
 }
 
 .title {
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Orbitron', sans-serif;
+    margin: 60px 0 80px 0;
+    font-size: 40px;
 }
 
 .center {
@@ -125,23 +130,68 @@ html, body {
     box-sizing: border-box;
 }
 
+.modal-content-color {
+    background-color: #f7c72a !important;
+    height: 650px !important;
+    border-radius: 20px !important;
+}
+
+.modal-content-color2 {
+    height: 650px !important;
+    border-radius: 20px !important;
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.tab-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.tab-pane {
+    width: 80%;
+}
+
+
+.tab-logo-img > img {
+    width: 30%;
+    height: auto;
+}
+
+#login-tab {
+    border-top-left-radius: 18px;
+}
+
+#logForm {
+    width: 100%;
+}
+
 form .txt_field {
     position: relative;
-    border-bottom: 2px solid #eb6383;
     margin: 30px 0;
 }
 
 .txt_field input {
     width: 100%;
-    padding: 0 5px;
+    border-radius: 15px;
+    padding: 30px;
     height: 40px;
     font-size: 16px;
     border: none;
-    background: none;
     outline: none;
 }
 
 .txt_field label {
+    padding-left: 10px;
     position: absolute;
     top: 50%;
     left: 5px;
@@ -149,24 +199,22 @@ form .txt_field {
     transform: translateY(-50%);
     font-size: 16px;
     pointer-events: none;
-    transition: .2s;
+    transition: 0.2s;
 }
 
 .txt_field span::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 40px;
     left: 0;
     width: 0%;
     height: 2px;
-    transition: .2s;
-    background: #eb6383;
+    transition: 0.2s;
 }
 
 .txt_field input:focus ~ label,
 .txt_field input:valid ~ label {
-    top: -5px;
-    color: #eb6383;
+    color: transparent;
 }
 
 .txt_field input:focus ~ span::before,
@@ -175,8 +223,7 @@ form .txt_field {
 }
 
 .pass {
-    margin: -5px 0 20px 5px;
-    color: #eb6383;
+    margin: -5px 0 30px 5px;
     cursor: pointer;
 }
 
@@ -184,18 +231,16 @@ form .txt_field {
     text-decoration: underline;
 }
 
-button[type="submit"] {
+button.submit {
     width: 100px;
     height: 50px;
-    border: 3px solid white;
-    background: #eb6383;
     color: white;
     border-radius: 10px;
     font-weight: 700;
     cursor: pointer;
     outline: none;
-    font-family: 'Josefin Sans', sans-serif;
-    transition: .7s;
+    font-family: 'Prompt', sans-serif;
+    transition: 0.7s;
     margin: auto;
 }
 
@@ -214,30 +259,28 @@ button[type="submit"]:hover {
 .signup_link a {
     color: #adadad;
     text-decoration: none;
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: "Josefin Sans", sans-serif;
 }
 
 .signup_link input {
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: "Josefin Sans", sans-serif;
 }
 
 .signup_link a:hover {
     text-decoration: underline;
 }
 
+.nav-link {
+    color: #e2314b !important;
+
+}
+
+.nav-link.active {
+    color: black !important;
+}
+
 /*/ login */
 
-/*!*main Photo*! (보류)*/
-/*#mainPhoto{*/
-/*    width: 100%;*/
-/*    margin: auto;*/
-/*}*/
-/*#mainPhoto img{*/
-/*    width: 100%;*/
-/*    height: 500px;*/
-/*    object-fit: cover;*/
-/*}*/
-/*/main Photo*!*!*/
 
 /* Search Bar*/
 .subTitle {
@@ -245,11 +288,10 @@ button[type="submit"]:hover {
     margin: 80px auto;
     color: white;
     font-size: 40px;
-    font-family: 'Orbitron', sans-serif;
-    color: #F7C72A;
+    font-family: "Orbitron", sans-serif;
+    color: #f7c72a;
     font-size: 50px;
 }
-
 
 #genre {
     width: 100%;
@@ -266,7 +308,7 @@ button[type="submit"]:hover {
     border-radius: 50%;
     display: inline-block;
     margin: 0 auto 40px;
-    font-family: 'Nanum Gothic', sans-serif;
+    font-family: "Nanum Gothic", sans-serif;
     font-size: 15px;
     background-color: #8c8c8c;
 }
@@ -284,7 +326,7 @@ button[type="submit"]:hover {
 #genre .genreBtn img {
     width: 78px;
     height: 78px;
-    transition: .5s;
+    transition: 0.5s;
     margin: auto;
 }
 
@@ -311,7 +353,7 @@ form .searchBar {
     padding: 0 0 0 90px;
     height: 47px;
     font-size: 20px;
-    font-family: 'Noto Sans', sans-serif;
+    font-family: "Noto Sans", sans-serif;
     border-radius: 50px;
     border: none;
     background-color: white;
@@ -326,22 +368,22 @@ form .searchBar {
     transform: translateY(-50%);
     font-size: 50px;
     pointer-events: none;
-    transition: .7s;
+    transition: 0.7s;
 }
 
-.searchBar input:focus ~ label, .searchBar input:valid ~ label {
+.searchBar input:focus ~ label,
+.searchBar input:valid ~ label {
     margin-left: 15px;
     font-size: 33px;
     color: #e2314b;
-    font-family: 'Orbitron', sans-serif;
+    font-family: "Orbitron", sans-serif;
 }
-
 
 /*/ Search Bar*/
 /* main - logo */
 #logo img {
     width: 185px;
-    margin-bottom: 10px 20px 10px 20px ;
+    margin-bottom: 10px;
     transform: translateX(-40px);
 }
 
@@ -349,7 +391,7 @@ form .searchBar {
     width: 185px;
     margin: 20px auto;
     font-size: 14px;
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: "Josefin Sans", sans-serif;
 }
 
 #slide #logo {
@@ -358,28 +400,26 @@ form .searchBar {
     font-size: 2em;
     margin: 20px;
     color: #eb6383;
-    transition: .7s;
+    transition: 0.7s;
     text-decoration: none;
 }
 
 #slide #S {
     margin: 0;
     display: inline-block;
-    transition: .7s;
-
+    transition: 0.7s;
 }
 
 #slide #Two {
     margin: 0;
     display: inline-block;
-    transition: .7s;
-
+    transition: 0.7s;
 }
 
 #slide #lide {
     margin: 0;
     display: inline-block;
-    transition: .7s;
+    transition: 0.7s;
 }
 
 #slide:hover #lide {
@@ -395,12 +435,17 @@ form .searchBar {
 
 #slide:hover #Two {
     transform: translateX(70px);
-    transition: .9s;
+    transition: 0.9s;
 }
 
 /*/ main - logo */
 
 /* navbar*/
+#loggedIn {
+    font-family: 'Prompt', sans-serif;
+    margin-top: 15px;
+}
+
 #toggle {
     position: fixed;
     top: 20px;
@@ -415,34 +460,33 @@ form .searchBar {
 }
 
 #toggle::before {
-    content: '';
+    content: "";
     position: absolute;
     width: 28px;
     height: 3px;
-    background: #F7C72A;
+    background: #f7c72a;
     transform: translateY(-5px);
     transition: 0.2s;
 }
 
 #toggle::after {
-    content: '';
+    content: "";
     position: absolute;
     width: 28px;
     height: 3px;
-    background: #F7C72A;
+    background: #f7c72a;
     transform: translateY(5px);
     transition: 0.2s;
 }
 
 #toggle.active::before {
     transform: translateY(0px) rotate(45deg);
-    background: #E2314B;
+    background: #e2314b;
 }
 
 #toggle.active::after {
     transform: translateY(0px) rotate(-45deg);
-    background: #E2314B;
-
+    background: #e2314b;
 }
 
 #sidebar {
@@ -455,6 +499,7 @@ form .searchBar {
     background: transparent;
     transition: 0.4s;
     z-index: 1;
+    font-family: 'Orbitron', sans-serif;
 }
 
 #sidebar.active {
@@ -474,7 +519,7 @@ form .searchBar {
 }
 
 #sidebar ul li a {
-    color: #E2314B;
+    color: #e2314b;
     text-decoration: none;
     font-size: 1.5em;
     letter-spacing: 2px;
@@ -523,10 +568,8 @@ form .searchBar {
     font-size: 15px;
 }
 
-
 .table a:hover {
-    background: #E2314B;
-    background-clip: text;
+    background: #e2314b;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -545,7 +588,7 @@ form .searchBar {
 
 .videoDiv img {
     width: 275px;
-    height: 185Px;
+    height: 185px;
     border-radius: 13px;
 }
 
@@ -553,7 +596,8 @@ table {
     border-collapse: collapse;
 }
 
-td, th {
+td,
+th {
     border: none;
 }
 
@@ -579,11 +623,9 @@ td, th {
 }
 
 .name {
-    color: #F7C72A;
-    font-family: 'Josefin Sans', sans-serif;
+    color: #f7c72a;
+    font-family: "Josefin Sans", sans-serif;
 }
-
-
 
 /*main*/
 
@@ -599,7 +641,7 @@ td, th {
 .footer {
     position: relative;
     transform: translateY(-100%);
-    font-family: 'NanumSquare', sans-serif;
+    font-family: "NanumSquare", sans-serif;
     color: #262626;
     width: 100%;
     height: 280px;
@@ -611,18 +653,31 @@ td, th {
     background-color: #f7c72a;
 }
 
-.footer-logo{
-    width:300px;
-    height:185px;
-    display:flex;
+.footer-logo {
+    width: 300px;
+    height: 185px;
+    display: flex;
     flex-direction: column;
     justify-content: flex-start;
     margin-left: 60px;
-
 }
 
-.footer-logo-img{
-    width:50% !important;
+.footer-logo {
+    margin: 20px 10px;
+    color: black;
+}
+
+#footerIcon {
+    margin-top: 60px;
+}
+
+#footerIcon a {
+    text-decoration: none;
+    margin: 10px;
+}
+
+.footer-logo-img {
+    width: 50% !important;
 }
 
 .footer-title {
@@ -630,7 +685,12 @@ td, th {
     padding: 20px;
     width: 400px;
     justify-content: space-evenly;
-    margin-top:50px;
+    margin-top: 50px;
+}
+
+#footerlink4 img {
+    height: 40px;
+    width: 32px;
 }
 
 .footer-title-fst {
@@ -644,7 +704,6 @@ td, th {
     justify-content: space-evenly;
 }
 
-
 .footer-title-fst {
     display: flex;
 }
@@ -653,38 +712,36 @@ td, th {
     width: 650px;
     display: flex;
     margin-bottom: 40px;
-    margin-right:92px;
+    margin-right: 92px;
     justify-content: space-between;
-
 }
 
-.poppinsFont{
-    font-family: 'Prompt', sans-serif;
+.poppinsFont {
+    font-family: "Prompt", sans-serif;
     font-size: 20px;
 }
 
 .footer-fe-box {
     margin-top: 9px;
     margin-bottom: 2px;
-    display:flex;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
 }
 
-.footer-bett-box{
+.footer-bett-box {
     margin-top: 14px;
-    display:flex;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
 }
 
-
-.footer-be-box{
-    display:flex;
+.footer-be-box {
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -707,7 +764,7 @@ td, th {
 }
 
 .footer-name > ul {
-    font-family: 'Nanum Gothic', sans-serif;
+    font-family: "Nanum Gothic", sans-serif;
 }
 
 .fa-github,
@@ -715,16 +772,15 @@ td, th {
     color: rgb(32, 32, 32);
 }
 
-.fa-github{
+.fa-github {
     margin-left: 10px;
 }
 
-.division{
-    width:30px;
-    height:1px;
+.division {
+    width: 30px;
+    height: 1px;
     background-color: gray;
     margin-bottom: 10px;
-
 }
 
 .fa-github:hover {
@@ -732,14 +788,14 @@ td, th {
 }
 
 .footer-copy2 {
-    font-family: 'Prompt', sans-serif;
+    font-family: "Prompt", sans-serif;
     font-size: 13px;
-    margin-right: 20px;
+    width: 1850px;
+    margin: auto;
     position: absolute;
     bottom: 0;
     right: 0;
 }
-
 
 .footer-searchbar {
     display: flex;
@@ -747,24 +803,23 @@ td, th {
     justify-content: space-evenly;
 }
 
-.form-control{
+.form-control {
     font-size: 15px;
     margin-top: 12px;
-    width:150px !important;
+    width: 150px !important;
     height: 35px;
 }
 
 #button-addon2 {
     margin-top: 13px;
     margin-left: 5px;
-    width:42px;
+    width: 60px;
     height: 34px;
     background-color: #e2314b;
     font-size: 15px;
     border: none;
-    color:white;
+    color: white;
 }
-
 
 .footer-about {
     display: flex;
@@ -775,9 +830,8 @@ td, th {
 .footer-about a {
     margin: 5px;
     color: #262626;
-    font-family: 'Prompt', sans-serif;
+    font-family: "Prompt", sans-serif;
 }
-
 
 .footer-img {
     width: 70px;
@@ -786,17 +840,25 @@ td, th {
 
 /*/Footer*/
 
-/*uploadPage*/
+/* request */
+#reqBody{
+    background-color: #e2314b;
+}
+
 .mypost {
-    color: #eb6383;
+    color: #f6c72a;
     max-width: 500px;
     width: 95%;
     margin: 100px auto 0px auto;
-    font-family: 'Nunito', sans-serif;
+    font-family: "Nunito", sans-serif;
+}
+
+.form-control-request {
+    width: 100% !important;
 }
 
 .mybtn {
-    Width: 120px;
+    width: 120px;
     margin: 30px auto;
     display: block;
 }
@@ -805,14 +867,15 @@ td, th {
     width: 120px;
     height: 50px;
     border: 3px solid white;
-    background: #eb6383;
+    background: #f6c72a;
+    font-size: 20px;
     color: white;
     border-radius: 10px;
     font-weight: 700;
     cursor: pointer;
     outline: none;
-    font-family: 'Josefin Sans', sans-serif;
-    transition: .7s;
+    font-family: 'Prompt', sans-serif;
+    transition: 0.7s;
 }
 
 .mypost h3 {
@@ -823,11 +886,11 @@ td, th {
     width: 400px;
     border-radius: 10px;
     text-align: center;
-    font-family: 'Merriweather Sans', sans-serif;
+    font-family: "Orbitron", sans-serif;
 }
 
 .table {
-    color: #eb6383;
+    color: #f6c72a;
 }
 
 .tableStyle {
@@ -835,13 +898,17 @@ td, th {
 }
 
 .youtuberLink {
-    color: #2d2d2d;
+    color: white;
 }
 
+.pagetitle {
+    color: #f6c72a;
+}
+
+/* request  */
 
 /* Video Featuring  */
 
-
 tr {
     width: 100%;
     height: auto;
@@ -849,7 +916,6 @@ tr {
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
-
 
 .videoBox {
     display: none;
@@ -865,7 +931,6 @@ tr {
     position: absolute;
     top: 35px;
     left: 10px;
-
 }
 
 tr {
@@ -875,7 +940,6 @@ tr {
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
-
 
 .videoBox {
     display: none;
@@ -891,7 +955,6 @@ tr {
     position: absolute;
     top: 35px;
     left: 10px;
-
 }
 
 .checkbox {
@@ -901,13 +964,9 @@ tr {
 
 .label {
     margin-left: 13px;
-    background-color: #E2314B;
     display: flex;
-    border: 0.5px solid #F7C72A;
     border-radius: 7px;
-    display: flex;
-    border: 0.5px solid white;
-    border-radius: 5px;
+    border: 1px solid white;
     align-items: center;
     justify-content: space-between;
     padding: 5px;
@@ -918,7 +977,7 @@ tr {
 }
 
 .ball {
-    background-color:#f7c72a;
+    background-color: #f7c72a;
     width: 20px;
     height: 20px;
     position: absolute;
@@ -928,14 +987,13 @@ tr {
     transition: transform 0.2s linear;
 }
 
-
 .dark {
     background-color: black;
 }
 
 .toggleLable {
     background-color: black;
-    color: orange
+    color: orange;
 }
 
 .toggleBall {
@@ -946,10 +1004,9 @@ tr {
     color: white;
 }
 
-.checkbox:checked
-.fa-moon,
+.checkbox:checked .fa-moon,
 .fa-sun {
-    color: orange
+    color: orange;
 }
 
 .dark {
@@ -958,7 +1015,7 @@ tr {
 
 .toggleLable {
     background-color: #30343f;
-    color: orange
+    color: orange;
 }
 
 .toggleBall {
@@ -973,64 +1030,169 @@ tr {
     color: black;
 }
 
-
-
-
-
-
-
-
 /*infscroll - loading*/
 .loader-ellips {
-  font-size: 20px; /* change size here */
-  position: relative;
-  width: 4em;
-  height: 1em;
-  margin: 100px auto auto;
+    font-size: 20px; /* change size here */
+    position: relative;
+    width: 4em;
+    height: 1em;
+    margin: 100px auto auto;
 }
 
 .loader-ellips__dot {
-  display: block;
-  width: 1em;
-  height: 1em;
-  border-radius: 0.5em;
-  background: #555; /* change color here */
-  position: absolute;
-  animation-duration: 0.5s;
-  animation-timing-function: ease;
-  animation-iteration-count: infinite;
+    display: block;
+    width: 1em;
+    height: 1em;
+    border-radius: 0.5em;
+    background: #555; /* change color here */
+    position: absolute;
+    animation-duration: 0.5s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
 }
 
 .loader-ellips__dot:nth-child(1),
 .loader-ellips__dot:nth-child(2) {
-  left: 0;
+    left: 0;
 }
-.loader-ellips__dot:nth-child(3) { left: 1.5em; }
-.loader-ellips__dot:nth-child(4) { left: 3em; }
+
+.loader-ellips__dot:nth-child(3) {
+    left: 1.5em;
+}
+
+.loader-ellips__dot:nth-child(4) {
+    left: 3em;
+}
 
 @keyframes reveal {
-  from { transform: scale(0.001); }
-  to { transform: scale(1); }
+    from {
+        transform: scale(0.001);
+    }
+    to {
+        transform: scale(1);
+    }
 }
 
 @keyframes slide {
-  to { transform: translateX(1.5em) }
+    to {
+        transform: translateX(1.5em);
+    }
 }
 
 .loader-ellips__dot:nth-child(1) {
-  animation-name: reveal;
+    animation-name: reveal;
 }
 
 .loader-ellips__dot:nth-child(2),
 .loader-ellips__dot:nth-child(3) {
-  animation-name: slide;
+    animation-name: slide;
 }
 
 .loader-ellips__dot:nth-child(4) {
-  animation-name: reveal;
-  animation-direction: reverse;
+    animation-name: reveal;
+    animation-direction: reverse;
 }
 
-#sidebar{
-    background-color: #f7c72a!important;
+#sidebar {
+    background-color: #f7c72a !important;
 }
+
+/* Feedback */
+
+.about-title {
+    display: flex;
+    justify-content: center;
+    font-family: 'Shippori Antique', sans-serif;
+}
+
+.about-title > span {
+    font-size: 55px;
+    margin: 40px 0 80px 0;
+    font-family: 'Orbitron', sans-serif;
+    color: white;
+}
+
+#aboutSubtitle {
+    width: 820px;
+    margin: 50px auto;
+    transform: translateX(30px);
+}
+
+#aboutSubtitle h2 {
+    font-family: 'Roboto Mono', monospace;
+    line-height: 2;
+}
+
+.about-input-box {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    height: 100%;
+    margin: 0 300px;
+}
+
+.about-left-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 40%;
+}
+
+.about-input {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.about-input > label {
+    color: white;
+    font-size: 20px;
+    font-family: 'Prompt', sans-serif;
+}
+
+.about-btn {
+    display: flex;
+    justify-content: left;
+    margin-top: 10px;
+}
+
+.about-input > input {
+    height: 45px;
+}
+
+.about-input > input,
+.about-input > textarea {
+    border: 1px solid #bbb;
+}
+
+.about-btn > button {
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    font-family: 'Prompt', sans-serif;
+    font-size: 16px;
+    transition: background-color 200ms linear;
+}
+
+
+#about-message {
+    height: 150px;
+}
+
+.about-right-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Feedback */
+
+.about-us-box {
+    display: flex;
+    justify-content: center;
+}
+
+/* Feedback */

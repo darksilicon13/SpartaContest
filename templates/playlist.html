@@ -21,11 +21,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
     <!-- External CSS -->
     <link type="text/css" rel="stylesheet" href="../static/css/playlist.css">
 
-    <title>Document</title>
+    <!--파비콘-->
+    <link rel="shortcut icon" type="image/x-icon" href="../static/img/favi2.png">
+    <title>TToODLe</title>
 </head>
 
 <body>
@@ -40,17 +42,97 @@
             <div id="slide"><a id="logo" href="/">
                     <img src="../static/img/logologo.png">
                 </a></div>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="0" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="login-tab" data-bs-toggle="tab"
+                                    data-bs-target="#login" type="button" role="tab" aria-controls="login"
+                                    aria-selected="true">Login
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="signup-tab" data-bs-toggle="tab" data-bs-target="#signup"
+                                    type="button" role="tab" aria-controls="signup" aria-selected="false">Sign Up
+                                </button>
+                            </li>
+                        </ul>
+                        <div class="modal-body">
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-logo-img"><img src="../static/img/footer_logo.png"></div>
+                                <div class="tab-pane fade show active" id="login" role="tabpanel"
+                                    aria-labelledby="login-tab">
+                                    <h1 class="title">Login</h1>
+                                    <div id="logForm">
+                                        <form>
+                                            <div id="msg"></div>
+                                            <div class="txt_field">
+                                                <input type="email" name="email" class="email" required>
+                                                <span></span>
+                                                <label>email</label>
+                                            </div>
+                                            <div class="txt_field">
+                                                <input type="password" name="password" class="password" required>
+                                                <span></span>
+                                                <label>Password</label>
+                                            </div>
+                                            <div class="pass">Forgot Password?</div>
+                                            <button class="submit" value="Login" id="loginSubmit">login</button>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="signup" role="tabpanel" aria-labelledby="signup-tab">
+                                    <h1 class="sub_title">Register</h1>
+                                    <div id="regForm">
+                                        <form>
+                                            <div id="email-warning"></div>
+                                            <div class="txt_field">
+                                                <input type="text" name="username" class="username" required>
+                                                <span></span>
+                                                <label>Username</label>
+                                            </div>
+                                            <div class="txt_field">
+                                                <input type="email" name="email" class="email" required>
+                                                <span></span>
+                                                <label>Email</label>
+                                            </div>
+                                            <div class="txt_field">
+                                                <input type="password" name="password" class="password" required>
+                                                <span></span>
+                                                <label>Password</label>
+                                            </div>
+                                            <div class="txt_field">
+                                                <input type="password" name="conformPassword" class="confirmPassword"
+                                                    required>
+                                                <span></span>
+                                                <label>Confirm Pasword</label>
+                                            </div>
+                                            <button class="submit" id="registerSubmit">Register</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div id="toggle"></div>
             <div id="sidebar">
                 <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/user">Login</a></li>
+                    <li id="loggedIn"></li>
+                    <li><a id="loginButton" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            Login
+                        </a></li>
                     <li><a href="/about">About</a></li>
-                    <li><a href="/request">Request</a></li>
-                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/customer_request">Request</a></li>
+                    <li><a href="/feedback">Feedback</a></li>
                 </ul>
             </div>
-
+            <!-- Carousel that contains frames -->
             <div id="carouselExampleControls" class="carousel slide" data-bs-interval="false">
                 <div class="carousel-inner" id="carousel-inner">
 
@@ -67,24 +149,25 @@
                 </button>
             </div>
         </div>
-        <div id="main">
-            <!-- Carousel that contains frames -->
-
-            <div class="youtuber">
-                <a href="#"><img id="author"
-                        src="" alt="thumbnail"><span
-                        id="authorName"></span></a>
+        <div id="downside">
+            <div id="youtuber-div">
+                <div class="youtuber">
+                    <a href="#"><img id="author" src="" alt="thumbnail"><span id="authorName"></span></a>
+                </div>
             </div>
 
             <!-- Comment Posting Section -->
-            <form id="comment-form" onsubmit="return false;">
-                <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Comment</label>
-                    <textarea id="comment-textarea" class="form-control" id="exampleFormControlTextarea1" rows="1"
-                        name="content"></textarea>
-                    <button id="post-button" class="btn btn-primary mt-1" type="submit" onclick="postComment">post</button>
-                </div>
-            </form>
+            <div id="comment-input-box">
+                <form id="comment-form" onsubmit="return false;">
+                    <div class="input-group mb-3">
+                        <input id="comment-input2" type="text" class="form-control" placeholder="Leave a comment..."
+                            aria-describedby="button-addon2">
+                        <button id="post-button2" class="btn btn-outline-secondary" type="button" id="button-addon2"
+                            onclick="postComment()">Post
+                        </button>
+                    </div>
+                </form>
+            </div>
 
             <!-- Comments Sections -->
             <table id="comment-section" class="table table-borderless">
@@ -101,81 +184,93 @@
     </div>
 
     <footer class="footer">
-    <div class="footer-logo"><img class="footer-logo-img" src="../static/img/footer_logo.png"></div>
-    <div class="footer-contents">
-        <div class="footer-fe-box">
-            <div><h3 class="poppinsFont">Frontend</h3></div>
-            <div class="footer-name">
-                <ul>최준묵</ul>
-                <a href="https://github.com/dan-studio" target="_blank"><i class="fa-brands fa-github fa-lg"></i></a>
-            </div>
-            <div class="footer-name">
-                <ul>노지애</ul>
-                <div><a href="https://github.com/jiaero" target="_blank"><i class="fa-brands fa-github fa-lg"></i></a>
+        <div class="footer-logo"><img class="footer-logo-img" src="../static/img/footer_logo.png"></div>
+        <div class="footer-contents">
+            <div class="footer-fe-box">
+                <div>
+                    <h3 class="poppinsFont">Frontend</h3>
                 </div>
-            </div>
-            <div class="footer-name">
-                <ul>이현규</ul>
-                <icon><a href="https://github.com/darksilicon13" target="_blank"><i
-                        class="fa-brands fa-github fa-lg"></i></a>
-                </icon>
-            </div>
-            <div class="footer-name">
-                <ul>이정민</ul>
-                <icon><a href="https://github.com/froggy1014" target="_blank"><i class="fa-brands fa-github fa-lg"></i></a>
-                </icon>
-            </div>
-        </div>
-        <div class="footer-bett-box">
-            <div class="footer-be-box">
-                <h3 class="poppinsFont">Backend</h3>
                 <div class="footer-name">
-                    <ul>전가영</ul>
-                    <icon><a href="https://github.com/dsyhwk1016" target="_blank"><i class="fa-brands fa-github fa-lg"></i></a>
+                    <ul>최준묵</ul>
+                    <a href="https://github.com/dan-studio" target="_blank"><i
+                            class="fa-brands fa-github fa-lg"></i></a>
+                </div>
+                <div class="footer-name">
+                    <ul>노지애</ul>
+                    <div><a href="https://github.com/jiaero" target="_blank"><i
+                                class="fa-brands fa-github fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="footer-name">
+                    <ul>이현규</ul>
+                    <icon><a href="https://github.com/darksilicon13" target="_blank"><i
+                                class="fa-brands fa-github fa-lg"></i></a>
                     </icon>
                 </div>
                 <div class="footer-name">
-                    <ul>송기찬</ul>
-                    <icon><a href="https://github.com/gichan-song" target="_blank"><i class="fa-brands fa-github fa-lg"></i></a>
+                    <ul>이정민</ul>
+                    <icon><a href="https://github.com/froggy1014" target="_blank"><i
+                                class="fa-brands fa-github fa-lg"></i></a>
                     </icon>
                 </div>
             </div>
-            <div class="division"></div>
-            <div class="footer-be-box">
-                <h3 class="poppinsFont">tutor</h3>
-                <div class="footer-name">
-                    <ul>최영서</ul>
-                    <icon><a href="https://github.com/tomatophobia" target="_blank"><i class="fa-brands fa-github fa-lg"></i></a>
-                    </icon>
+            <div class="footer-bett-box">
+                <div class="footer-be-box">
+                    <h3 class="poppinsFont">Backend</h3>
+                    <div class="footer-name">
+                        <ul>전가영</ul>
+                        <icon><a href="https://github.com/dsyhwk1016" target="_blank"><i
+                                    class="fa-brands fa-github fa-lg"></i></a>
+                        </icon>
+                    </div>
+                    <div class="footer-name">
+                        <ul>송기찬</ul>
+                        <icon><a href="https://github.com/gichan-song" target="_blank"><i
+                                    class="fa-brands fa-github fa-lg"></i></a>
+                        </icon>
+                    </div>
+                </div>
+                <div class="division"></div>
+                <div class="footer-be-box">
+                    <h3 class="poppinsFont">tutor</h3>
+                    <div class="footer-name">
+                        <ul>최영서</ul>
+                        <icon><a href="https://github.com/tomatophobia" target="_blank"><i
+                                    class="fa-brands fa-github fa-lg"></i></a>
+                        </icon>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-searchbar">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control poppinsFont" placeholder="Quick-Search"
+                        aria-label="Recipient's username" aria-describedby="button-addon2"
+                        onkeyup="if(window.event.keyCode==13){youtube(this.value)}">
+                    <button class="btn btn-outline-secondary poppinsFont" type="button" id="button-addon2">go
+
+
+                    </button>
+                </div>
+                <div class="footer-about">
+                    <a href="/" target="_blank">Home</a>
+                    <a href="/about" target="_blank">About</a>
+                    <a href="https://www.notion.so/2-3be792a4fe0c40388a1474532f4c5328" target="_blank">Team Notion</a>
                 </div>
             </div>
         </div>
-        <div class="footer-searchbar">
-            <div class="input-group mb-3">
-                <input id="quick-search" type="text" class="form-control poppinsFont" placeholder="Quick-Search" aria-label="Recipient's username"
-                       aria-describedby="button-addon2" onkeyup="if(window.event.keyCode==13){youtube(this.value)}">
-                <button class="btn btn-outline-secondary poppinsFont" type="button" id="button-addon2">go</button>
-            </div>
-            <div class="footer-about">
-                <a href="main.html">Home</a>
-                <a href="#">About</a>
-                <a href="https://www.notion.so/2-3be792a4fe0c40388a1474532f4c5328" target="_blank">Team Notion</a>
-                <a href="#"></a>
-                <a href="#"></a>
-            </div>
+        <div class="footer-copy2">
+            <p>Copyright © 2022 TToODLe Team. All rights reserved.</p>
         </div>
-    </div>
-    <div class="footer-copy2"><p>Copyright © 2022 TToODLe Team. All rights reserved.</p></div>
-</footer>
+    </footer>
 </body>
 <script>
     $(document).ready(function () {
         $.ajax({
             type: "GET",
-            url: "/movie?channel=" + localStorage.getItem('channel'),
+            url: "/movie?channel=" + sessionStorage.getItem('channel'),
             data: {},
             success: function (response) {
-                console.log(localStorage.getItem('channel'))
+                console.log(sessionStorage.getItem('channel'))
                 console.log(response['msg'][0]['videoId'])
                 const carousel = document.getElementById("carousel-inner")
                 length = response['msg'].length;
@@ -196,12 +291,13 @@
        </div>`;
                         $(carousel).append(temp_html);
                     }
-                };
+                }
+                ;
             }
         })
 
 
-        const name = localStorage.getItem("channel")
+        const name = sessionStorage.getItem("channel")
         document.getElementById("author").src = sessionStorage.getItem('you');
         console.log(name)
         document.getElementById("authorName").innerHTML = name;
@@ -227,8 +323,21 @@
 
         const token = getCookie('token')
 
-        let channel = localStorage.getItem('channel')
-        let content = document.getElementById('comment-textarea').value
+        if (token === null) {
+            alert('You need to login to leave a comment!');
+            window.location.reload();
+            return;
+        }
+
+        let channel = sessionStorage.getItem('channel')
+        let content = document.getElementById('comment-input').value
+
+        const whitespace = /\w*/g
+        if (content.match(whitespace)) {
+            alert("Nothing to comment!");
+            window.location.reload();
+            return;
+        }
 
         $.ajax({
             type: "POST",
@@ -238,20 +347,21 @@
                 'channel': channel,
                 'content': content
             },
-            success: function (){
-                document.getElementById('comment-textarea').value = ''
+            success: function () {
+                document.getElementById('comment-input').value = ''
             }
         })
+        window.location.reload();
     }
 
     function showComment() {
-        let channel = localStorage.getItem('channel')
+        let channel = sessionStorage.getItem('channel')
         $.ajax({
             type: "GET",
             url: '/comments/' + channel,
             data: {},
             success: function (response) {
-                if(response['result'] == 'SUCCESS'){
+                if (response['result'] == 'SUCCESS') {
                     let comments = response['comments']
                     for (let i = 0; i < comments.length; i++) {
                         let content = comments[i]['content'];
@@ -267,8 +377,6 @@
             }
         })
     }
-
-
 
     function getCookie(key) {
         var result = null;

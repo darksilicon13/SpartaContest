@@ -16,15 +16,12 @@
           integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Shippori+Antique&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@1,600&display=swap"
-          rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+
     <!-- jQuery    -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- External CSS -->
@@ -85,7 +82,7 @@
                             </div>
                         </div>
                         <div class="tab-pane fade" id="signup" role="tabpanel"
-                             aria-labelledby="signup-tab"><h1 class="sub_title">Register</h1>
+                             aria-labelledby="signup-tab"><h1 class="sub_title">register</h1>
                             <div id="regForm">
                                 <form>
                                     <div id="email-warning"></div>
@@ -120,40 +117,34 @@
             </div>
         </div>
     </div>
-    <div>
-        <div class="mypost">
-            <h3 class="pagetitle">ABOUT TToODLe 😽‍</h3>
-        </div>
-        <div class="about-us-box">
-            <div>
-                <img src="../static/img/jeongmin.gif">
-            </div>
-            <div>
-                <img src="../static/img/gayoung.gif">
-            </div>
-            <div>
-                <img src="../static/img/captain.gif">
-            </div>
-            <div>
-                <img src="../static/img/gichan.gif">
-            </div>
-            <div>
-                <img src="../static/img/jiae.gif">
-            </div>
-            <div>
-                <img src="../static/img/hyun.gif">
-            </div>
-        </div>
+    <div class="about-title">
+        <span>Feedback ✅</span>
     </div>
-    <div id="aboutSubtitle">
-        <h2>
-        Hello TToODLe WORLD ! !<br>
-        We are really honored to join the contest<br>
-        Sponsored by Sparta Coding Club. ♡~('ε ' )<br>
-        We’d like to appreciate to the ones<br>
-        ='ω'= Who scrolled out TToODLe.
-
-        </h2>
+    <div class="about-input-box">
+        <div class="about-left-box">
+            <div class="about-input">
+                <label for="about-name">Name</label>
+                <input type="text" id="about-name">
+            </div>
+            <div class="about-input">
+                <label for="about-email">Email</label>
+                <input type="text" id="about-email">
+            </div>
+            <div class="about-input">
+                <label for="about-title">Title</label>
+                <input type="text" id="about-title">
+            </div>
+            <div class="about-input">
+                <label for="about-message">Message</label>
+                <textarea id="about-message"></textarea>
+            </div>
+            <div class="about-btn">
+                <button>SEND MESSAGE 💚</button>
+            </div>
+        </div>
+        <div class="about-right-box">
+            <img src="../static/img/member.png"/>
+        </div>
     </div>
 </div>
 <div id="toggle"></div>
@@ -168,26 +159,7 @@
         <li><a href="/feedback">Feedback</a></li>
     </ul>
 </div>
-<script>
-    const logo = document.getElementById('logo')
-    logo.addEventListener('mouseenter', function () {
-        logo.setAttribute('class', 'hover')
-    })
 
-    logo.addEventListener('mouseleave', function () {
-        logo.removeAttribute('class')
-    })
-    toggle.onclick = function () {
-        toggle.classList.toggle('active');
-        sidebar.classList.toggle('active');
-    }
-    document.onclick = function (e) {
-        if (e.target.id !== 'sidebar' && e.target.id !== 'toggle') {
-            toggle.classList.remove('active')
-            sidebar.classList.remove('active')
-        }
-    }
-</script>
 <footer class="footer">
     <div class="footer-logo"><a id="footerlink1" href="/"><img class="footer-logo-img"
                                                                src="../static/img/footer_logo.png"></a>
@@ -264,10 +236,7 @@
                 <input type="text" class="form-control poppinsFont" placeholder="Quick-Search"
                        aria-label="Recipient's username"
                        aria-describedby="button-addon2" onkeyup="if(window.event.keyCode==13){youtube(this.value)}">
-                <button class="btn btn-outline-secondary poppinsFont" type="button" id="button-addon2">go ▸
-
-
-                </button>
+                <button class="btn btn-outline-secondary poppinsFont" type="button" id="button-addon2">go▸</button>
             </div>
             <div class="footer-about">
                 <a href="/">Home</a>
@@ -293,6 +262,20 @@
             $('#loggedIn').replaceWith(loggedInMessage)
         }
     })
+    const toggle = document.getElementById('toggle');
+    const sidebar = document.getElementById('sidebar');
+
+    document.onclick = function (e) {
+        if (e.target.id !== 'sidebar' && e.target.id !== 'toggle') {
+            toggle.classList.remove('active')
+            sidebar.classList.remove('active')
+        }
+    }
+
+    toggle.onclick = function () {
+        toggle.classList.toggle('active');
+        sidebar.classList.toggle('active');
+    }
 </script>
 <script src="../static/javascript/darkmode.js"></script>
 <script src="../static/javascript/login.js"></script>

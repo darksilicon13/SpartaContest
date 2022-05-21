@@ -22,13 +22,13 @@
         <button type="submit">가입</button>
     </form>
     <h1>로그인</h1>
-    <form action="/user/login" method="POST">
+    <form id="login-form" style="display: block">
         이메일
-        <input name="email" type="text"><br>
+        <input id="email" name="email" type="text"><br>
         비밀번호
-        <input name="password" type="text"><br>
-        <button type="submit">로그인</button>
+        <input id="password" name="password" type="text"><br>
     </form>
+    <button id="login" value="login">로그인</button>
 
     <h1>댓글</h1>
     <form>
@@ -38,6 +38,44 @@
     </form>
 </body>
 <script>
+    document.getElementById('login').onclick=()=>{
+        let state = document.getElementById('login').value
+
+        if(state == 'login'){
+            let email = document.getElementById('email').value
+            let password = document.getElementById('password').value
+
+            $.ajax({
+                type: "POST",
+                url: '/user/login',
+                data: {'email': email,
+                        'password': password},
+                success: function (response) {
+                    if(response){
+                        document.getElementById('login-form').style='visibility: hidden'
+                        document.getElementById('login-form').style='display: none'
+                        document.getElementById('login').innerText = '로그아웃'
+                        document.getElementById('login').value = 'logout'
+                    }
+                }
+            })
+        }else if(state == 'logout'){
+            console.log(state)
+            $.ajax({
+                type: "POST",
+                url: '/user/logout',
+                data: {},
+                success: function () {
+                    document.getElementById('login-form').style='visibility: visible'
+                    document.getElementById('login-form').style='display: block'
+                    document.getElementById('login').innerText = '로그인'
+                    document.getElementById('login').value = 'login'
+                }
+            })
+        }
+
+    }
+
     document.getElementById('comment').onclick=()=>{
         const token = getCookie('token')
         let channel = document.getElementById('channel').value
