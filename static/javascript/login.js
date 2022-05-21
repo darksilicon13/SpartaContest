@@ -87,6 +87,8 @@ $('#registerSubmit').on('click', function (e) {
                         $('#signup-tab').removeClass('active')
                         $('#login').addClass('show active')
                         $('#login-tab').removeClass('active')
+                        $('#login-tab').addClass('active')
+
                     }
                 }
             })
