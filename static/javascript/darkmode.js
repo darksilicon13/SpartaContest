@@ -58,11 +58,7 @@ function getDark() {
     $("#genre").css('border-bottom', '2px solid #30343f');
     $('#searchShop').css('color', '#30343f');
     $("#checkbox").css('background-color', "transparent");
-    $("button.submit").css('background-color', '#222c37');
-    $(".modal-content").removeClass('modal-content-color');
-    $(".modal-content").addClass('modal-content-color2');
     $('body').css("background","#30343f")
-    $('.txt_field>input').css('background-color', '#dbdfe4')
   }
   else if (page === "feedback"){
     $('body').css("background","#4b652f");
@@ -79,7 +75,11 @@ function getDark() {
   $("#upperSide").css('background-color', '#171b26');
   $('.form-group').css('color', 'white');
   $("#checkbox").css('border', '1px solid white');
-  
+  $("button.submit").css('background-color', '#222c37');
+  $(".modal-content").removeClass('modal-content-color');
+  $(".modal-content").addClass('modal-content-color2');
+
+  $('.txt_field>input').css('background-color', '#dbdfe4')
 }
 
 function getBright() {
@@ -112,12 +112,7 @@ function getBright() {
     $("#genre").css('background', 'linear-gradient( to top, white, white )');
     $("#genre").css('border-bottom', '2px solid #f5f5f5');
     $('#searchShop').css('color', '#eb6383');
-    $("button.submit").css('background-color', 'red');
-    $(".modal-content").removeClass('modal-content-color2');
-    $(".modal-content").addClass('modal-content-color');
     $('body').css("background","white")
-    $('.txt_field>input').css('background-color', 'white')
-
   }
   else if (page === "customer_request") {
     $('.youtuberLink').css('color', 'black');
@@ -136,4 +131,8 @@ function getBright() {
   $("#upperSide").css('background-color', '#E2314B');
   $('.form-group').css('color', 'black');
   $("#checkbox").css('background-color', "transparent");
+  $("button.submit").css('background-color', 'red');
+  $(".modal-content").removeClass('modal-content-color2');
+  $(".modal-content").addClass('modal-content-color');
+  $('.txt_field>input').css('background-color', 'white')
 } 
