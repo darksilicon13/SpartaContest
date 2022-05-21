@@ -31,7 +31,6 @@ function getDark() {
   console.log("어둡게");
   var path = window.location.pathname;
   var page = path.split("/").pop();
-  document.body.classList.add("dark");
   toggleLable.classList.add("toggleLable");
   toggleBall.classList.add("toggleBall");
   // if (document.getElementById('authorName')!== null) 
@@ -64,12 +63,12 @@ function getDark() {
     $('body').css("background","#4b652f");
     $('.about-btn>button').css("background-color", "#6b9042");
   }
-  else {
-    if (page === "customer_request") {
+  else if (page === "customer_request"){
       $('.youtuberLink').css('color', 'white');
-    }
-    document.body.classList.add("dark");
-    
+      $('body').css("background","#30343f");
+  }
+  else if (page === "about"){
+
   }
   $('#sidebar').css('background-color', '#30343f');
   $("#upperSide").css('background-color', '#171b26');
@@ -78,7 +77,6 @@ function getDark() {
   $("button.submit").css('background-color', '#222c37');
   $(".modal-content").removeClass('modal-content-color');
   $(".modal-content").addClass('modal-content-color2');
-
   $('.txt_field>input').css('background-color', '#dbdfe4')
 }
 
@@ -121,11 +119,9 @@ function getBright() {
   else if (page === "feedback"){
     $('body').css("background","#6a9141")
     $('.about-btn>button').css("background-color", "#4b652e")
-    
   }
-  else {
-    document.body.classList.remove("dark");
-    $('body').css("background","white");
+  else if (page === "about"){
+
   }
   $('#sidebar').css('background-color', '#f7c72a');
   $("#upperSide").css('background-color', '#E2314B');
