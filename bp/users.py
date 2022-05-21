@@ -46,12 +46,8 @@ def login():
         # 로그인 성공 시 토큰 생성
         token = create_access_token(identity={'email': user['email'], 'username': user['username']}, expires_delta=timedelta(hours=8))
 
-        # 쿠키에 토큰 저장 후 main.html로 이동
-<<<<<<< HEAD
+        # 쿠키에 토큰 저장 후 SUCCESS와 msg 반환
         res = make_response(jsonify({'result': 'SUCCESS', 'msg': user['username']+'님으로 로그인 되었습니다.'}))
-=======
-        res = make_response(render_template('main.html', logged=True))
->>>>>>> 8d1e50ab10285557e9fb8840a13bebef0fbc2225
         res.set_cookie('token', token)
 
         return res
@@ -61,7 +57,8 @@ def login():
 # 유저 로그아웃
 @users.route('/logout', methods=['POST'])
 def logout():
-    res = make_response(render_template('main.html'))
+    # 쿠키에서 token 삭제하고 home으로 이동
+    res = make_response(redirect('home'))
     res.delete_cookie('token')
 
     return res
@@ -93,7 +90,7 @@ def register():
     coll.insert_one(dic)
 
     # 회원 가입 완료 시 로그인 페이지로 이동
-    return redirect(url_for('.render_login'))
+    return jsonify({'result': 'SUCCESS'})
 
 # 이메일 중복 확인
 @users.route('/check', methods=['GET'])
@@ -103,6 +100,6 @@ def check():
     user = findUser(email)  # DB에서 데이터 찾기
 
     if not user:
-        return jsonify({'result': False})    # DB에 데이터가 없으면 False 반환
+        return jsonify({'result': 'SUCCESS'})    # DB에 데이터가 없으면 SUCCESS 반환
 
-    return jsonify({'result': True})   # DB에 데이터가 있으면 True 반환
+    return jsonify({'result': 'FAIL'})   # DB에 데이터가 있으면 FAIL 반환

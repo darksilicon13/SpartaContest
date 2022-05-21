@@ -54,7 +54,7 @@
         <div id="sidebar">
             <ul>
                 <li><a href="/">Home</a></li>
-                <li><a type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <li><a id="loginButton" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Login
                 </a></li>
                 <li><a href="/about">About</a></li>
@@ -68,24 +68,24 @@
                 <div class="modal-content">
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="userinfo-tab" data-bs-toggle="tab"
-                                    data-bs-target="#userinfo" type="button" role="tab" aria-controls="userinfo"
+                            <button class="nav-link active" id="login-tab" data-bs-toggle="tab"
+                                    data-bs-target="#login" type="button" role="tab" aria-controls="login"
                                     aria-selected="true">Login
                             </button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="myreview-tab" data-bs-toggle="tab"
-                                    data-bs-target="#myreview" type="button" role="tab"
-                                    aria-controls="myreview" aria-selected="false">Sign Up
+                            <button class="nav-link" id="signup-tab" data-bs-toggle="tab"
+                                    data-bs-target="#signup" type="button" role="tab"
+                                    aria-controls="signup" aria-selected="false">Sign Up
                             </button>
                         </li>
                     </ul>
                     <div class="modal-body">
                         <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade show active" id="userinfo" role="tabpanel"
-                                 aria-labelledby="userinfo-tab"><h1 class="title">login</h1>
+                            <div class="tab-pane fade show active" id="login" role="tabpanel"
+                                 aria-labelledby="login-tab"><h1 class="title">login</h1>
                                 <div id="logForm">
-                                    <form action="/user/login" method="post">
+                                    <form>
                                         <div id="msg"></div>
                                         <div class="txt_field">
                                             <input type="email" name="email" class="email" required>
@@ -98,14 +98,15 @@
                                             <label>Password</label>
                                         </div>
                                         <div class="pass">Forgot Password?</div>
-                                        <button type="submit" value="Login" id="loginSubmit">login</button>
+                                        <button class="submit" value="Login" id="loginSubmit">login</button>
                                     </form>
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="myreview" role="tabpanel"
-                                 aria-labelledby="myreview-tab"><h1 class="title">register</h1>
+                            <div class="tab-pane fade" id="signup" role="tabpanel"
+                                 aria-labelledby="signup-tab"><h1 class="title">register</h1>
                                 <div id="regForm">
-                                    <form onsubmit="return false;">
+                                    <form>
+                                        <div id="email-warning"></div>
                                         <div class="txt_field">
                                             <input type="text" name="username" class="username" required>
                                             <span></span>
@@ -127,7 +128,7 @@
                                             <span></span>
                                             <label>Confirm Pasword</label>
                                         </div>
-                                        <button type="submit" id="registerSubmit">Register</button>
+                                        <button class="submit" id="registerSubmit">Register</button>
                                     </form>
                                 </div>
                             </div>
