@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Bootstrap CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital@1&display=swap" rel="stylesheet">
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+          integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@200&display=swap" rel="stylesheet">
+    <!-- jQuery    -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Infinite Scroll -->
+    <script src="https://unpkg.com/@webcreate/infinite-ajax-scroll@^3.0.0-beta.6/dist/infinite-ajax-scroll.min.js"></script>
+    <!-- External CSS -->
+    <link type="text/css" rel="stylesheet" href="../static/css/style.css">
+    <!--파비콘-->
+    <link rel="shortcut icon" type="image/x-icon" href="../static/img/favi2.png">
+    <title>TToODLe</title>
+</head>
+<body>
+<div class="wrapper">
+    <div class="toggleBox"><input type="checkbox" class="checkbox" id="checkbox"><label for="checkbox" class="label">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun"></i>
+        <div class="ball"></div>
+    </label></div>
+    <div id="slide"><a id="logo" href="/">
+        <div id="Two">2</div>
+        <div id="S">S</div>
+        <div id="lide">l i d e</div>
+    </a></div>
+    <div id="toggle"></div>
+    <div id="sidebar">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="/request">Request</a></li>
+            <li><a href="feedback.html">Contact</a></li>
+        </ul>
+    </div>
+    <!--슬라이드(보류중)-->
+    <!--<div id="mainPhoto">-->
+    <!--<img src="https://i.ytimg.com/vi/XAoQviSh7HQ/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDO59DlFMVL1Lc8lLbKT5dfHz9R_w">-->
+    <!--</div>-->
+    <div class="subTitle">
+        <p id="whatrud">What are U</p>
+        <p id="gonslide">gonna slide ?</p>
+    </div>
+    <div id="searchBox">
+        <div id="search">
+            <form class="searchForm">
+                <div class="searchBar">
+                    <input id="genreInput" type="text" placeholder="genre">
+                    <span></span>
+                    <label>#</label>
+                </div>
+            </form>
+        </div>
+        <div id="genre">
+            <button onclick="filterObjects('all'); genreAppend()" class="genreBtn" value="Show All">showAll</button>
+            <button onclick="filterObjects('cat'); genreAppend()" class="genreBtn" value="Cat">cat</button>
+            <button onclick="filterObjects('dog'); genreAppend()" class="genreBtn" value="Dog">dog</button>
+            <button onclick="filterObjects('series'); genreAppend()" class="genreBtn" value="Series">series</button>
+        </div>
+    </div>
+    <div class="videoList">
+        <table class="table">
+            <tr id="movielist">
+
+            </tr>
+        </table>
+    </div>
+</div>
+<footer class="footer">
+    <div class="footer-title">
+        <div class="footer-title-fst">
+            <h1 id="2slideteam">2Slide Team</h1><span>with</span>
+        </div>
+        <div><img class="footer-img" src="https://spartacodingclub.kr/v5/icons/logo_v2.svg"/></div>
+    </div>
+    <div class="footer-contents">
+        <div class="footer-fe-box">
+            <h4>&lt; 프론트엔드 &gt;</h4>
+            <div class="footer-name">
+                <ul>최준묵</ul>
+                <a href="https://github.com/dan-studio" target="_blank"><i class="fa-brands fa-github fa-lg"></i></a>
+            </div>
+            <div class="footer-name">
+                <ul>노지애</ul>
+                <div><a href="https://github.com/jiaero" target="_blank"><i class="fa-brands fa-github fa-lg"></i></a>
+                </div>
+            </div>
+            <div class="footer-name">
+                <ul>이현규</ul>
+                <icon><a href="https://github.com/darksilicon13" target="_blank"><i
+                        class="fa-brands fa-github fa-lg"></i></a>
+                </icon>
+            </div>
+            <div class="footer-name">
+                <ul>이정민</ul>
+                <icon><a href="https://github.com/froggy1014" target="_blank"><i class="fa-brands fa-github fa-lg"></i></a>
+                </icon>
+            </div>
+        </div>
+        <div class="footer-be-box">
+            <h4>&lt; 백엔드 &gt;</h4>
+            <div class="footer-name">
+                <ul>전가영</ul>
+                <icon><a href="https://github.com/dsyhwk1016" target="_blank"><i class="fa-brands fa-github fa-lg"></i></a>
+                </icon>
+            </div>
+            <div class="footer-name">
+                <ul>송기찬</ul>
+                <icon><a href="https://github.com/gichan-song" target="_blank"><i class="fa-brands fa-github fa-lg"></i></a>
+                </icon>
+            </div>
+            <h4>&lt; 튜터 &gt;</h4>
+            <div class="footer-name">
+                <ul>최영서</ul>
+                <icon><a href="https://github.com/tomatophobia" target="_blank"><i
+                        class="fa-brands fa-github fa-lg"></i></a>
+                </icon>
+            </div>
+        </div>
+        <div class="footer-searchbar">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Quick-Search" aria-label="Recipient's username"
+                       aria-describedby="button-addon2" onkeyup="if(window.event.keyCode==13){youtube(this.value)}">
+                <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i
+                        class="fa-brands fa-youtube"></i></button>
+            </div>
+            <div class="footer-about">
+                <a href="main.html">Home</a>
+                <a href="#">About</a>
+                <a href="https://www.notion.so/2-3be792a4fe0c40388a1474532f4c5328" target="_blank">Team Notion</a>
+                <a href="#"></a>
+                <a href="#"></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copy"><p>Copyright © 2022 S2Slide Team. All rights reserved.</p></div>
+</footer>
+</body>
+<script>
+    // main.html로 왔을때 다시 로컬스토리지 클리어
+    window.onload = window.localStorage.clear();
+    var start = 0;
+    var working = false;
+
+    $(document).ready(function () {
+        $.ajax({
+            type: "GET",
+            url: "/data" + start,
+            processData: false,
+            contentType: 'application/json',
+            data: '',
+            success: function (response) {
+                // response = JSON.parse(response)
+                let dbjson = response['msg']
+
+                for (i = 0; i < dbjson.length; i++) {
+                    channel = dbjson[i]['채널명']
+                    keyword = dbjson[i]['키워드']
+                    thumbnail = dbjson[i]['썸네일']
+                    youtubericon = dbjson[i]['유튜버아이콘']
+                    temp_html_td = `
+                <td id="appendVid" onclick='getValue(${i})'>
+                    <div class="videoDiv">
+                        <a class="thumbnail">
+                            <img src=${thumbnail} id="thumbimg">
+                        </a>
+                    </div>
+                    <div>
+                        <a class="thumbnail"><img class="channelImg" id=${i}
+                                                  src=${youtubericon}><span
+                                class="name">${channel}</span></a>
+                    </div>
+                </td>`
+                    $('#movielist').append(temp_html_td)
+                }
+                start += 5;
+            },
+            error: function (dbjson) {
+                console.log('something went wrong!!')
+            }
+        })
+    })
+
+    $(window).scroll(function () {
+        if ($(this).scrollTop() + 1 >= $('#movielist').height - $(window).height()) {
+            if (working == false) {
+                working = true;
+                $.ajax({
+                    type: "GET",
+                    url: "/data" + start,
+                    processData: false,
+                    contentType: 'application/json',
+                    data: '',
+                    success: function (response) {
+                        // response = JSON.parse(response)
+                        let dbjson = response['msg']
+
+                        for (i = 0; i < dbjson.length; i++) {
+                            channel = dbjson[i]['채널명']
+                            keyword = dbjson[i]['키워드']
+                            thumbnail = dbjson[i]['썸네일']
+                            youtubericon = dbjson[i]['유튜버아이콘']
+                            temp_html_td = `
+                <td id="appendVid" onclick='getValue(${i})'>
+                    <div class="videoDiv">
+                        <a class="thumbnail">
+                            <img src=${thumbnail} id="thumbimg">
+                        </a>
+                    </div>
+                    <div>
+                        <a class="thumbnail"><img class="channelImg" id=${i}
+                                                  src=${youtubericon}><span
+                                class="name">${channel}</span></a>
+                    </div>
+                </td>`
+                            $('#movielist').append(temp_html_td)
+                        }
+                        start += 5;
+                        setTimeout(function () {
+                            working = false
+                        }, 4000)
+                    },
+                    error: function (dbjson) {
+                        console.log("something went Wrong !!!")
+                    }
+                })
+            }
+        }
+    })
+
+    function getValue(id) {
+        $.ajax({
+            type: "GET",
+            url: "/data",
+            data: {},
+            success: function (response) {
+                let dbjson = response['msg']
+                localStorage.setItem('channel', dbjson[id]['채널명']);
+                window.location.href = "/playlist";
+            }
+        })
+    };
+    toggle.onclick = function () {
+        toggle.classList.toggle('active');
+        sidebar.classList.toggle('active');
+    }
+    document.onclick = function (e) {
+        if (e.target.id !== 'sidebar' && e.target.id !== 'toggle') {
+            toggle.classList.remove('active')
+            sidebar.classList.remove('active')
+        }
+    }
+    const searchbtn = document.getElementById("button-addon2");
+    const searchinput = document.querySelector(".form-control");
+
+    searchbtn.addEventListener('click', () => {
+        youtube(searchinput.value);
+    })
+
+    function youtube(value) {
+        if (!value) {
+            window.open("https://www.youtube.com");
+            return;
+        }
+        window.open("https://www.youtube.com/results?search_query=" + value);
+        searchinput.value = "";
+    }
+
+    filterObjects("all");
+
+
+    function filterObjects(c) {
+        var x, i;
+        x = document.getElementsByClassName("videoBox");
+        if (c == "all") {
+            c = "";
+        }
+
+        for (i = 0; i < x.length; i++) {
+            removeClass(x[i], "show");
+            if (x[i].className.indexOf(c) > -1) {
+                addClass(x[i], "show")
+            }
+        }
+    }
+
+    function addClass(element, name) {
+        var i, arr1, arr2;
+        arr1 = element.className.split(" ");
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+            if (arr1.indexOf(arr2[i]) == -1) {
+                element.className += " " + arr2[i];
+            }
+        }
+    }
+
+    function removeClass(element, name) {
+        var i, arr1, arr2;
+        arr1 = element.className.split(" ");
+        console.log(arr1);
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+            while (arr1.indexOf(arr2[i]) > -1) {
+                arr1.splice(arr1.indexOf(arr2[i]), 1);
+            }
+        }
+        element.className = arr1.join(" ");
+    }
+
+    //버튼 클릭시 입력창에 해당 값 넣기
+    function genreAppend() {
+        const btnVal = $('.genreBtn').val();
+        $('#genreInput').val(btnVal)
+    }
+
+    //무한스크롤
+</script>
+<script src="../static/javascript/darkmode.js"></script>
+</html>
