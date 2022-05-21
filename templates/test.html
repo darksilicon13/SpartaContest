@@ -22,11 +22,7 @@
         <button type="submit">가입</button>
     </form>
     <h1>로그인</h1>
-<<<<<<< HEAD
-    <form id="login-form">
-=======
     <form id="login-form" style="display: block">
->>>>>>> 8d1e50ab10285557e9fb8840a13bebef0fbc2225
         이메일
         <input id="email" name="email" type="text"><br>
         비밀번호
@@ -56,11 +52,8 @@
                         'password': password},
                 success: function (response) {
                     if(response){
-<<<<<<< HEAD
                         document.getElementById('login-form').style='visibility: hidden'
-=======
                         document.getElementById('login-form').style='display: none'
->>>>>>> 8d1e50ab10285557e9fb8840a13bebef0fbc2225
                         document.getElementById('login').innerText = '로그아웃'
                         document.getElementById('login').value = 'logout'
                     }
@@ -73,11 +66,8 @@
                 url: '/user/logout',
                 data: {},
                 success: function () {
-<<<<<<< HEAD
                     document.getElementById('login-form').style='visibility: visible'
-=======
                     document.getElementById('login-form').style='display: block'
->>>>>>> 8d1e50ab10285557e9fb8840a13bebef0fbc2225
                     document.getElementById('login').innerText = '로그인'
                     document.getElementById('login').value = 'login'
                 }

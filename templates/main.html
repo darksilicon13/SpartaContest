@@ -50,42 +50,32 @@
         <div id="slide"><a id="logo" href="/">
             <img src="../static/img/logologo.png">
         </a></div>
-        <div id="toggle"></div>
-        <div id="sidebar">
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Login
-                </a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/customer_request">Request</a></li>
-                <li><a href="/contact">Contact</a></li>
-            </ul>
-        </div>
+
         <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="exampleModal" tabindex="0" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="userinfo-tab" data-bs-toggle="tab"
-                                    data-bs-target="#userinfo" type="button" role="tab" aria-controls="userinfo"
+                            <button class="nav-link active" id="login-tab" data-bs-toggle="tab"
+                                    data-bs-target="#login" type="button" role="tab" aria-controls="login"
                                     aria-selected="true">Login
                             </button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="myreview-tab" data-bs-toggle="tab"
-                                    data-bs-target="#myreview" type="button" role="tab"
-                                    aria-controls="myreview" aria-selected="false">Sign Up
+                            <button class="nav-link" id="signup-tab" data-bs-toggle="tab"
+                                    data-bs-target="#signup" type="button" role="tab"
+                                    aria-controls="signup" aria-selected="false">Sign Up
                             </button>
                         </li>
                     </ul>
                     <div class="modal-body">
                         <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade show active" id="userinfo" role="tabpanel"
-                                 aria-labelledby="userinfo-tab"><h1 class="title">login</h1>
+                            <div class="tab-logo-img"><img src="../static/img/footer_logo.png"></div>
+                            <div class="tab-pane fade show active" id="login" role="tabpanel"
+                                 aria-labelledby="login-tab"><h1 class="title">login</h1>
                                 <div id="logForm">
-                                    <form action="/user/login" method="post">
+                                    <form>
                                         <div id="msg"></div>
                                         <div class="txt_field">
                                             <input type="email" name="email" class="email" required>
@@ -98,14 +88,15 @@
                                             <label>Password</label>
                                         </div>
                                         <div class="pass">Forgot Password?</div>
-                                        <button type="submit" value="Login" id="loginSubmit">login</button>
+                                        <button class="submit" value="Login" id="loginSubmit">login</button>
                                     </form>
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="myreview" role="tabpanel"
-                                 aria-labelledby="myreview-tab"><h1 class="title">register</h1>
+                            <div class="tab-pane fade" id="signup" role="tabpanel"
+                                 aria-labelledby="signup-tab"><h1 class="title">register</h1>
                                 <div id="regForm">
-                                    <form onsubmit="return false;">
+                                    <form>
+                                        <div id="email-warning"></div>
                                         <div class="txt_field">
                                             <input type="text" name="username" class="username" required>
                                             <span></span>
@@ -127,7 +118,7 @@
                                             <span></span>
                                             <label>Confirm Pasword</label>
                                         </div>
-                                        <button type="submit" id="registerSubmit">Register</button>
+                                        <button class="submit" id="registerSubmit">Register</button>
                                     </form>
                                 </div>
                             </div>
@@ -138,16 +129,16 @@
             </div>
         </div>
         <div class="waviy">
-            <span style="--i:1" class="waviyW">W</span>
-            <span style="--i:2" class="waviyH">h</span>
-            <span style="--i:3" class="waviyE">e</span>
-            <span style="--i:4" class="waviyR">r</span>
-            <span style="--i:5" class="waviyE">e</span>
-            <span style="--i:6" class="waviyR1">R</span>
-            <span style="--i:7" class="waviyU">U</span>
-            <span style="--i:8" class="waviyG">g</span>
-            <span style="--i:9" class="waviyO">o</span>
-            <span style="--i:10" class="waviyQ">?</span>
+            <span style="--i:1" class="waviyW">S</span>
+            <span style="--i:2" class="waviyH">C</span>
+            <span style="--i:3" class="waviyE">R</span>
+            <span style="--i:4" class="waviyR">O</span>
+            <span style="--i:5" class="waviyE">L</span>
+            <span style="--i:6" class="waviyR1">L</span>
+            <span style="--i:7" class="waviyU">D</span>
+            <span style="--i:8" class="waviyG">O</span>
+            <span style="--i:9" class="waviyO">W</span>
+            <span style="--i:10" class="waviyQ">N</span>
         </div>
         <div id="searchBox">
             <div id="search">
@@ -161,6 +152,18 @@
             </div>
         </div>
     </div>
+    <div id="toggle"></div>
+        <div id="sidebar">
+            <ul>
+                <li id="loggedIn"></li>
+                <li><a id="loginButton" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Login
+                </a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/customer_request">Request</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </div>
     <div id="genre">
         <a onclick="filterObjects('all'); genreAppend()" class="genreBtn" value="Dog"><img src="../static/img/all.png"></a>
         <a onclick="filterObjects('고양이'); genreAppend()" class="genreBtn" value="Series"><img
@@ -279,6 +282,12 @@
         const observer = new IntersectionObserver(handleIntersect, options);
         observer.observe(document.querySelector("footer")) //footer 발견 시 handleIntersect 함수 실행
         getData();
+        if (getCookie('token') != null) {
+            const logoutButton = `<a id="logoutButton" type="button" onclick="logout()">Logout</a>`
+            $('#loginButton').replaceWith(logoutButton) //로그인 되면 해당 버튼 로그아웃으로 변경
+            const loggedInMessage = `<li id="loggedIn">$(data.msg) 님 환영합니다 🎉</li>`
+            $('#loggedIn').replaceWith(loggedInMessage)
+        }
     })
 
     function handleIntersect(entries) {
@@ -494,6 +503,12 @@
         element.className = arr1.join(" ");
     }
 
+    //스크롤시 색상 변경
+    $(document).ready(function () {
+        $(window).scroll(function () {
+            $('#upperSide').css("opacity", 1 - $(window).scrollTop() / 500)
+        })
+    })
 </script>
 <script src="../static/javascript/darkmode.js"></script>
 <script src="../static/javascript/login.js"></script>

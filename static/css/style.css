@@ -125,19 +125,46 @@ html, body {
     box-sizing: border-box;
 }
 
+.modal-content-color{
+    background-color: #f7c72a !important;
+    height:600px !important;
+    border-radius: 20px !important;
+}
+
+.modal-body{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.tab-content{
+    width:100%;
+}
+
+.tab-logo-img > img{
+    width:50%;
+    height:auto;
+    margin-bottom: 25px;
+}
+#login-tab{
+    border-top-left-radius: 18px;
+}
+
 form .txt_field {
     position: relative;
-    border-bottom: 2px solid #eb6383;
-    margin: 30px 0;
+     margin: 30px 0; 
 }
 
 .txt_field input {
     width: 100%;
+    background-color: rgba(255, 255, 255, 0.909);
+    border-radius: 15px;
     padding: 0 5px;
     height: 40px;
     font-size: 16px;
     border: none;
-    background: none;
     outline: none;
 }
 
@@ -160,13 +187,12 @@ form .txt_field {
     width: 0%;
     height: 2px;
     transition: .2s;
-    background: #eb6383;
+    
 }
 
 .txt_field input:focus ~ label,
 .txt_field input:valid ~ label {
-    top: -5px;
-    color: #eb6383;
+    color: transparent;
 }
 
 .txt_field input:focus ~ span::before,
@@ -176,7 +202,6 @@ form .txt_field {
 
 .pass {
     margin: -5px 0 20px 5px;
-    color: #eb6383;
     cursor: pointer;
 }
 
@@ -184,11 +209,10 @@ form .txt_field {
     text-decoration: underline;
 }
 
-button[type="submit"] {
+button.submit {
     width: 100px;
     height: 50px;
     border: 3px solid white;
-    background: #eb6383;
     color: white;
     border-radius: 10px;
     font-weight: 700;
