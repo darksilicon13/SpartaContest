@@ -227,6 +227,187 @@ iframe {
     text-align: center;
 }
 
+/* login, register */
+.carousel-inner {
+    background-position: center;
+    background-size: cover;
+}
+
+.title {
+    font-family: 'Orbitron', sans-serif;
+    margin: 60px 0 80px 0;
+    font-size: 40px;
+}
+
+.center {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    border-radius: 10px;
+}
+
+.center h1 {
+    text-align: center;
+    padding: 20px 0 20px 0;
+    border-bottom: 3px solid white;
+    color: #eb6383;
+}
+
+.center form {
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+.modal-content-color {
+    background-color: #f7c72a !important;
+    height: 650px !important;
+    border-radius: 20px !important;
+}
+
+.modal-content-color2 {
+    height: 650px !important;
+    border-radius: 20px !important;
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.tab-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.tab-pane {
+    width: 80%;
+}
+
+
+.tab-logo-img > img {
+    width: 30%;
+    height: auto;
+}
+
+#login-tab {
+    border-top-left-radius: 18px;
+}
+
+#logForm {
+    width: 100%;
+}
+
+form .txt_field {
+    position: relative;
+    margin: 30px 0;
+}
+
+.txt_field input {
+    width: 100%;
+    border-radius: 15px;
+    padding: 30px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+}
+
+.txt_field label {
+    padding-left: 10px;
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    color: #adadad;
+    transform: translateY(-50%);
+    font-size: 16px;
+    pointer-events: none;
+    transition: 0.2s;
+}
+
+.txt_field span::before {
+    content: "";
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    transition: 0.2s;
+}
+
+.txt_field input:focus ~ label,
+.txt_field input:valid ~ label {
+    color: transparent;
+}
+
+.txt_field input:focus ~ span::before,
+.txt_field input:valid ~ span::before {
+    width: 100%;
+}
+
+.pass {
+    margin: -5px 0 30px 5px;
+    cursor: pointer;
+}
+
+.pass:hover {
+    text-decoration: underline;
+}
+
+button.submit {
+    width: 100px;
+    height: 50px;
+    color: white;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+    font-family: 'Prompt', sans-serif;
+    transition: 0.7s;
+    margin: auto;
+}
+
+button[type="submit"]:hover {
+    color: #eb6383;
+    background: white;
+}
+
+.signup_link {
+    margin: 30px 0;
+    text-align: center;
+    font-size: 16px;
+    color: #eb6383;
+}
+
+.signup_link a {
+    color: #adadad;
+    text-decoration: none;
+    font-family: "Josefin Sans", sans-serif;
+}
+
+.signup_link input {
+    font-family: "Josefin Sans", sans-serif;
+}
+
+.signup_link a:hover {
+    text-decoration: underline;
+}
+
+.nav-link {
+    color: #e2314b !important;
+
+}
+
+.nav-link.active {
+    color: black !important;
+}
 
 
 #comment-input2 {

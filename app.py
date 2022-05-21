@@ -9,6 +9,7 @@ import os
 
 from bp.users import users
 from bp.comments import comments
+from bp.requests import requests
 
 # Flask App Setup
 app = Flask(__name__)
@@ -31,6 +32,7 @@ db = client.s2lide
 # BluePrint Setup
 app.register_blueprint(users)   # 로그인 및 회원 가입
 app.register_blueprint(comments)   # 댓글
+app.register_blueprint(requests)   # 사용자 요청 사항
 
 @app.route('/')
 def home():
