@@ -14,8 +14,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital@1&display=swap" rel="stylesheet">
     <!-- fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-          integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,700&display=swap" rel="stylesheet">
@@ -31,231 +31,239 @@
 </head>
 
 <body>
-<div class="wrapper">
-    <div id="upperSide">
-        <div class="toggleBox"><input type="checkbox" class="checkbox" id="checkbox"><label for="checkbox"
-                                                                                            class="label">
-            <i class="fas fa-moon"></i>
-            <i class="fas fa-sun"></i>
-            <div class="ball"></div>
-        </label></div>
-        <div id="slide"><a id="logo" href="/">
-            <img src="../static/img/logologo.png">
-        </a></div>
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="0" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link active" id="login-tab" data-bs-toggle="tab"
-                                            data-bs-target="#login" type="button" role="tab" aria-controls="login"
-                                            aria-selected="true">Login
-                                    </button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="signup-tab" data-bs-toggle="tab"
-                                            data-bs-target="#signup" type="button" role="tab"
-                                            aria-controls="signup" aria-selected="false">Sign Up
-                                    </button>
-                                </li>
-                            </ul>
-                            <div class="modal-body">
-                                <div class="tab-content" id="myTabContent">
-                                    <div class="tab-logo-img"><img src="../static/img/footer_logo.png"></div>
-                                    <div class="tab-pane fade show active" id="login" role="tabpanel"
-                                         aria-labelledby="login-tab"><h1 class="title">Login</h1>
-                                        <div id="logForm">
-                                            <form>
-                                                <div id="msg"></div>
-                                                <div class="txt_field">
-                                                    <input type="email" name="email" class="email" required>
-                                                    <span></span>
-                                                    <label>email</label>
-                                                </div>
-                                                <div class="txt_field">
-                                                    <input type="password" name="password" class="password" required>
-                                                    <span></span>
-                                                    <label>Password</label>
-                                                </div>
-                                                <div class="pass">Forgot Password?</div>
-                                                <button class="submit" value="Login" id="loginSubmit">login</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane fade" id="signup" role="tabpanel"
-                                         aria-labelledby="signup-tab"><h1 class="sub_title">Register</h1>
-                                        <div id="regForm">
-                                            <form>
-                                                <div id="email-warning"></div>
-                                                <div class="txt_field">
-                                                    <input type="text" name="username" class="username" required>
-                                                    <span></span>
-                                                    <label>Username</label>
-                                                </div>
-                                                <div class="txt_field">
-                                                    <input type="email" name="email" class="email" required>
-                                                    <span></span>
-                                                    <label>Email</label>
-                                                </div>
-                                                <div class="txt_field">
-                                                    <input type="password" name="password" class="password" required>
-                                                    <span></span>
-                                                    <label>Password</label>
-                                                </div>
-                                                <div class="txt_field">
-                                                    <input type="password" name="conformPassword" class="confirmPassword"
-                                                           required>
-                                                    <span></span>
-                                                    <label>Confirm Pasword</label>
-                                                </div>
-                                                <button class="submit" id="registerSubmit">Register</button>
-                                            </form>
-                                        </div>
+    <div class="wrapper">
+        <div id="upperSide">
+            <div class="toggleBox"><input type="checkbox" class="checkbox" id="checkbox"><label for="checkbox"
+                    class="label">
+                    <i class="fas fa-moon"></i>
+                    <i class="fas fa-sun"></i>
+                    <div class="ball"></div>
+                </label></div>
+            <div id="slide"><a id="logo" href="/">
+                    <img src="../static/img/logologo.png">
+                </a></div>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="0" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="login-tab" data-bs-toggle="tab"
+                                    data-bs-target="#login" type="button" role="tab" aria-controls="login"
+                                    aria-selected="true">Login
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="signup-tab" data-bs-toggle="tab" data-bs-target="#signup"
+                                    type="button" role="tab" aria-controls="signup" aria-selected="false">Sign Up
+                                </button>
+                            </li>
+                        </ul>
+                        <div class="modal-body">
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-logo-img"><img src="../static/img/footer_logo.png"></div>
+                                <div class="tab-pane fade show active" id="login" role="tabpanel"
+                                    aria-labelledby="login-tab">
+                                    <h1 class="title">Login</h1>
+                                    <div id="logForm">
+                                        <form>
+                                            <div id="msg"></div>
+                                            <div class="txt_field">
+                                                <input type="email" name="email" class="email" required>
+                                                <span></span>
+                                                <label>email</label>
+                                            </div>
+                                            <div class="txt_field">
+                                                <input type="password" name="password" class="password" required>
+                                                <span></span>
+                                                <label>Password</label>
+                                            </div>
+                                            <div class="pass">Forgot Password?</div>
+                                            <button class="submit" value="Login" id="loginSubmit">login</button>
+                                        </form>
                                     </div>
                                 </div>
-        
+                                <div class="tab-pane fade" id="signup" role="tabpanel" aria-labelledby="signup-tab">
+                                    <h1 class="sub_title">Register</h1>
+                                    <div id="regForm">
+                                        <form>
+                                            <div id="email-warning"></div>
+                                            <div class="txt_field">
+                                                <input type="text" name="username" class="username" required>
+                                                <span></span>
+                                                <label>Username</label>
+                                            </div>
+                                            <div class="txt_field">
+                                                <input type="email" name="email" class="email" required>
+                                                <span></span>
+                                                <label>Email</label>
+                                            </div>
+                                            <div class="txt_field">
+                                                <input type="password" name="password" class="password" required>
+                                                <span></span>
+                                                <label>Password</label>
+                                            </div>
+                                            <div class="txt_field">
+                                                <input type="password" name="conformPassword" class="confirmPassword"
+                                                    required>
+                                                <span></span>
+                                                <label>Confirm Pasword</label>
+                                            </div>
+                                            <button class="submit" id="registerSubmit">Register</button>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
-        <div id="toggle"></div>
-        <div id="sidebar">
-            <ul>
-                <li id="loggedIn"></li>
-                <li><a id="loginButton" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Login
-                </a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/customer_request">Request</a></li>
-                <li><a href="/feedback">Feedback</a></li>
-            </ul>
-        </div>
-        <!-- Carousel that contains frames -->
-        <div id="carouselExampleControls" class="carousel slide" data-bs-interval="false">
-            <div class="carousel-inner" id="carousel-inner">
-
             </div>
-            <button id="prev-button" class="carousel-control-prev" type="button"
+            <div id="toggle"></div>
+            <div id="sidebar">
+                <ul>
+                    <li id="loggedIn"></li>
+                    <li><a id="loginButton" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            Login
+                        </a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/customer_request">Request</a></li>
+                    <li><a href="/feedback">Feedback</a></li>
+                </ul>
+            </div>
+            <!-- Carousel that contains frames -->
+            <div id="carouselExampleControls" class="carousel slide" data-bs-interval="false">
+                <div class="carousel-inner" id="carousel-inner">
+
+                </div>
+                <button id="prev-button" class="carousel-control-prev" type="button"
                     data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button id="next-button" class="carousel-control-next" type="button"
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button id="next-button" class="carousel-control-next" type="button"
                     data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-    </div>
-    <div id="main">
-
-
-        <div class="youtuber">
-            <a href="#"><img id="author" src="" alt="thumbnail"><span id="authorName"></span></a>
-        </div>
-
-        <!-- Comment Posting Section -->
-        <div class="commnet-input-box">
-            <form id="comment-form" onsubmit="return false;">
-                <div class="input-group mb-3">
-                    <input id="comment-input2" type="text" class="form-control" placeholder="Leave a comment..."
-                           aria-describedby="button-addon2">
-                    <button id="post-button2" class="btn btn-outline-secondary" type="button" id="button-addon2"
-                            onclick="postComment()">Post
-                    </button>
-                </div>
-            </form>
-        </div>
-
-        <!-- Comments Sections -->
-        <table id="comment-section" class="table table-borderless">
-            <thead>
-            <tr>
-                <th class="col-md-2">Commentor</th>
-                <th class="col-md-8">Comment</th>
-            </tr>
-            </thead>
-            <tbody id="comment-body">
-            </tbody>
-        </table>
-    </div>
-</div>
-
-<footer class="footer">
-    <div class="footer-logo"><img class="footer-logo-img" src="../static/img/footer_logo.png"></div>
-    <div class="footer-contents">
-        <div class="footer-fe-box">
-            <div><h3 class="poppinsFont">Frontend</h3></div>
-            <div class="footer-name">
-                <ul>최준묵</ul>
-                <a href="https://github.com/dan-studio" target="_blank"><i class="fa-brands fa-github fa-lg"></i></a>
-            </div>
-            <div class="footer-name">
-                <ul>노지애</ul>
-                <div><a href="https://github.com/jiaero" target="_blank"><i class="fa-brands fa-github fa-lg"></i></a>
-                </div>
-            </div>
-            <div class="footer-name">
-                <ul>이현규</ul>
-                <icon><a href="https://github.com/darksilicon13" target="_blank"><i
-                        class="fa-brands fa-github fa-lg"></i></a>
-                </icon>
-            </div>
-            <div class="footer-name">
-                <ul>이정민</ul>
-                <icon><a href="https://github.com/froggy1014" target="_blank"><i class="fa-brands fa-github fa-lg"></i></a>
-                </icon>
-            </div>
-        </div>
-        <div class="footer-bett-box">
-            <div class="footer-be-box">
-                <h3 class="poppinsFont">Backend</h3>
-                <div class="footer-name">
-                    <ul>전가영</ul>
-                    <icon><a href="https://github.com/dsyhwk1016" target="_blank"><i
-                            class="fa-brands fa-github fa-lg"></i></a>
-                    </icon>
-                </div>
-                <div class="footer-name">
-                    <ul>송기찬</ul>
-                    <icon><a href="https://github.com/gichan-song" target="_blank"><i
-                            class="fa-brands fa-github fa-lg"></i></a>
-                    </icon>
-                </div>
-            </div>
-            <div class="division"></div>
-            <div class="footer-be-box">
-                <h3 class="poppinsFont">tutor</h3>
-                <div class="footer-name">
-                    <ul>최영서</ul>
-                    <icon><a href="https://github.com/tomatophobia" target="_blank"><i
-                            class="fa-brands fa-github fa-lg"></i></a>
-                    </icon>
-                </div>
-            </div>
-        </div>
-        <div class="footer-searchbar">
-            <div class="input-group mb-3">
-                <input type="text" class="form-control poppinsFont" placeholder="Quick-Search"
-                       aria-label="Recipient's username"
-                       aria-describedby="button-addon2" onkeyup="if(window.event.keyCode==13){youtube(this.value)}">
-                <button class="btn btn-outline-secondary poppinsFont" type="button" id="button-addon2">go 
-
-
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
                 </button>
             </div>
-            <div class="footer-about">
-                <a href="main.html">Home</a>
-                <a href="#">About</a>
-                <a href="https://www.notion.so/2-3be792a4fe0c40388a1474532f4c5328" target="_blank">Team Notion</a>
-                <a href="#"></a>
-                <a href="#"></a>
+        </div>
+        <div id="downside">
+            <div id="youtuber-div">
+                <div class="youtuber">
+                    <a href="#"><img id="author" src="" alt="thumbnail"><span id="authorName"></span></a>
+                </div>
             </div>
+
+            <!-- Comment Posting Section -->
+            <div class="commnet-input-box">
+                <form id="comment-form" onsubmit="return false;">
+                    <div class="input-group mb-3">
+                        <input id="comment-input2" type="text" class="form-control" placeholder="Leave a comment..."
+                            aria-describedby="button-addon2">
+                        <button id="post-button2" class="btn btn-outline-secondary" type="button" id="button-addon2"
+                            onclick="postComment()">Post
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Comments Sections -->
+            <table id="comment-section" class="table table-borderless">
+                <thead>
+                    <tr>
+                        <th class="col-md-2">Commentor</th>
+                        <th class="col-md-8">Comment</th>
+                    </tr>
+                </thead>
+                <tbody id="comment-body">
+                </tbody>
+            </table>
         </div>
     </div>
-    <div class="footer-copy2"><p>Copyright © 2022 TToODLe Team. All rights reserved.</p></div>
-</footer>
+
+    <footer class="footer">
+        <div class="footer-logo"><img class="footer-logo-img" src="../static/img/footer_logo.png"></div>
+        <div class="footer-contents">
+            <div class="footer-fe-box">
+                <div>
+                    <h3 class="poppinsFont">Frontend</h3>
+                </div>
+                <div class="footer-name">
+                    <ul>최준묵</ul>
+                    <a href="https://github.com/dan-studio" target="_blank"><i
+                            class="fa-brands fa-github fa-lg"></i></a>
+                </div>
+                <div class="footer-name">
+                    <ul>노지애</ul>
+                    <div><a href="https://github.com/jiaero" target="_blank"><i
+                                class="fa-brands fa-github fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="footer-name">
+                    <ul>이현규</ul>
+                    <icon><a href="https://github.com/darksilicon13" target="_blank"><i
+                                class="fa-brands fa-github fa-lg"></i></a>
+                    </icon>
+                </div>
+                <div class="footer-name">
+                    <ul>이정민</ul>
+                    <icon><a href="https://github.com/froggy1014" target="_blank"><i
+                                class="fa-brands fa-github fa-lg"></i></a>
+                    </icon>
+                </div>
+            </div>
+            <div class="footer-bett-box">
+                <div class="footer-be-box">
+                    <h3 class="poppinsFont">Backend</h3>
+                    <div class="footer-name">
+                        <ul>전가영</ul>
+                        <icon><a href="https://github.com/dsyhwk1016" target="_blank"><i
+                                    class="fa-brands fa-github fa-lg"></i></a>
+                        </icon>
+                    </div>
+                    <div class="footer-name">
+                        <ul>송기찬</ul>
+                        <icon><a href="https://github.com/gichan-song" target="_blank"><i
+                                    class="fa-brands fa-github fa-lg"></i></a>
+                        </icon>
+                    </div>
+                </div>
+                <div class="division"></div>
+                <div class="footer-be-box">
+                    <h3 class="poppinsFont">tutor</h3>
+                    <div class="footer-name">
+                        <ul>최영서</ul>
+                        <icon><a href="https://github.com/tomatophobia" target="_blank"><i
+                                    class="fa-brands fa-github fa-lg"></i></a>
+                        </icon>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-searchbar">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control poppinsFont" placeholder="Quick-Search"
+                        aria-label="Recipient's username" aria-describedby="button-addon2"
+                        onkeyup="if(window.event.keyCode==13){youtube(this.value)}">
+                    <button class="btn btn-outline-secondary poppinsFont" type="button" id="button-addon2">go
+
+
+                    </button>
+                </div>
+                <div class="footer-about">
+                    <a href="main.html">Home</a>
+                    <a href="#">About</a>
+                    <a href="https://www.notion.so/2-3be792a4fe0c40388a1474532f4c5328" target="_blank">Team Notion</a>
+                    <a href="#"></a>
+                    <a href="#"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copy2">
+            <p>Copyright © 2022 TToODLe Team. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 <script>
     $(document).ready(function () {
@@ -336,7 +344,7 @@
         $.ajax({
             type: "POST",
             url: '/comments/upload',
-            headers: {'Authorization': `Bearer ${token}`},
+            headers: { 'Authorization': `Bearer ${token}` },
             data: {
                 'channel': channel,
                 'content': content
