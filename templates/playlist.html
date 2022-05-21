@@ -160,7 +160,7 @@
             <div id="comment-input-box">
                 <form id="comment-form" onsubmit="return false;">
                     <div class="input-group mb-3">
-                        <input id="comment-input2" type="text" class="form-control" placeholder="Leave a comment..."
+                        <input id="comment-input" type="text" class="form-control" placeholder="Leave a comment..."
                             aria-describedby="button-addon2">
                         <button id="post-button2" class="btn btn-outline-secondary" type="button" id="button-addon2"
                             onclick="postComment()">Post
@@ -332,8 +332,8 @@
         let channel = sessionStorage.getItem('channel')
         let content = document.getElementById('comment-input').value
 
-        const whitespace = /\w*/g
-        if (content.match(whitespace)) {
+        const whitespace = /^\s*$/;
+        if (whitespace.test(content)) {
             alert("Nothing to comment!");
             window.location.reload();
             return;
