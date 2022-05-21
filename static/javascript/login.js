@@ -16,6 +16,9 @@ $('#loginSubmit').on('click', function (e) {
                 success: function (data) {
                     if (data.result == 'SUCCESS') {
                         alert(data.msg)
+                        $('#exampleModal').modal('hide') //로그인 후 alert 확인 클릭하면 modal 숨기기
+                        const logoutButton = `<a id="logoutButton" type="button" onclick="">logout</a>`
+                        $('#loginButton').replaceWith(logoutButton) //로그인 되면 해당 버튼 로그아웃으로 변경
                     } else {
                         alert(data.msg)
                     }
