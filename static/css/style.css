@@ -390,7 +390,7 @@ form .searchBar {
 /* main - logo */
 #logo img {
   width: 185px;
-  margin-bottom: 10px 20px 10px 20px;
+  margin-bottom: 10px;
   transform: translateX(-40px);
 }
 
