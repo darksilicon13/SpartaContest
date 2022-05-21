@@ -227,6 +227,39 @@ iframe {
     text-align: center;
 }
 
+/* login, register */
+.carousel-inner {
+    background-position: center;
+    background-size: cover;
+}
+
+.title {
+    font-family: 'Orbitron', sans-serif;
+    margin: 60px 0 80px 0;
+    font-size: 40px;
+}
+
+.center {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    border-radius: 10px;
+}
+
+.center h1 {
+    text-align: center;
+    padding: 20px 0 20px 0;
+    border-bottom: 3px solid white;
+    color: #eb6383;
+}
+
+.center form {
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
 .modal-content-color {
     background-color: #f7c72a !important;
     height: 650px !important;
@@ -375,7 +408,6 @@ button[type="submit"]:hover {
 .nav-link.active {
     color: black !important;
 }
-
 
 
 #comment-input2 {
