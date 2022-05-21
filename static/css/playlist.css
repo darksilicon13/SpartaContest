@@ -201,14 +201,6 @@ iframe {
 
 /* Comment section */
 
-#main{
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-
 .commnet-input-box{
     width:80%;
     display: flex;
@@ -416,8 +408,6 @@ button[type="submit"]:hover {
     height:100%;
 }
 
-
-
 #comment-section {
     font-family: 'Prompt', sans-serif;
     width: 100%;
@@ -432,6 +422,12 @@ button[type="submit"]:hover {
     font-family: 'Nanum Gothic', sans-serif;
 }
 
+#comment-input-box {
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* Comment section */
 
 
@@ -441,8 +437,8 @@ button[type="submit"]:hover {
     padding-top: 0;
     height: auto;
     min-height: 100%;
-    padding-bottom: 300px;
-    margin-bottom: 100px;
+    padding-bottom: 280px;
+    /* margin-bottom: 100px; */
   }
   
   .footer {
