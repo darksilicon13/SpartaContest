@@ -1,11 +1,11 @@
 # users.py - 회원가입 및 로그인 application
 
-from flask import Blueprint, render_template, request, jsonify, redirect, url_for, make_response
+from flask import Blueprint, request, jsonify, make_response
 from pymongo import MongoClient
 from dotenv import load_dotenv
 import os
 from flask_bcrypt import Bcrypt
-from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
+from flask_jwt_extended import create_access_token
 from datetime import timedelta
 
 # 환경 변수 Setup
@@ -26,11 +26,6 @@ bcrypt = Bcrypt()
 # DB에서 유저 찾기
 def findUser(email):
     return coll.find_one({'email': email}, {'_id': False})
-
-# 로그인 페이지 렌더링
-@users.route('/')
-def render_login():
-    return render_template('login.html')
 
 # 유저 로그인
 @users.route('/login', methods=['POST'])
@@ -57,16 +52,11 @@ def login():
 # 유저 로그아웃
 @users.route('/logout', methods=['POST'])
 def logout():
-    # 쿠키에서 token 삭제하고 home으로 이동
-    res = make_response(redirect('home'))
+    # 쿠키에서 token 삭제
+    res = make_response()
     res.delete_cookie('token')
 
     return res
-
-# 회원 가입 페이지 렌더링
-@users.route('/join')
-def render_join():
-    return render_template('register.html')
 
 # DB에 유저 정보 등록 - 회원 가입
 @users.route('/register', methods=['POST'])
