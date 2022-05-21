@@ -1196,3 +1196,25 @@ tr {
 }
 
 /* Feedback */
+
+@media ( max-width: 1700px ) {
+    .about-input-box{
+        margin: 0 100px;
+    }
+  }
+@media ( max-width: 1500px ) {
+    .about-input-box{
+        margin: 0;
+    }
+  }
+  @media ( max-width: 1000px ) {
+    .about-right-box > img{
+        width:70%;
+    }
+    .about-left-box{
+     margin-left:50px;
+    }
+    .about-input {
+        width:100%;
+    }
+  }
