@@ -12,6 +12,10 @@ html, body {
     transition: background-color 200ms linear;
 }
 
+#downside {
+    padding-bottom: 200px;
+}
+
 /* main - logo */
 #logo img {
     width: 185px;
@@ -216,7 +220,6 @@ iframe {
     width: 800px;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 50px;
 }
 
 #comment-body {
@@ -230,8 +233,8 @@ iframe {
 .wrapper {
     height: auto;
     min-height: 100%;
-    padding-bottom: 300px;
-    margin-bottom: 100px;
+    padding-bottom: 280px;
+    /* margin-bottom: 100px; */
 }
 
 .footer {
