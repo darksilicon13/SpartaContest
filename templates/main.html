@@ -5,6 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta property="og:title" content="TToODLe"/>
+    <meta property="og:description" content="Hello TToODLe WORLD ! ! ♡~('ε ' )"/>
+    <meta property="og:image" content="../static/img/ttoodle.png"/>
+
     <!-- JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -143,13 +148,12 @@
         </div>
         <div id="searchBox">
             <div id="search">
-                <form class="searchForm">
+                <div class="searchForm">
                     <div class="searchBar">
                         <input id="genreInput" type="text" placeholder="Search for the keyword . . 🫠">
                         <span></span>
-                        <label id="searchShop">#</label>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>
@@ -167,7 +171,7 @@
     </div>
     <div id="genre">
         <a onclick="filterObjects('all'); genreAppend()" class="genreBtn" value="Dog"><img src="../static/img/all.png"></a>
-        <a onclick="filterObjects('고양이'); genreAppend()" class="genreBtn" value="Series"><img
+        <a onclick="filterObjects('강아지'); genreAppend()" class="genreBtn" value="Series"><img
                 src="../static/img/animal.png"></a>
         <a onclick="filterObjects('Vlog'); genreAppend()" class="genreBtn" value="Show All"><img
                 src="../static/img/pudding.png"></a>
@@ -271,7 +275,7 @@
                 <input type="text" class="form-control poppinsFont" placeholder="Quick-Search"
                        aria-label="Recipient's username"
                        aria-describedby="button-addon2" onkeyup="if(window.event.keyCode==13){youtube(this.value)}">
-                <button class="btn btn-outline-secondary poppinsFont" type="button" id="button-addon2">go ▸
+                <button class="btn btn-outline-secondary poppinsFont" type="button" id="button-addon2">go
 
 
                 </button>
@@ -323,7 +327,7 @@
 
     function getData() {
         let main = document.querySelector('#movielist');
-        console.log('fetch some JSON data')
+
         $(document).ready(function () {
             $.ajax({
                 type: "GET",
@@ -426,9 +430,50 @@
     }
     const searchbtn = document.getElementById("button-addon2");
     const searchinput = document.querySelector(".form-control");
+    const searchkey = document.getElementById('genreInput')
 
     searchbtn.addEventListener('click', () => {
         youtube(searchinput.value);
+    })
+    searchkey.addEventListener('keyup', (e) => {
+        if (e.key == 'Enter') {
+            var x, i;
+            x = document.getElementsByClassName("videoBox");
+            for (i = 0; i < x.length; i++) {
+                removeClass(x[i], "show");
+            }
+            $.ajax({
+                type: "GET",
+                url: "/search?input=" + searchkey.value,
+                data: {},
+                success: function (response) {
+                    let dbjson = response['msg']
+                    for (let i = dbjson.length - 1; i > -1; i--) {
+                        // console.log(response['msg'][i]['채널명'])
+                        channel = dbjson[i]["채널명"];
+                        keyword = dbjson[i]["키워드"];
+                        thumbnail = dbjson[i]["썸네일"];
+                        youtubericon = dbjson[i]["유튜버아이콘"];
+                        temp_html_td = `
+                                            <td onclick='getValue(${i})' class="videoBox show ${keyword}">
+                                                <div class="videoDiv">
+                                                    <a class="thumbnail">
+                                                    <img src=${thumbnail}>
+                                                </a>
+                                                </div>
+                                                <div class="videoText">
+                                                    <a class="thumbnail"><img class="channelImg" id=${i}
+                                                                             src=${youtubericon}><name
+                                                            class="name">${channel}</name></a>
+                                                </div>
+                                            </td>`;
+                        $("#movielist").append(temp_html_td);
+
+
+                    }
+                }
+            })
+        }
     })
 
     function youtube(value) {

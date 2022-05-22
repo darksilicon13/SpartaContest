@@ -28,7 +28,6 @@ checkbox.addEventListener('change', () => {
 })
 
 function getDark() {
-  console.log("어둡게");
   var path = window.location.pathname;
   var page = path.split("/").pop();
   toggleLable.classList.add("toggleLable");
@@ -81,7 +80,6 @@ function getDark() {
 }
 
 function getBright() {
-  console.log("밝게");
   var path = window.location.pathname;
   var page = path.split("/").pop();
   document.body.classList.remove("dark");
