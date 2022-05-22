@@ -6,6 +6,14 @@ html, body {
     transition: background-color 200ms linear;
 }
 
+@import url("https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap");
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Orbitron", sans-serif;
+}
+
 #upperSide{
     background-color: #E2314B;
     padding: 10px;
@@ -468,7 +476,7 @@ button[type="submit"]:hover {
   .footer {
     position: relative;
     transform: translateY(-100%);
-    font-family: "NanumSquare", sans-serif;
+    font-family: "NanumSquare" , sans-serif;
     color: #262626;
     width: 100%;
     height: 280px;
@@ -598,11 +606,12 @@ button[type="submit"]:hover {
   .footer-copy2 {
     font-family: "Prompt", sans-serif;
     font-size: 13px;
-    margin-right: 20px;
+    width: 1850px;
+    margin: auto;
     position: absolute;
     bottom: 0;
     right: 0;
-  }
+}
   
   .footer-searchbar {
     display: flex;
