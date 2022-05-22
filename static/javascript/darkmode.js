@@ -103,7 +103,8 @@ function getBright() {
     $("#comment-section").css('color', 'black');
     $('#prev-button').css('filter', 'invert(100%)');
     $('#next-button').css('filter', 'invert(100%)');
-    $('#youtuber-div').css('background', 'linear-gradient(to top, #ffffff, #E2314B)');
+    $('#youtuber-div').css('background-color', '#FFFFFF');
+    $('#youtuber-div').css('background', 'none');
     $('#downside').css('background-color', '#ffffff');
   }
   else if (page === "") {

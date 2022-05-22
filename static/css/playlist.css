@@ -175,10 +175,6 @@ iframe {
     border-radius: 50%;
 }
 
-#youtuber-div {
-    background: linear-gradient(to bottom, #e2314b, #ffffff)
-}
-
 .youtuber{
     /* display: inline; */
     width: 800px;
